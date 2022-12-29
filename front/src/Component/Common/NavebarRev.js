@@ -7,6 +7,8 @@ import AuthContext from '../../store/AuthContext';
 import { Modal } from '../Common/Modal';
 
 const LongContainer = styled.header`
+  background-color: #020626;
+  border-bottom: 0.1px solid #92b4ec;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,8 +16,6 @@ const LongContainer = styled.header`
   height: 60px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #8ec3b0;
-  border-bottom: 3px solid #def5e5;
   position: fixed;
   z-index: 999990;
   top: 0;
@@ -52,11 +52,11 @@ const HamburgerDropMenuBox = styled.div`
   /* border: 1px solid red; */
 `;
 const Menu = styled.li`
+  color: #92b4ec;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: normal;
-  color: #444;
   list-style: none;
   padding-top: 25px;
   margin-left: 5px;

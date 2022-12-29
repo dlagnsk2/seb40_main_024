@@ -7,8 +7,10 @@ import {
   LongNavbarBox,
 } from '../../Component/Common/NavebarRev';
 
+// #020626 다크모드 배경색상
+// #ffffff 라이트모드 배경색상
 const MainDiv = styled.div`
-  background-color: #f8f8f8;
+  background-color: #020626;
 `;
 
 const ContentDiv = styled.div`
