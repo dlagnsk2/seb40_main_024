@@ -9,38 +9,6 @@ import {
 import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
-import { ResponsiveBullet } from '@nivo/bullet';
-
-// const data = [
-//   {
-//     id: 'temp.',
-//     ranges: [17, 0, 120, 0, 120],
-//     measures: [6],
-//     markers: [89],
-//   },
-// ];
-
-const MyResponsiveBullet = ({ data /* see data tab */ }) => (
-  <ResponsiveBullet
-    data={data}
-    margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
-    spacing={46}
-    titleAlign="start"
-    titleOffsetX={-51}
-    titleOffsetY={-1}
-    measureBorderWidth={17}
-    measureSize={0.2}
-    rangeColors="seq:purples"
-    motionConfig={{
-      mass: 1,
-      tension: 170,
-      friction: 26,
-      clamp: false,
-      precision: 0.01,
-      velocity: 0,
-    }}
-  />
-);
 
 const GuideBox = styled.div`
   display: flex;
@@ -89,8 +57,8 @@ const ChartContain = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 1500px;
-  height: 1500px;
+  width: 750px;
+  height: 400px;
   position: fixed !important;
   margin-top: 150px;
   margin-left: -800px;
@@ -354,11 +322,7 @@ const AssetTargetPage = () => {
               <ChartBox>
                 <AssetBdata GoalData={GoalData}></AssetBdata>
               </ChartBox>
-              <div>
-                <MyResponsiveBullet></MyResponsiveBullet>
-              </div>
             </ChartContain>
-
             <div className="Contain">
               <BoxContain>
                 <GuideBox>
@@ -388,7 +352,6 @@ const AssetTargetPage = () => {
                     *그래프를 통해 목표 달성률을 확인해보세요!*
                   </p>
                 </GuideBox>
-
                 <AssetSetting
                   goalPost={goalPost}
                   countList={countList}
