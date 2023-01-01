@@ -1,5 +1,6 @@
 import './App.css';
-import { useContext } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+// import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainHome from './Pages/Home/MainHome';
 // import Asset from './Pages/Asset/Asset';
@@ -17,26 +18,69 @@ import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
-import AuthContext from './store/AuthContext';
+// import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
 // import AllBoardList from './Component/Board/AllBoardList';
 
+const DeviceSizes = {
+  mobileWidth: '320px',
+  tabletWidth: '768px',
+  laptopWidth: '1024px',
+};
+
+const Device = {
+  mobileWidth: `screen and (max-width: ${DeviceSizes.mobileWidth})`,
+  tabletWidth: `screen and (max-width: ${DeviceSizes.tabletWidth})`,
+  laptopWidth: `screen and (max-width: ${DeviceSizes.laptopWidth})`,
+};
+
+const theme = {
+  Device,
+};
+
+const Div = styled.div`
+  @media ${({ theme }) => theme.Device.tabletWidth} {
+    flex-direction: column;
+    background-color: red;
+    margin-top: 300px;
+    max-width: ${DeviceSizes.tabletWidth};
+    height: 1000px;
+  }
+
+  @media ${({ theme }) => theme.Device.mobileWidth} {
+    flex-direction: column;
+    background-color: yellow;
+    max-width: ${DeviceSizes.mobileWidth};
+    margin-top: 300px;
+    height: 1000px;
+  }
+`;
 function App() {
-  const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(AuthContext);
 
   return (
     <>
-      <Routes>
-        <Route path="*" element={<Error />}></Route>
-        <Route path="/" element={<MainHome />} />
-        {/* <Route path="/asset" element={<Asset />} /> */}
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
-        <Route path="/board" element={<BoardPage />} />
-        <Route path="/boardcontentpage/:id" element={<BoardContentPage />} />
+      <ThemeProvider theme={theme}>
+        <Div>
+          <Routes>
+            <Route path="*" element={<Error />}></Route>
+            <Route path="/" element={<MainHome />} />
+            {/* <Route path="/asset" element={<Asset />} /> */}
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
+            <Route path="/board" element={<BoardPage />} />
+            <Route
+              path="/boardcontentpage/:id"
+              element={<BoardContentPage />}
+            />
 
-        {authCtx.isLoggedIn && (
+            <Route path="/assetchange" element={<AssetChange />} />
+            <Route path="/boardpost" element={<Board />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/modifyboard/:id" element={<ModifyBoard />} />
+            <Route path="/assettarget" element={<AssetTargetTest />} />
+            {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
         )}
         {authCtx.isLoggedIn && <Route path="/boardpost" element={<Board />} />}
@@ -46,12 +90,12 @@ function App() {
         )}
         {authCtx.isLoggedIn && (
           <Route path="/assettarget" element={<AssetTargetTest />} />
-        )}
-        {/* {authCtx.isLoggedIn && (
+        )} */}
+            {/* {authCtx.isLoggedIn && (
           <Route path="/assettargetpage" element={<AssetTartget />} />
         )} */}
 
-        {/*
+            {/*
         subscriptionpage는 ?
         paymentpage는 결제하는 페이지
         paymentconfirmpage는 페이지 대신 모달로 대체
@@ -61,10 +105,15 @@ function App() {
         세부 구독 정보 페이지로 이동?
         -> 이렇게 할 경우 마이페이지에서 구독페이지 이동버튼이 있어야함
          */}
-        <Route path="/paymentconfirmpage" element={<PaymentConfirmPage />} />
-        <Route path="/paymentpage" element={<PaymentPage />} />
-        <Route path="/subscriptionpage" element={<SubscriptionPage />} />
-      </Routes>
+            <Route
+              path="/paymentconfirmpage"
+              element={<PaymentConfirmPage />}
+            />
+            <Route path="/paymentpage" element={<PaymentPage />} />
+            <Route path="/subscriptionpage" element={<SubscriptionPage />} />
+          </Routes>
+        </Div>
+      </ThemeProvider>
     </>
   );
 }

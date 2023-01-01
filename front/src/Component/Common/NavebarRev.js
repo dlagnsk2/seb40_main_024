@@ -187,7 +187,7 @@ export const LongNavbarBox = () => {
 
   return (
     <>
-      <MediaQuery minWidth={800} maxWidth={999999}>
+      <MediaQuery minWidth={768} maxWidth={999999}>
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
@@ -291,7 +291,7 @@ export const MiniNavbarBox = () => {
 
   return (
     <>
-      <MediaQuery minWidth={0} maxWidth={800}>
+      <MediaQuery minWidth={0} maxWidth={768}>
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={handleClickMark}></MarkBox>

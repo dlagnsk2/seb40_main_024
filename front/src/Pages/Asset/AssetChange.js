@@ -43,9 +43,10 @@ const MainPage = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-width: 1510px;
+  /* min-width: 1510px; */
   margin-bottom: 60px;
   height: 100%;
+  border: 1px solid blue;
 `;
 
 const TopPage = styled.div`
@@ -1016,6 +1017,11 @@ export const AssetChange = () => {
 
       {AssetDatas ? (
         <>
+          {/* <MainPage>
+            <div style={{ backgroundColor: 'pink', marginTop: '300px' }}>
+              안녕하세요
+            </div>
+          </MainPage> */}
           <MainPage>
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
