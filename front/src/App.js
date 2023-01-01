@@ -12,13 +12,14 @@ import Board from './Pages/Board/Board';
 import MyPage from './Pages/Member/MyPage';
 import BoardContentPage from './Pages/Board/BoardContentPage';
 import AssetTargetTest from './Pages/Asset/AssetTargetTest';
-// import AssetTartget from './Pages/Asset/AssetTargetPage';
+import AssetTargetPage from './Pages/Asset/AssetTargetPage';
 import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
 import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
+// import { Assettargetpage } from './Component/Common/Button';
 // import AllBoardList from './Component/Board/AllBoardList';
 
 function App() {
@@ -47,9 +48,9 @@ function App() {
         {authCtx.isLoggedIn && (
           <Route path="/assettarget" element={<AssetTargetTest />} />
         )}
-        {/* {authCtx.isLoggedIn && (
-          <Route path="/assettargetpage" element={<AssetTartget />} />
-        )} */}
+        {authCtx.isLoggedIn && (
+          <Route path="/assettargetpage" element={<AssetTargetPage />} />
+        )}
 
         {/*
         subscriptionpage는 ?

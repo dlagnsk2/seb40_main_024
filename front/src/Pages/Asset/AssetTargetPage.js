@@ -1,239 +1,467 @@
-// import { useState } from 'react';
-// import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 // import { AssetBdata } from '../../Component/Asset/Asset_B_Data';
-// import AssetSetting from '../../Component/Asset/AssetSetting';
-// import { PlusBtn } from '../../Component/Common/Button';
-// import {
-//   LongNavbarBox,
-//   MiniNavbarBox,
-// } from '../../Component/Common/NavebarRev';
+import AssetSetting from '../../Component/Asset/AssetSetting';
+import {
+  LongNavbarBox,
+  MiniNavbarBox,
+} from '../../Component/Common/NavebarRev';
+import AssetList from '../../Component/Asset/AssetList';
+import axios from 'axios';
+import { Modal } from '../../Component/Common/Modal';
+import { ResponsiveBullet } from '@nivo/bullet';
 
-// const PageContain = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   /* display: inline-block; */
+const GuideBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 650px;
+  height: auto;
+  text-align: left;
+  border-top: 5px solid #8ec3b0;
+  border-bottom: 5px solid #8ec3b0;
+  margin-bottom: 50px;
+  color: grey;
+  .TextHeader {
+    text-align: center;
+    color: #9ed5c5;
+    width: 550px;
+  }
+  .Text {
+    font-size: 17px;
+  }
+  .Hilight {
+    color: #8ec3b0;
+  }
+  /* .TextCenter {
+    text-align: center;
+  } */
+`;
 
-//   align-items: center;
-//   /* position: relative; */
-//   box-sizing: border-box;
-//   /* width: 100%;
-//   height: 100%; */
-//   .Contain {
-//     display: flex;
-//     flex-direction: column;
-//     /* margin-top: 30px;*/
-//     margin-left: 500px;
-//   }
-// `;
-// const ChartContain = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   box-sizing: border-box;
-//   width: 700px;
-//   height: 400px;
-//   position: fixed !important;
-//   margin-top: -50px;
-//   margin-left: -800px;
-//   /* top: 300px !important; */
-// `;
-// const ChartBox = styled.div`
-//   display: flex;
-//   box-sizing: border-box;
-//   width: 750px;
-//   height: 350px;
-//   /* margin-left: 120px; */
-//   /* top: 300px !important; */
-// `;
+const PageContain = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  .Contain {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 30px;*/
+    margin-left: 500px;
+  }
+`;
 
-// const BoxContain = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   display: inline-block;
-//   align-items: center;
-//   box-sizing: border-box;
-//   width: 650px;
-//   height: 1000px;
-//   top: 30px !important;
-//   left: 300px;
-//   margin-left: 100px;
-// `;
+const ChartContain = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 750px;
+  height: 400px;
+  position: fixed !important;
+  margin-top: 150px;
+  margin-left: -800px;
+  gap: 50px;
+`;
+const ChartBox = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  width: 750px;
+  height: 150px;
+`;
 
-// const GraphH1 = styled.h1`
-//   box-sizing: border-box;
-//   height: 50px;
-//   width: 700px;
-//   align-items: center;
-//   /* color: #9ed5c5; */
-//   text-align: center;
-//   margin-top: 10px;
-//   text-shadow: 1px 1px 2px #bcead5;
-//   color: #bcead5;
-// `;
+const BoxContain = styled.div`
+  display: flex;
+  flex-direction: column;
+  display: inline-block;
+  align-items: center;
+  box-sizing: border-box;
+  width: 650px;
+  height: 1000px;
+  top: 30px !important;
+  left: 300px;
+  margin-left: 100px;
+  margin-top: 100px;
+`;
 
-// // const PlusButton = styled.button`
-// //   width: 200px;
-// //   height: 60px;
-// //   margin-left: 680px;
-// // `;
+const GraphH1 = styled.h1`
+  box-sizing: border-box;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  text-shadow: 1px 1px 2px #bcead5;
+  color: #bcead5;
+  font-size: 40px;
+`;
 
-// const AssetTargetPage = () => {
-//   const [goal, setGoal] = useState('현금'); // 명칭
-//   const [extended, setExtended] = useState(''); // 목표금액
-//   const [period, setPeriod] = useState(''); // 기간
-//   const [savings, setSavings] = useState(''); // 저축횟수
-//   // eslint-disable-next-line no-unused-vars
-//   // const [texttarget, setTexttarget] = useState(''); // 횟수별 저축액
-//   const [countList, setCountList] = useState([
-//     { goal: '자동차', extended: '목표금액', period: '기간' },
-//   ]);
-//   // console.log('countList', countList.length);
-//   const HandlerAdd = () => {
-//     // let countArr = [...countList];
-//     // let counter = countArr.slice(-1)[0];
-//     // counter += 1;
-//     // countArr.push(counter.length);
-//     // index 사용 X
-//     // countArr[counter] = counter	// index 사용 시 윗줄 대신 사용
-//     // console.log('countArr', countArr);
-//     // setCountList(countArr);
-//     setCountList([
-//       ...countList,
-//       { goal: goal, extended: extended, period: period },
-//     ]);
-//   };
-//   const HandlerRemove = (id) => {
-//     setCountList(countList.filter((user) => user.id !== id));
-//     console.log('handler', countList);
-//   };
+const AssetTargetPage = () => {
+  const url = process.env.REACT_APP_API_URL;
+  const [goal, setGoal] = useState(''); // 명칭
+  const [extended, setExtended] = useState(''); // 목표금액
+  const [period, setPeriod] = useState(''); // 기간
+  const [target, setTarget] = useState('');
+  const [render, setRender] = useState(0);
+  const [goalName, setGoalName] = useState(''); //목표명
+  const [goalPrice, setGoalPrice] = useState(''); //목표금액
+  const [targetLength, setTargetLength] = useState(''); //목표기간
+  const [up, setUp] = useState(0); //저축횟수
+  const [countList, setCountList] = useState([]);
+  const [Modalopen, setModalopen] = useState(false);
 
-//   let monthly = Math.floor(extended / period);
-//   if (isNaN(monthly)) {
-//     monthly = 0;
-//   } else if (monthly === Infinity) {
-//     monthly = 0;
-//   }
+  // const openModal = () => {
+  //   setModalopen(!Modalopen);
+  // };
+  const closeModal = () => {
+    setModalopen(!Modalopen);
+  };
 
-//   const target = monthly
-//     .toString()
-//     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-//   let percentage = Math.floor((monthly / extended) * 100);
-//   if (isNaN(percentage)) {
-//     percentage = 0;
-//   }
-//   // setTexttarget(target);
-//   // console.log(`percentage: ${percentage}`);
-//   // console.log(`goal: ${goal}`);
-//   // console.log(`extended: ${extended}`);
-//   // console.log(`period: ${period}`);
-//   // console.log(`savings: ${savings}`);
-//   const HandlerAddCount = () => {
-//     let countArr = countArr + 1;
-//     setSavings(countArr);
-//     setPeriod('');
-//   };
+  let monthly = Math.ceil(extended / period);
+  if (isNaN(monthly)) {
+    monthly = 0;
+  } else if (monthly === Infinity) {
+    monthly = 0;
+  }
 
-//   return (
-//     <>
-//       <LongNavbarBox />
-//       <MiniNavbarBox />
-//       <PageContain>
-//         <ChartContain className="ScrollActive">
-//           <ChartBox>
-//             <AssetBdata
-//               goal={goal}
-//               monthly={monthly}
-//               extended={extended}
-//               period={period}
-//             />
-//           </ChartBox>
-//           <GraphH1>목표 현황</GraphH1>
-//         </ChartContain>
+  const targetAmount = monthly
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
-//         <div className="Contain">
-//           {countList.length === 6 ? (
-//             <>
-//               <PlusBtn disabled />
-//             </>
-//           ) : (
-//             <>
-//               <PlusBtn HandlerAdd={HandlerAdd} />
-//             </>
-//           )}
+  let percentage = Math.ceil((monthly / period) * 100);
+  if (isNaN(percentage)) {
+    percentage = 0;
+  }
 
-//           <BoxContain>
-//             {countList.map((count, id) => (
-//               <AssetSetting
-//                 count={count}
-//                 key={id}
-//                 HandlerRemove={HandlerRemove}
-//                 HandlerAddCount={HandlerAddCount}
-//                 setGoal={setGoal}
-//                 setExtended={setExtended}
-//                 setPeriod={setPeriod}
-//                 target={target}
-//                 savings={savings}
+  let nowPercentage = percentage * up;
+  if (isNaN(nowPercentage)) {
+    nowPercentage = 0;
+  }
 
-//                 // period={period}
-//               />
-//             ))}
-//           </BoxContain>
-//         </div>
-//       </PageContain>
-//     </>
-//   );
-// };
+  const handlerGoal = (e) => {
+    setGoal(e.target.value);
+  };
+  const handlerExtended = (e) => {
+    setExtended(e.target.value);
+  };
+  const handlerPeriod = (e) => {
+    setPeriod(e.target.value);
+  };
+  const handlerTarget = (e) => {
+    setTarget(e.target.value);
+  };
+  const goalNameonChange = (e) => {
+    setGoalName(e.target.value);
+  };
 
-// export default AssetTargetPage;
+  const goalPriceonChange = (e) => {
+    setGoalPrice(e.target.value);
+  };
 
-// return (
-//   <>
-//     <LongLoginNavbarBox />
-//     {/* <MiniNavbarBox /> */}
-//     <PageContain>
-//       <ChartContain className="ScrollActive">
-//         <ChartBox>
-//           <AssetBdata
-//             goal={goal}
-//             monthly={monthly}
-//             extended={extended}
-//             period={period}
-//           />
-//         </ChartBox>
-//         <GraphH1>목표 현황</GraphH1>
-//       </ChartContain>
+  const targetLengthonChange = (e) => {
+    setTargetLength(e.target.value);
+  };
 
-//       <div className="Contain">
-//         {countList.length === 6 ? (
-//           <>
-//             <PlusBtn disabled />
-//           </>
-//         ) : (
-//           <>
-//             <PlusBtn HandlerAdd={HandlerAdd} />
-//           </>
-//         )}
+  useEffect(() => {
+    const goalGet = async () => {
+      try {
+        const res = await axios.get(`${url}/goal`, {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
+        });
+        setCountList(res.data._embedded.responseList);
+        setUp(res.data._embedded.responseList.completed);
+        setUp(res.data._embedded.responseList.incompleted);
+        // console.log('get', res);
+      } catch (err) {
+        // console.log('error', err);
+      }
+    };
+    goalGet();
+  }, [render]);
 
-//         <BoxContain>
-//           {countList.map((count, id) => (
-//             <AssetSetting
-//               count={count}
-//               key={id}
-//               HandlerRemove={HandlerRemove}
-//               HandlerAddCount={HandlerAddCount}
-//               setGoal={setGoal}
-//               setExtended={setExtended}
-//               setPeriod={setPeriod}
-//               target={target}
-//               savings={savings}
-//               // period={period}
-//             />
-//           ))}
-//         </BoxContain>
-//       </div>
-//     </PageContain>
-//   </>
-// );
-// };
+  const goalPost = async () => {
+    const postdata = {
+      goalName: goal,
+      goalPrice: extended,
+      targetLength: period,
+    };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const res = await axios.post(`${url}/goal`, postdata, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      });
 
-// export default AssetTargetPage;
+      setGoal('');
+      setExtended('');
+      setPeriod('');
+      setTarget('');
+      setRender((el) => el + 1);
+
+      // console.log('post', res);
+    } catch (err) {
+      // console.log('error', err);
+    }
+  };
+  const goalDelete = async (e) => {
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const res = await axios.delete(`${url}/goal/${e.target.dataset.id}`, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      });
+      setRender((el) => el + 1);
+      // console.log('dataset.id', e.target.dataset.id);
+      // console.log('삭제', res);
+    } catch (err) {
+      // console.log('deleteerror', err);
+    }
+  };
+
+  const goalPatch = async (e) => {
+    const patchdata = {
+      goalName: goalName,
+      goalPrice: goalPrice,
+      targetLength: targetLength,
+    };
+
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const res = await axios.patch(
+        `${url}/goal/${e.target.dataset.id}`,
+        patchdata,
+        {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
+        }
+      );
+      setRender((el) => el + 1);
+      closeModal();
+
+      // console.log('patch', res);
+      // console.log('patchId', e.target.dataset.id);
+    } catch (err) {
+      // console.log('patcherror', err);
+    }
+  };
+
+  const goalUpPatch = async (e) => {
+    try {
+      const res = await axios.patch(
+        `${url}/goal/${e.target.dataset.id}/complete`,
+        {},
+        {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
+        }
+      );
+      setRender((el) => el + 1);
+      setUp(res.data.completed);
+    } catch (err) {
+      // console.log('up', err);
+    }
+  };
+
+  const goalDownPatch = async (e) => {
+    try {
+      const res = await axios.patch(
+        `${url}/goal/${e.target.dataset.id}/incomplete`,
+        {},
+        {
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
+        }
+      );
+      setRender((el) => el + 1);
+      setUp(res.data.completed);
+    } catch (err) {
+      // console.log('up', err);
+    }
+  };
+  //   const GoalData = [
+  //     {
+  //       name: '목표예시',
+  //       목표율: 100,
+  //       달성률: 30,
+  //       amt: 2400,
+  //     },
+  //   ];
+
+  //   for (let i = 0; i < countList.length; i++) {
+  //     let countListData = {
+  //       name: countList[i].goalName,
+  //       목표율: 100,
+  // 달성률: Math.ceil(
+  //   (countList[i].goalPrice /
+  //     countList[i].targetLength /
+  //     countList[i].goalPrice) *
+  //     countList[i].completed *
+  //     100
+  // ),
+  //       amt: 2400,
+  //     };
+  //     GoalData.push(countListData);
+  //   }
+
+  const GoalData = [
+    {
+      id: '목표 예시',
+      ranges: [100],
+      measures: [15],
+      // markers: [99],
+    },
+  ];
+
+  const MyResponsiveBullet = () => (
+    <ResponsiveBullet
+      data={GoalData.map((d) => ({
+        ...d,
+        title: (
+          <text dy={5}>
+            <tspan
+              style={{
+                fill: '#000',
+                fontWeight: 500,
+                fontSize: '15px',
+              }}
+            >
+              {d.id}
+            </tspan>
+          </text>
+        ),
+      }))}
+      margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
+      spacing={46}
+      titleAlign="start"
+      titleOffsetX={-70}
+      rangeColors="#FFD24C"
+      measureSize={0.5}
+      measureColors="#FFE69A"
+    />
+  );
+
+  //   for (let i = 0; i < countList.length; i++) {
+  //     let countListData = {
+  //       id: countList[i].goalName,
+  //       ranges: [100],
+  //       measures: Math.ceil(
+  //         (countList[i].goalPrice /
+  //           countList[i].targetLength /
+  //           countList[i].goalPrice) *
+  //           countList[i].completed *
+  //           100
+  //       ),
+  //     };
+  //     GoalData.push(countListData);
+  //   }
+
+  return (
+    <>
+      <LongNavbarBox />
+      <MiniNavbarBox />
+      <>
+        <div>
+          <PageContain>
+            <ChartContain className="ScrollActive">
+              <GraphH1>목표 현황</GraphH1>
+              <ChartBox>
+                <MyResponsiveBullet
+                  style={{
+                    fill: '#000',
+                    fontWeight: 500,
+                    fontSize: '14px',
+                  }}
+                ></MyResponsiveBullet>
+                {/* <AssetBdata GoalData={GoalData}></AssetBdata> */}
+              </ChartBox>
+            </ChartContain>
+            <div className="Contain">
+              <BoxContain>
+                <GuideBox>
+                  <h2 className="TextHeader">목표 작성을 위한 안내</h2>
+                  <br />
+                  <p className="Text">
+                    1. <span className="Hilight">&apos;나의 목표&apos;</span>에
+                    목표를 작성해주세요.
+                  </p>
+                  <br />
+                  <p className="Text">
+                    2. <span className="Hilight">START</span> 버튼을 클릭하면
+                    목표리스트가 생성됩니다.
+                  </p>
+                  <br />
+                  <p className="Text">
+                    3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                    버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
+                  </p>
+                  <br />
+                  <p className="TextCenter">
+                    *목표는 <span className="Hilight">최대 6개</span>까지 등록할
+                    수 있습니다.*
+                  </p>
+                  <br />
+                  <p className="TextCenter">
+                    *그래프를 통해 목표 달성률을 확인해보세요!*
+                  </p>
+                </GuideBox>
+                <AssetSetting
+                  goalPost={goalPost}
+                  countList={countList}
+                  handlerGoal={handlerGoal}
+                  handlerExtended={handlerExtended}
+                  handlerPeriod={handlerPeriod}
+                  handlerTarget={handlerTarget}
+                  goal={goal}
+                  extended={extended}
+                  period={period}
+                  target={target}
+                  targetAmount={targetAmount}
+                />
+                {countList.map((count, id) => (
+                  <AssetList
+                    count={count}
+                    key={id}
+                    id={count.goalId}
+                    goal={goal}
+                    extended={extended}
+                    period={period}
+                    setGoal={setGoal}
+                    setExtended={setExtended}
+                    setPeriod={setPeriod}
+                    target={target}
+                    goalDelete={goalDelete}
+                    targetAmount={targetAmount}
+                    goalPatch={goalPatch}
+                    goalNameonChange={goalNameonChange}
+                    goalPriceonChange={goalPriceonChange}
+                    targetLengthonChange={targetLengthonChange}
+                    goalUpPatch={goalUpPatch}
+                    up={up}
+                    goalDownPatch={goalDownPatch}
+                  ></AssetList>
+                ))}
+              </BoxContain>
+              <Modal
+                open={Modalopen}
+                close={closeModal}
+                header="목표자산수정 알림"
+              >
+                목표자산이 수정되었습니다.
+              </Modal>
+            </div>
+          </PageContain>
+        </div>
+      </>
+    </>
+  );
+};
+
+export default AssetTargetPage;

@@ -99,17 +99,25 @@ const Middle = () => {
   return (
     <MiddleDiv>
       <div id="1" className="Main1 div1">
-        <Fade cascade duration="1300">
+        <Fade cascade damping={0.5} duration={1000}>
           <span
             style={{
-              color: '#8ec3b0',
+              color: '#FFD24C',
               fontSize: '35px',
               fontWeight: 'bold',
             }}
           >
             호주머니
           </span>
-          <h2 style={{ marginTop: '40px' }}>
+        </Fade>
+        <Fade cascade duration="1300">
+          <h2
+            style={{
+              marginTop: '40px',
+              marginBottom: '30px',
+              color: '#92b4ec',
+            }}
+          >
             누구나 꿈꾸는 자산전문가
             <br />
             이곳에서 저희와 함께 이루어 보세요
@@ -133,7 +141,7 @@ const Middle = () => {
         </Fade>
       </div>
       <div id="2" className="div2">
-        <Fade direction="up" duration="1300">
+        <Fade direction="left" duration="1300">
           {MainB.map((el, idx) => {
             return (
               <div key={idx}>
@@ -150,7 +158,12 @@ const Middle = () => {
               </div>
             );
           })}
-          <h2>
+          <h2
+            style={{
+              marginTop: '50px',
+              color: '#92b4ec',
+            }}
+          >
             자산 관리의 모든것,
             <br />그 이상을 만들어내는 호주머니
             <br />
@@ -166,7 +179,12 @@ const Middle = () => {
         <Fade direction="right" duration="1300">
           <div className="span">
             <span>자산관리채널</span>
-            <h2>
+            <h2
+              style={{
+                marginRight: '50px',
+                color: '#92b4ec',
+              }}
+            >
               누구나 무료로 자산을 입력해
               <br />
               이용할수 있는 플랫폼
@@ -213,7 +231,12 @@ const Middle = () => {
           })}
           <div className="span">
             <span>커뮤니티</span>
-            <h2>
+            <h2
+              style={{
+                marginLeft: '50px',
+                color: '#92b4ec',
+              }}
+            >
               다양한 사람들과
               <br />
               자산을 공유하며
@@ -228,7 +251,11 @@ const Middle = () => {
       <div id="5" className="div5">
         <JackInTheBox duration="1300">
           <span>출발하기</span>
-          <h2>
+          <h2
+            style={{
+              color: '#92b4ec',
+            }}
+          >
             지금바로 저희와 함께
             <br />
             부자가 되기위한
