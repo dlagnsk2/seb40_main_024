@@ -38,21 +38,21 @@ const theme = {
   Device,
 };
 
+// #dee2e6
+// #020626
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     flex-direction: column;
-    background-color: red;
-    margin-top: 300px;
-    max-width: ${DeviceSizes.tabletWidth};
-    height: 1000px;
+    background-color: #020626;
+    /* margin-top: 300px; */
+    min-width: ${DeviceSizes.tabletWidth};
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     flex-direction: column;
-    background-color: yellow;
-    max-width: ${DeviceSizes.mobileWidth};
-    margin-top: 300px;
-    height: 1000px;
+    background-color: #020626;
+    min-width: ${DeviceSizes.mobileWidth};
+    /* margin-top: 300px; */
   }
 `;
 function App() {
