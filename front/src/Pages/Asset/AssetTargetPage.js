@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import { AssetBdata } from '../../Component/Asset/Asset_B_Data';
 import AssetSetting from '../../Component/Asset/AssetSetting';
 import {
   LongNavbarBox,
@@ -9,7 +8,7 @@ import {
 import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
-import { ResponsiveBullet } from '@nivo/bullet';
+import GoalChart from '../../Component/Asset/GoalChart';
 
 const GuideBox = styled.div`
   display: flex;
@@ -59,7 +58,7 @@ const ChartContain = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 750px;
-  height: 400px;
+  height: 450px;
   position: fixed !important;
   margin-top: 150px;
   margin-left: -800px;
@@ -69,7 +68,7 @@ const ChartBox = styled.div`
   display: flex;
   box-sizing: border-box;
   width: 750px;
-  height: 150px;
+  height: 100%;
 `;
 
 const BoxContain = styled.div`
@@ -111,9 +110,6 @@ const AssetTargetPage = () => {
   const [countList, setCountList] = useState([]);
   const [Modalopen, setModalopen] = useState(false);
 
-  // const openModal = () => {
-  //   setModalopen(!Modalopen);
-  // };
   const closeModal = () => {
     setModalopen(!Modalopen);
   };
@@ -286,82 +282,29 @@ const AssetTargetPage = () => {
       // console.log('up', err);
     }
   };
-  //   const GoalData = [
-  //     {
-  //       name: '목표예시',
-  //       목표율: 100,
-  //       달성률: 30,
-  //       amt: 2400,
-  //     },
-  //   ];
-
-  //   for (let i = 0; i < countList.length; i++) {
-  //     let countListData = {
-  //       name: countList[i].goalName,
-  //       목표율: 100,
-  // 달성률: Math.ceil(
-  //   (countList[i].goalPrice /
-  //     countList[i].targetLength /
-  //     countList[i].goalPrice) *
-  //     countList[i].completed *
-  //     100
-  // ),
-  //       amt: 2400,
-  //     };
-  //     GoalData.push(countListData);
-  //   }
 
   const GoalData = [
     {
       id: '목표 예시',
       ranges: [100],
       measures: [15],
-      // markers: [99],
     },
   ];
 
-  const MyResponsiveBullet = () => (
-    <ResponsiveBullet
-      data={GoalData.map((d) => ({
-        ...d,
-        title: (
-          <text dy={5}>
-            <tspan
-              style={{
-                fill: '#000',
-                fontWeight: 500,
-                fontSize: '15px',
-              }}
-            >
-              {d.id}
-            </tspan>
-          </text>
-        ),
-      }))}
-      margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
-      spacing={46}
-      titleAlign="start"
-      titleOffsetX={-70}
-      rangeColors="#FFD24C"
-      measureSize={0.5}
-      measureColors="#FFE69A"
-    />
-  );
-
-  //   for (let i = 0; i < countList.length; i++) {
-  //     let countListData = {
-  //       id: countList[i].goalName,
-  //       ranges: [100],
-  //       measures: Math.ceil(
-  //         (countList[i].goalPrice /
-  //           countList[i].targetLength /
-  //           countList[i].goalPrice) *
-  //           countList[i].completed *
-  //           100
-  //       ),
-  //     };
-  //     GoalData.push(countListData);
-  //   }
+  for (let i = 0; i < countList.length; i++) {
+    let countListData = {
+      id: countList[i].goalName,
+      ranges: [100],
+      measures: Math.ceil(
+        (countList[i].goalPrice /
+          countList[i].targetLength /
+          countList[i].goalPrice) *
+          countList[i].completed *
+          100
+      ),
+    };
+    GoalData.push(countListData);
+  }
 
   return (
     <>
@@ -373,14 +316,7 @@ const AssetTargetPage = () => {
             <ChartContain className="ScrollActive">
               <GraphH1>목표 현황</GraphH1>
               <ChartBox>
-                <MyResponsiveBullet
-                  style={{
-                    fill: '#000',
-                    fontWeight: 500,
-                    fontSize: '14px',
-                  }}
-                ></MyResponsiveBullet>
-                {/* <AssetBdata GoalData={GoalData}></AssetBdata> */}
+                <GoalChart GoalData={GoalData}></GoalChart>
               </ChartBox>
             </ChartContain>
             <div className="Contain">
