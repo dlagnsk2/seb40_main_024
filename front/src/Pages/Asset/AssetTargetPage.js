@@ -42,10 +42,16 @@ const GuideBox = styled.div`
     width: 650px;
     color: black;
   }
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 521px) {
     padding: 10px;
     width: 100%;
     color: black;
+    text-align: center;
+    .TextHeader {
+      text-align: center;
+      color: #1c2f71;
+      width: 100%;
+    }
   }
 `;
 
@@ -67,7 +73,7 @@ const PageContain = styled.div`
       margin-left: 0px;
     }
   }
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 521px) {
     /* width: 768px; */
     .Contain {
       margin-left: 0px;
@@ -82,7 +88,7 @@ const ChartContain = styled.div`
   width: 750px;
   height: 50%;
   position: fixed !important;
-  margin-top: 150px;
+  margin-top: 0px;
   margin-left: -800px;
   gap: 50px;
   @media only screen and (max-width: 768px) {
@@ -92,12 +98,14 @@ const ChartContain = styled.div`
     margin-bottom: 50px;
     gap: 0px;
   }
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 521px) {
     position: relative !important;
     margin-top: 0px;
-    margin-left: -50px;
+    /* margin-left: -50px; */
     margin-bottom: 50px;
     gap: 0px;
+    width: 80%;
+    margin-left: 30px;
   }
 `;
 const ChartBox = styled.div`
@@ -105,8 +113,10 @@ const ChartBox = styled.div`
   box-sizing: border-box;
   width: 750px;
   height: 100%;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 521px) {
     /* position: relative; */
+    width: 100%;
+    margin-left: 30px;
   }
 `;
 
@@ -125,7 +135,7 @@ const BoxContain = styled.div`
   @media only screen and (max-width: 768px) {
     margin: 0px;
   }
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 521px) {
     margin: 0px;
   }
 `;
@@ -139,6 +149,9 @@ const GraphH1 = styled.h1`
   text-shadow: 1px 1px 2px #1c2f71;
   color: #92b4ec;
   font-size: 40px;
+  @media only screen and (max-width: 521px) {
+    margin: 0px;
+  }
 `;
 
 const AssetTargetPage = () => {

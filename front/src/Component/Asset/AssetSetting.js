@@ -23,6 +23,10 @@ const ComponentContain = styled.div`
     font-size: 17px;
     font-weight: 500;
   }
+  @media only screen and (max-width: 521px) {
+    width: 100%;
+    margin-left: 30px;
+  }
 `;
 
 const Header = styled.h3`
@@ -42,6 +46,9 @@ const SettingInput = styled.input`
     outline: none;
     border-color: #c0daf9;
     box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+  }
+  @media only screen and (max-width: 521px) {
+    width: 60%;
   }
 `;
 
