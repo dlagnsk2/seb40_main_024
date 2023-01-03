@@ -42,6 +42,11 @@ const GuideBox = styled.div`
     width: 650px;
     color: black;
   }
+  @media only screen and (max-width: 320px) {
+    padding: 10px;
+    width: 100%;
+    color: black;
+  }
 `;
 
 const PageContain = styled.div`
@@ -62,6 +67,12 @@ const PageContain = styled.div`
       margin-left: 0px;
     }
   }
+  @media only screen and (max-width: 320px) {
+    /* width: 768px; */
+    .Contain {
+      margin-left: 0px;
+    }
+  }
 `;
 
 const ChartContain = styled.div`
@@ -75,6 +86,13 @@ const ChartContain = styled.div`
   margin-left: -800px;
   gap: 50px;
   @media only screen and (max-width: 768px) {
+    position: relative !important;
+    margin-top: 0px;
+    margin-left: -50px;
+    margin-bottom: 50px;
+    gap: 0px;
+  }
+  @media only screen and (max-width: 320px) {
     position: relative !important;
     margin-top: 0px;
     margin-left: -50px;
@@ -105,6 +123,9 @@ const BoxContain = styled.div`
   margin-left: 100px;
   margin-top: 100px;
   @media only screen and (max-width: 768px) {
+    margin: 0px;
+  }
+  @media only screen and (max-width: 320px) {
     margin: 0px;
   }
 `;
