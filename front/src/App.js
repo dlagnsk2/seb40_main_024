@@ -12,7 +12,7 @@ import { BoardPage } from './Pages/Board/BoardPage';
 import Board from './Pages/Board/Board';
 import MyPage from './Pages/Member/MyPage';
 import BoardContentPage from './Pages/Board/BoardContentPage';
-import AssetTargetTest from './Pages/Asset/AssetTargetTest';
+// import AssetTargetTest from './Pages/Asset/AssetTargetTest';
 import AssetTargetPage from './Pages/Asset/AssetTargetPage';
 import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
@@ -80,8 +80,8 @@ function App() {
             <Route path="/boardpost" element={<Board />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/modifyboard/:id" element={<ModifyBoard />} />
-            <Route path="/assettarget" element={<AssetTargetTest />} />
-            <Route path="/assettargetpage" element={<AssetTargetPage />} />
+            <Route path="/assettarget" element={<AssetTargetPage />} />
+            {/* <Route path="/assettargetpage" element={<AssetTargetTest />} /> */}
             {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
         )}
