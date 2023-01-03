@@ -6,9 +6,12 @@ import com.codestates.server.auth.handler.MemberAccessDeniedHandler;
 import com.codestates.server.auth.handler.MemberAuthenticationEntryPoint;
 import com.codestates.server.auth.handler.MemberAuthenticationFailureHandler;
 import com.codestates.server.auth.handler.MemberAuthenticationSuccessHandler;
+import com.codestates.server.member.repository.MemberRepository;
+import com.codestates.server.oauth.handler.OAuth2SuccessHandler;
 import com.codestates.server.auth.jwt.JwtTokenizer;
 import com.codestates.server.auth.utils.CustomAuthorityUtils;
 import com.codestates.server.member.service.MemberService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -17,8 +20,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.oauth2.client.CommonOAuth2Provider;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
+import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -27,15 +35,25 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+    @Value("${spring.security.oauth2.client.registration.google.clientId}")
+    private String clientId;
+
+    @Value("${spring.security.oauth2.client.registration.google.clientSecret}")
+    private String clientSecret;
 
     private final JwtTokenizer jwtTokenizer;
     private final CustomAuthorityUtils authorityUtils;
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
 
-    public SecurityConfiguration(JwtTokenizer jwtTokenizer, CustomAuthorityUtils authorityUtils, @Lazy MemberService memberService) {
+//    public SecurityConfiguration(JwtTokenizer jwtTokenizer, CustomAuthorityUtils authorityUtils, @Lazy MemberService memberService) {
+    public SecurityConfiguration(JwtTokenizer jwtTokenizer, CustomAuthorityUtils authorityUtils,
+        @Lazy MemberService memberService, MemberRepository memberRepository) {
+
         this.jwtTokenizer = jwtTokenizer;
         this.authorityUtils = authorityUtils;
         this.memberService = memberService;
+        this.memberRepository = memberRepository;
     }
 
 
@@ -67,15 +85,35 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
 //                        .antMatchers(HttpMethod.OPTIONS).permitAll()
                         .antMatchers("/**").permitAll()
-                        .anyRequest().permitAll()
+//                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
+
+//            .oauth2Login(withDefaults()
 //                        .antMatchers(HttpMethod.POST,"/member", "/member/login").permitAll() // 지정된 URI에서 POST 메서드만 허용
 //                        .antMatchers(HttpMethod.GET,"/member", "/board/**", "/board/**").permitAll() // 지정된 URI에서 GET 메서드만 허용
                          // 나머지 모든 요청은 유저 권한이 있어야지 호출할 수 있다.
- /*               )
-                .oauth2Login(oauth2 -> oauth2.
-                        successHandler(new Oauth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService))
-        */        );
+                )
+                .oauth2Login(oauth2 -> oauth2
+                    .successHandler(new OAuth2SuccessHandler(jwtTokenizer, authorityUtils, memberService,
+                        memberRepository))
+                );
         return http.build();
+    }
+
+    @Bean
+    public ClientRegistrationRepository clientRegistrationRepository() {
+        var clientRegistration = clientRegistration();
+
+        return new InMemoryClientRegistrationRepository(clientRegistration);
+    }
+
+    private ClientRegistration clientRegistration() {
+        return CommonOAuth2Provider
+            .GOOGLE
+            .getBuilder("google")
+            .clientId(clientId)
+            .clientSecret(clientSecret)
+            .build();
     }
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -115,7 +153,8 @@ public class SecurityConfiguration {
             AuthenticationManager authenticationManager = builder.getSharedObject(AuthenticationManager.class);
 
             JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager, jwtTokenizer);
-            jwtAuthenticationFilter.setFilterProcessesUrl("/member/login");
+//            jwtAuthenticationFilter.setFilterProcessesUrl("/member/login");
+            jwtAuthenticationFilter.setFilterProcessesUrl("/auth/login");
             jwtAuthenticationFilter.setAuthenticationSuccessHandler(new MemberAuthenticationSuccessHandler());
             jwtAuthenticationFilter.setAuthenticationFailureHandler(new MemberAuthenticationFailureHandler());
 
@@ -124,7 +163,8 @@ public class SecurityConfiguration {
 
             builder
                     .addFilter(jwtAuthenticationFilter)
-                    .addFilterAfter(jwtVerificationFilter, JwtAuthenticationFilter.class);
+//                    .addFilterAfter(jwtVerificationFilter, JwtAuthenticationFilter.class);
+                    .addFilterAfter(jwtVerificationFilter, OAuth2LoginAuthenticationFilter.class);
         }
     }
 }
