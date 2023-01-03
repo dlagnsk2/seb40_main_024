@@ -58,11 +58,9 @@ const SettingInput = styled.div`
   border-bottom: solid 2px #adcaf3;
   margin-top: 20px;
   color: grey;
-  /* &:focus {
-    outline: none;
-    border-color: #8ec3b0;
-    box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
-  } */
+  @media only screen and (max-width: 320px) {
+    width: 70%;
+  }
 `;
 
 const CalcurlatedBox = styled.div`
@@ -81,6 +79,9 @@ const CalcurlatedBox = styled.div`
       color: black;
       font-weight: 700;
     }
+  }
+  @media only screen and (max-width: 320px) {
+    width: 70%;
   }
 `;
 

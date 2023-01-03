@@ -53,6 +53,17 @@ const GuideBox = styled.div`
       width: 100%;
     }
   }
+  @media only screen and (max-width: 320px) {
+    padding: 10px;
+    width: 100%;
+    color: black;
+    text-align: center;
+    .TextHeader {
+      text-align: center;
+      color: #1c2f71;
+      width: 100%;
+    }
+  }
 `;
 
 const PageContain = styled.div`
@@ -74,6 +85,12 @@ const PageContain = styled.div`
     }
   }
   @media only screen and (max-width: 521px) {
+    /* width: 768px; */
+    .Contain {
+      margin-left: 0px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
     /* width: 768px; */
     .Contain {
       margin-left: 0px;
@@ -107,6 +124,15 @@ const ChartContain = styled.div`
     width: 80%;
     margin-left: 30px;
   }
+  @media only screen and (max-width: 320px) {
+    position: relative !important;
+    margin-top: 0px;
+    /* margin-left: -50px; */
+    margin-bottom: 50px;
+    gap: 0px;
+    width: 80%;
+    margin-left: 30px;
+  }
 `;
 const ChartBox = styled.div`
   display: flex;
@@ -114,6 +140,11 @@ const ChartBox = styled.div`
   width: 750px;
   height: 100%;
   @media only screen and (max-width: 521px) {
+    /* position: relative; */
+    width: 100%;
+    margin-left: 30px;
+  }
+  @media only screen and (max-width: 320px) {
     /* position: relative; */
     width: 100%;
     margin-left: 30px;
@@ -138,6 +169,9 @@ const BoxContain = styled.div`
   @media only screen and (max-width: 521px) {
     margin: 0px;
   }
+  @media only screen and (max-width: 320px) {
+    margin: 0px;
+  }
 `;
 
 const GraphH1 = styled.h1`
@@ -150,6 +184,9 @@ const GraphH1 = styled.h1`
   color: #92b4ec;
   font-size: 40px;
   @media only screen and (max-width: 521px) {
+    margin: 0px;
+  }
+  @media only screen and (max-width: 320px) {
     margin: 0px;
   }
 `;

@@ -23,10 +23,10 @@ const ComponentContain = styled.div`
     font-size: 17px;
     font-weight: 500;
   }
-  @media only screen and (max-width: 521px) {
+  /* @media only screen and (max-width: 521px) {
     width: 100%;
     margin-left: 30px;
-  }
+  } */
 `;
 
 const Header = styled.h3`
