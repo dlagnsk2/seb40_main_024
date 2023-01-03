@@ -41,7 +41,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
+    min-width: 320px;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -50,7 +51,7 @@ const MainPage = styled.div`
 `;
 
 const GraphH1 = styled.h1`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +63,7 @@ const GraphH1 = styled.h1`
 `;
 
 const TopPage = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,7 +80,7 @@ const TopPage = styled.div`
 `;
 
 const ChartContain = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     margin-right: 0px;
     width: 250px;
@@ -1131,7 +1132,7 @@ export const AssetChange = () => {
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
               <ChartContain>
-                {window.innerWidth <= 320 ? (
+                {window.innerWidth < 768 ? (
                   <Pie data={AssetAdata} options={mobilePieOptions} />
                 ) : null}
               </ChartContain>

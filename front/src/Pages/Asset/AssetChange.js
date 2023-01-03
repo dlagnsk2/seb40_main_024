@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+import { SimpleSlider } from '../../Component/Asset/MobileSimpleSlider';
 import {
   LongNavbarBox,
   MiniNavbarBox,
@@ -41,7 +42,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
+    min-width: 320px;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -50,11 +52,11 @@ const MainPage = styled.div`
 `;
 
 const GraphH1 = styled.h1`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 85%;
     /* border: 1px solid red; */
     color: #92b4ec;
     font-size: 25px;
@@ -63,12 +65,12 @@ const GraphH1 = styled.h1`
 `;
 
 const TopPage = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 85%;
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -80,7 +82,7 @@ const TopPage = styled.div`
 `;
 
 const ChartContain = styled.div`
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     display: flex;
     margin-right: 0px;
     width: 250px;
@@ -139,7 +141,7 @@ const H2 = styled.h2`
   margin-top: 80px;
 `;
 
-const H3 = styled.h3`
+export const H3 = styled.h3`
   color: #92b4ec;
   margin-left: 13px;
   margin-bottom: 10px;
@@ -147,7 +149,7 @@ const H3 = styled.h3`
   font-size: 15px;
 `;
 
-const H3Title = styled.h3`
+export const H3Title = styled.h3`
   color: orange;
   margin-left: 13px;
   margin-bottom: 8px;
@@ -283,11 +285,12 @@ const EditButton = styled.button`
   }
 `;
 
-const AssetListBox = styled.div`
+export const AssetListBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 200px;
+  min-width: 200px;
+  width: 35%;
   line-height: normal;
   border: 1px solid #92b4ec;
   background-color: #020626;
@@ -1023,6 +1026,7 @@ export const AssetChange = () => {
     <>
       <LongNavbarBox />
       <MiniNavbarBox />
+
       <AssetListPostModal1
         header={`List :  ${AssetType.length} / 6`}
         open={PostListModalopen1}
@@ -1124,7 +1128,7 @@ export const AssetChange = () => {
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
               <ChartContain>
-                {window.innerWidth <= 320 ? (
+                {window.innerWidth > 320 || window.innerWidth < 768 ? (
                   <Pie data={AssetAdata} options={mobilePieOptions} />
                 ) : null}
               </ChartContain>
@@ -1136,8 +1140,40 @@ export const AssetChange = () => {
               </TitleH1>
               자산 리스트
             </GraphH1>
+
             <TopPage>
-              <AssetListBox>
+              <SimpleSlider
+                AssetListBox={AssetListBox}
+                H3={H3}
+                H3Title={H3Title}
+                EditButton={EditButton}
+                ListTypeData={ListTypeData}
+                ListData={ListData}
+                ListTextValue1={ListTextValue1}
+                ListTextValue2={ListTextValue2}
+                ListTextValue3={ListTextValue3}
+                ListTextValue4={ListTextValue4}
+                ListTextValue5={ListTextValue5}
+                ListTextValue6={ListTextValue6}
+              />
+            </TopPage>
+          </MainPage>
+        </>
+      ) : (
+        <>
+          <LongNavbarBox />
+          <MiniNavbarBox />
+          <LoadingDiv>
+            <div className="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </LoadingDiv>
+        </>
+      )}
+      {/* <AssetListBox>
                 <H3 style={{ marginTop: '10px' }}>1 &nbsp;) &nbsp;</H3>
                 <H3Title>
                   {ListTypeData[0] === undefined ? (
@@ -1335,10 +1371,9 @@ export const AssetChange = () => {
                     <>총 금액&nbsp;:&nbsp;{ListTextValue6}&nbsp;원</>
                   )}
                 </H3>
-              </AssetListBox>
-            </TopPage>
-          </MainPage>
-          {/* <MainPage>
+              </AssetListBox> */}
+
+      {/* <MainPage>
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
               <ChartContain>
@@ -2085,21 +2120,6 @@ export const AssetChange = () => {
               </MainContain>
             </TopPage>
           </MainPage> */}
-        </>
-      ) : (
-        <>
-          <LongNavbarBox />
-          <MiniNavbarBox />
-          <LoadingDiv>
-            <div className="lds-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </LoadingDiv>
-        </>
-      )}
     </>
   );
 };
