@@ -24,7 +24,7 @@ import { Error } from './Pages/ErrorPage/Error';
 // import AllBoardList from './Component/Board/AllBoardList';
 
 const DeviceSizes = {
-  mobileWidth: '520px',
+  mobileWidth: '320px',
   tabletWidth: '768px',
   laptopWidth: '1024px',
 };
