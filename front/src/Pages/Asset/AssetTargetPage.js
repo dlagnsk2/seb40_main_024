@@ -19,29 +19,34 @@ const GuideBox = styled.div`
   width: 650px;
   height: auto;
   text-align: left;
-  border-top: 5px solid #8ec3b0;
-  border-bottom: 5px solid #8ec3b0;
+  border-top: 5px solid #92b4ec;
+  border-bottom: 5px solid #92b4ec;
   margin-bottom: 50px;
   color: grey;
   .TextHeader {
     text-align: center;
-    color: #9ed5c5;
+    color: #1c2f71;
     width: 550px;
   }
   .Text {
     font-size: 17px;
   }
   .Hilight {
-    color: #8ec3b0;
+    color: #4966a9;
   }
   /* .TextCenter {
     text-align: center;
   } */
+  @media only screen and (max-width: 768px) {
+    padding: 10px;
+    width: 650px;
+    color: black;
+  }
 `;
 
 const PageContain = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -51,6 +56,12 @@ const PageContain = styled.div`
     /* margin-top: 30px;*/
     margin-left: 500px;
   }
+  @media only screen and (max-width: 768px) {
+    /* width: 768px; */
+    .Contain {
+      margin-left: 0px;
+    }
+  }
 `;
 
 const ChartContain = styled.div`
@@ -58,17 +69,27 @@ const ChartContain = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 750px;
-  height: 450px;
+  height: 50%;
   position: fixed !important;
   margin-top: 150px;
   margin-left: -800px;
   gap: 50px;
+  @media only screen and (max-width: 768px) {
+    position: relative !important;
+    margin-top: 0px;
+    margin-left: -50px;
+    margin-bottom: 50px;
+    gap: 0px;
+  }
 `;
 const ChartBox = styled.div`
   display: flex;
   box-sizing: border-box;
   width: 750px;
   height: 100%;
+  @media only screen and (max-width: 768px) {
+    /* position: relative; */
+  }
 `;
 
 const BoxContain = styled.div`
@@ -83,6 +104,9 @@ const BoxContain = styled.div`
   left: 300px;
   margin-left: 100px;
   margin-top: 100px;
+  @media only screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `;
 
 const GraphH1 = styled.h1`
@@ -91,8 +115,8 @@ const GraphH1 = styled.h1`
   width: 100%;
   align-items: center;
   text-align: center;
-  text-shadow: 1px 1px 2px #bcead5;
-  color: #bcead5;
+  text-shadow: 1px 1px 2px #1c2f71;
+  color: #92b4ec;
   font-size: 40px;
 `;
 
@@ -313,12 +337,12 @@ const AssetTargetPage = () => {
       <>
         <div>
           <PageContain>
-            <ChartContain className="ScrollActive">
+            {/* <ChartContain className="ScrollActive">
               <GraphH1>목표 현황</GraphH1>
               <ChartBox>
                 <GoalChart GoalData={GoalData}></GoalChart>
               </ChartBox>
-            </ChartContain>
+            </ChartContain> */}
             <div className="Contain">
               <BoxContain>
                 <GuideBox>
@@ -348,6 +372,12 @@ const AssetTargetPage = () => {
                     *그래프를 통해 목표 달성률을 확인해보세요!*
                   </p>
                 </GuideBox>
+                <ChartContain className="ScrollActive">
+                  <GraphH1>목표 현황</GraphH1>
+                  <ChartBox>
+                    <GoalChart GoalData={GoalData}></GoalChart>
+                  </ChartBox>
+                </ChartContain>
                 <AssetSetting
                   goalPost={goalPost}
                   countList={countList}

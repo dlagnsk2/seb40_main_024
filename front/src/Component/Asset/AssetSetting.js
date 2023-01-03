@@ -14,7 +14,8 @@ const ComponentContain = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  border: 5px solid #9ed5c5;
+  border: 5px solid #92b4ec;
+  border-radius: 3%;
   .trashicon {
     margin-left: 500px;
   }
@@ -35,11 +36,11 @@ const SettingInput = styled.input`
   height: 60px;
   margin: 10px;
   font-size: 20px;
-  border: solid 2px #9ed5c5;
+  border: solid 2px #6a8bca;
   border-radius: 10px;
   &:focus {
     outline: none;
-    border-color: #8ec3b0;
+    border-color: #c0daf9;
     box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
   }
 `;
@@ -55,7 +56,7 @@ const TextBox = styled.div`
   margin: auto;
   height: 70px;
   width: 300px;
-  color: red;
+  color: #ffd24c;
   font-size: 30px;
 `;
 

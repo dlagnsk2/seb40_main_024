@@ -9,9 +9,9 @@ const GoalChart = ({ GoalData }) => {
           <text dy={5}>
             <tspan
               style={{
-                fill: '#000',
+                fill: '#6a8bca',
                 fontWeight: 500,
-                fontSize: '14px',
+                fontSize: '15px',
               }}
             >
               {d.id}
@@ -23,7 +23,10 @@ const GoalChart = ({ GoalData }) => {
       spacing={46}
       titleAlign="start"
       titleOffsetX={-70}
+      rangeBorderColor={{ from: 'color', modifiers: [] }}
+      rangeBorderWidth={15}
       rangeColors="#FFD24C"
+      // rangeColors="seq:yellow_orange_brown"
       measureSize={0.5}
       measureColors="#FFE69A"
     />

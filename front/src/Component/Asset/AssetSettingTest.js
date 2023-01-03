@@ -62,7 +62,7 @@ const AssetSettingTest = ({ HandlerRemove, post }) => {
   return (
     <div>
       <ComponentContain>
-        <br />{' '}
+        <br />
         <div className="trashicon">
           <FontAwesomeIcon
             icon={faTrashCan}
