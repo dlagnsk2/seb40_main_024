@@ -437,7 +437,7 @@ const AssetTargetPage = () => {
                   <p className="TextCenter">
                     *목표는 <span className="Hilight">최대 6개</span>까지 등록할
                     수 있습니다.*
-                  </p>s
+                  </p>
                   <br />
                   <p className="TextCenter">
                     *그래프를 통해 목표 달성률을 확인해보세요!*

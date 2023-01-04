@@ -81,6 +81,7 @@ function App() {
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/modifyboard/:id" element={<ModifyBoard />} />
             <Route path="/assettarget" element={<AssetTargetPage />} />
+            {/* <Route path="/assettargetpage" element={<AssetTargetTest />} /> */}
             {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
         )}
@@ -91,10 +92,10 @@ function App() {
         )}
         {authCtx.isLoggedIn && (
           <Route path="/assettarget" element={<AssetTargetTest />} />
-        )} */}
-            {/* {authCtx.isLoggedIn && (
-          <Route path="/assettargetpage" element={<AssetTartget />} />
-        )} */}
+        )}
+        {authCtx.isLoggedIn && (
+          <Route path="/assettargetpage" element={<AssetTargetPage />} />
+        )}
 
             {/*
         subscriptionpage는 ?
