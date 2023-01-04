@@ -42,7 +42,7 @@ const theme = {
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     flex-direction: column;
-    background-color: red;
+    background-color: #020626;
     margin-top: 300px;
     max-width: ${DeviceSizes.tabletWidth};
     height: 1000px;
