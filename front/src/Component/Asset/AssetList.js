@@ -18,13 +18,15 @@ const ComponentContain = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  border: 5px solid #def5e5;
+  border: 5px solid #d6e9fd;
+  border-radius: 3%;
   .trashicon {
     margin-left: 500px;
   }
   .p {
     font-size: 17px;
     font-weight: 500;
+    color: #1c2f71;
   }
   .smallP {
     margin-bottom: 5px;
@@ -35,7 +37,15 @@ const ComponentContain = styled.div`
 `;
 
 const Header = styled.h3`
+  box-sizing: border-box;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  /* border: 2px solid #4a61a9; */
+  border-radius: 2rem;
+  background-color: #4a61a9;
   margin-bottom: 10px;
+  color: #fff;
 `;
 
 const SettingInput = styled.div`
@@ -45,13 +55,11 @@ const SettingInput = styled.div`
   height: 50px;
   margin: 10px;
   font-size: 25px;
-  border-bottom: solid 2px #9ed5c5;
+  border-bottom: solid 2px #adcaf3;
   margin-top: 20px;
   color: grey;
-  &:focus {
-    outline: none;
-    border-color: #8ec3b0;
-    box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+  @media only screen and (max-width: 320px) {
+    width: 70%;
   }
 `;
 
@@ -64,13 +72,16 @@ const CalcurlatedBox = styled.div`
   padding: 10px;
   margin-bottom: 20px;
   text-align: center;
-  background-color: rgba(188, 234, 213, 30%);
+  background-color: #d6e9fd;
   :hover {
     box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
     .li {
       color: black;
       font-weight: 700;
     }
+  }
+  @media only screen and (max-width: 320px) {
+    width: 70%;
   }
 `;
 

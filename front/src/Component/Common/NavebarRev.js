@@ -362,9 +362,7 @@ export const MiniNavbarBox = () => {
                           <MenuList onClick={() => navigate('/assetchange')}>
                             자산현황
                           </MenuList>
-                          <MenuList
-                            onClick={() => navigate('/assettargetpage')}
-                          >
+                          <MenuList onClick={() => navigate('/assettarget')}>
                             목표현황
                           </MenuList>
                         </MiniMenuTopList>
