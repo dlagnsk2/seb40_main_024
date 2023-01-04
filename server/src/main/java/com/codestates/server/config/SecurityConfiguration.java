@@ -11,6 +11,7 @@ import com.codestates.server.oauth.handler.OAuth2SuccessHandler;
 import com.codestates.server.auth.jwt.JwtTokenizer;
 import com.codestates.server.auth.utils.CustomAuthorityUtils;
 import com.codestates.server.member.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,11 +36,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-    @Value("${spring.security.oauth2.client.registration.google.clientId}")
-    private String clientId;
-
-    @Value("${spring.security.oauth2.client.registration.google.clientSecret}")
-    private String clientSecret;
+//    @Value("${spring.security.oauth2.client.registration.google.clientId}")
+//    private String clientId;
+//
+//    @Value("${spring.security.oauth2.client.registration.google.clientSecret}")
+//    private String clientSecret;
 
     private final JwtTokenizer jwtTokenizer;
     private final CustomAuthorityUtils authorityUtils;
@@ -100,21 +101,21 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-    @Bean
-    public ClientRegistrationRepository clientRegistrationRepository() {
-        var clientRegistration = clientRegistration();
+//    @Bean
+//    public ClientRegistrationRepository clientRegistrationRepository() {
+//        var clientRegistration = clientRegistration();
+//
+//        return new InMemoryClientRegistrationRepository(clientRegistration);
+//    }
 
-        return new InMemoryClientRegistrationRepository(clientRegistration);
-    }
-
-    private ClientRegistration clientRegistration() {
-        return CommonOAuth2Provider
-            .GOOGLE
-            .getBuilder("google")
-            .clientId(clientId)
-            .clientSecret(clientSecret)
-            .build();
-    }
+//    private ClientRegistration clientRegistration() {
+//        return CommonOAuth2Provider
+//            .GOOGLE
+//            .getBuilder("google")
+//            .clientId(clientId)
+//            .clientSecret(clientSecret)
+//            .build();
+//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
