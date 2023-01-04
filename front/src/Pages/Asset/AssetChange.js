@@ -48,6 +48,7 @@ const MainPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
   }
 `;
 
@@ -1122,6 +1123,226 @@ export const AssetChange = () => {
           </Div>
         </div>
       </AssetListPostModal1>
+      <AssetTextEditModal1
+        header="자산 금액 변경"
+        open={TextModalopen1}
+        close={closeModal}
+        EditText={EditText}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[0]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="number"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+            <div style={{ color: '#444', fontSize: '12px' }}></div>
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP1}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM1}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal1>
+
+      <AssetTextEditModal2
+        header="자산 종류 수정 알림"
+        open={TextModalopen2}
+        close={closeModal}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[1]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="text"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP2}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM2}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal2>
+
+      <AssetTextEditModal3
+        header="자산 종류 수정 알림"
+        open={TextModalopen3}
+        close={closeModal}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[2]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="text"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP3}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM3}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal3>
+
+      <AssetTextEditModal4
+        header="자산 종류 수정 알림"
+        open={TextModalopen4}
+        close={closeModal}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[3]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="text"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP4}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM4}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal4>
+
+      <AssetTextEditModal5
+        header="자산 종류 수정 알림"
+        open={TextModalopen5}
+        // api={patchAssetsApi5}
+        close={closeModal}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[4]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="text"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP5}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM5}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal5>
+
+      <AssetTextEditModal6
+        header="자산 종류 수정 알림"
+        open={TextModalopen6}
+        // api={patchAssetsApi6}
+        close={closeModal}
+      >
+        자산 금액 변경 ( 자산 명칭 : {ListTypeData[5]} )
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <Div style={{ flexDirection: 'column' }}>
+            <Input
+              onChange={EditTextonChange}
+              value={EditText}
+              type="text"
+              placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
+            />
+          </Div>
+          <div style={{ marginLeft: '21px' }}>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenP6}
+              style={{ width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiPlusSm /> 수입
+            </button>
+            <button
+              className="edit"
+              onClick={openPatchTextModalopenM6}
+              style={{ marginTop: '10px', width: '65.52px' }}
+              disabled={EditText.length === 0}
+            >
+              <HiMinusSm /> 지출
+            </button>
+          </div>
+        </div>
+      </AssetTextEditModal6>
+
       {AssetDatas ? (
         <>
           <MainPage>
@@ -1155,6 +1376,7 @@ export const AssetChange = () => {
                 ListTextValue4={ListTextValue4}
                 ListTextValue5={ListTextValue5}
                 ListTextValue6={ListTextValue6}
+                openEditTextModal1={openEditTextModal1}
               />
             </TopPage>
           </MainPage>
@@ -1495,226 +1717,7 @@ export const AssetChange = () => {
                   </div>
                 </AssetListPostModal1>
 
-                <AssetTextEditModal1
-                  header="자산 금액 변경"
-                  open={TextModalopen1}
-                  close={closeModal}
-                  EditText={EditText}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[0]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="number"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                      <div style={{ color: '#444', fontSize: '12px' }}></div>
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP1}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM1}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal1>
-
-                <AssetTextEditModal2
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen2}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[1]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP2}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM2}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal2>
-
-                <AssetTextEditModal3
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen3}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[2]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP3}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM3}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal3>
-
-                <AssetTextEditModal4
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen4}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[3]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP4}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM4}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal4>
-
-                <AssetTextEditModal5
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen5}
-                  // api={patchAssetsApi5}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[4]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP5}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM5}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal5>
-
-                <AssetTextEditModal6
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen6}
-                  // api={patchAssetsApi6}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[5]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP6}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM6}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal6>
-
+                
                 <AssetDeleteModal1
                   open={DelModalopen1}
                   close={closeModal}

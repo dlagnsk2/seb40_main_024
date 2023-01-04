@@ -12,7 +12,7 @@ import { BoardPage } from './Pages/Board/BoardPage';
 import Board from './Pages/Board/Board';
 import MyPage from './Pages/Member/MyPage';
 import BoardContentPage from './Pages/Board/BoardContentPage';
-import AssetTargetTest from './Pages/Asset/AssetTargetTest';
+import AssetTargetPage from './Pages/Asset/AssetTargetPage';
 // import AssetTartget from './Pages/Asset/AssetTargetPage';
 import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
@@ -20,6 +20,7 @@ import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
 // import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
+// import { Assettargetpage } from './Component/Common/Button';
 // import AllBoardList from './Component/Board/AllBoardList';
 
 const DeviceSizes = {
@@ -43,14 +44,14 @@ const theme = {
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     flex-direction: column;
-    background-color: #020626;
+    background-color: #dee2e6;
     /* margin-top: 300px; */
     min-width: ${DeviceSizes.tabletWidth};
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     flex-direction: column;
-    background-color: #020626;
+    background-color: #dee2e6;
     min-width: ${DeviceSizes.mobileWidth};
     /* margin-top: 300px; */
   }
@@ -79,7 +80,7 @@ function App() {
             <Route path="/boardpost" element={<Board />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/modifyboard/:id" element={<ModifyBoard />} />
-            <Route path="/assettarget" element={<AssetTargetTest />} />
+            <Route path="/assettarget" element={<AssetTargetPage />} />
             {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
         )}
