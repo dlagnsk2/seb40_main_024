@@ -6,6 +6,10 @@ import { NavForgotPasswordButton, NavSignUpButton } from '../Common/Button';
 import { Modal } from '../Common/Modal';
 import AuthContext from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import GoogleLogin from './GoogleLogin';
+
+const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+console.log(GoogleClientId);
 
 const PageContainer = styled.div`
   display: flex;
@@ -236,6 +240,7 @@ export const LoginBox = () => {
     <PageContainer>
       <Container>
         <TitleBox>로그인</TitleBox>
+
         <InputBox>
           <div className="input-box">
             <input
@@ -283,6 +288,14 @@ export const LoginBox = () => {
             <NavSignUpButton />
           </Button2>
         </ButtonBox>
+        <GoogleLogin />
+        {/* <div
+          id="g_id_onload"
+          data-client_id="224876229930-kd4f9thuq3ku0pem5sgspp05aavh34ok.apps.googleusercontent.com"
+          data-login_uri="https://accounts.google.com/o/oauth2/v2/auth"
+          // data-your_own_param_1_to_login="any_value"
+          // data-your_own_param_2_to_login="any_value"
+        ></div> */}
         <Modal open={Modalopen} close={closeModal} header="로그인 알림">
           로그인 성공하셨습니다.
         </Modal>

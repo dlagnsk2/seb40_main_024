@@ -44,14 +44,14 @@ const theme = {
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     flex-direction: column;
-    background-color: #dee2e6;
+    background-color: #f9fafb;
     /* margin-top: 300px; */
     min-width: ${DeviceSizes.tabletWidth};
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     flex-direction: column;
-    background-color: #dee2e6;
+    background-color: #f9fafb;
     min-width: ${DeviceSizes.mobileWidth};
     /* margin-top: 300px; */
   }
@@ -81,6 +81,7 @@ function App() {
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/modifyboard/:id" element={<ModifyBoard />} />
             <Route path="/assettarget" element={<AssetTargetPage />} />
+
             {/* <Route path="/assettargetpage" element={<AssetTargetTest />} /> */}
             {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
