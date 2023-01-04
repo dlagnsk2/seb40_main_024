@@ -41,3 +41,6 @@ out/
 
 ### yml ###
 .yml
+
+### oauth ###
+application-oauth.properties

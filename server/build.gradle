@@ -69,6 +69,11 @@ dependencies {
 
 	// Hateoas
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+
+	// OAuth2
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
 }
 
 tasks.named('test') {
