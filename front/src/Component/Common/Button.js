@@ -124,6 +124,24 @@ export const NavForgotPasswordButton = () => {
   );
 };
 
+export const GoolgleLoginButton = ({ GooglePostLogin }) => {
+  // const navigate = useNavigate();
+  return (
+    <ButtonCC
+      style={{
+        marginTop: '20px',
+        marginLeft: '30px',
+        borderRadius: '40px',
+        height: '40px',
+        width: '180px',
+      }}
+      onClick={GooglePostLogin}
+    >
+      구글로그인
+    </ButtonCC>
+  );
+};
+
 export const NavAssetButton = () => {
   // const navigate = useNavigate();
   return (

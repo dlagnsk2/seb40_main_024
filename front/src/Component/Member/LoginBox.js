@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import axios from 'axios';
 // eslint-disable-next-line no-unused-vars
 import { useState, useCallback, useContext, useEffect } from 'react';
-import { NavForgotPasswordButton, NavSignUpButton } from '../Common/Button';
+import {
+  NavForgotPasswordButton,
+  NavSignUpButton,
+  GoolgleLoginButton,
+} from '../Common/Button';
 import { Modal } from '../Common/Modal';
 import AuthContext from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -153,6 +157,9 @@ export const LoginBox = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const URL = process.env.REACT_APP_API_URL;
+  // const ClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+  // const RedirectURL = process.env.REACT_APP_GOOGLE_REDIRECT_URL;
+  // const ClientSecret = process.env.REACT_APP_CLIENT_SECRET;
   const [Modalopen, setModalopen] = useState(false);
   const [errModalopen, setErrModalopen] = useState(false);
 
@@ -232,6 +239,34 @@ export const LoginBox = () => {
     }
   };
 
+  // const GooglePostLogin = async () => {
+  //   try {
+  //     const req = await axios.post(
+  //       `${URL}/login/oauth2/code/google`,
+  //       DataLogin
+  //     );
+  //     const reqToken = req.headers.get('Authorization');
+  //     // const reqRefreshToken = req.headers.get('Refresh');
+  //     authCtx.login(reqToken);
+  //     openModal();
+  //   } catch (e) {
+  //     erropenModal();
+  //   }
+  // };
+  // function handleCallbackResponse(response) {
+  //   console.log(response.credential);
+  // }
+  // useEffect(() => {
+  //   google.accounts.id.initialize({
+  //     client_id: ClientId,
+  //     callback: handleCallbackResponse,
+  //   });
+  //   google.accounts.id.renderButton(document.getElementById('signInDiv'), {
+  //     theme: 'outline',
+  //     size: 'large',
+  //   });
+  // }, []);
+
   return (
     <PageContainer>
       <Container>
@@ -281,6 +316,8 @@ export const LoginBox = () => {
           <Button2>
             <NavForgotPasswordButton />
             <NavSignUpButton />
+            <GoolgleLoginButton />
+            <div id="signInDiv"></div>
           </Button2>
         </ButtonBox>
         <Modal open={Modalopen} close={closeModal} header="로그인 알림">

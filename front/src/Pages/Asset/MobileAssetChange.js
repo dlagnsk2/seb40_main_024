@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-import styled from 'styled-components';
-import { SimpleSlider } from '../../Component/Asset/MobileSimpleSlider';
+import styled, { ThemeProvider } from 'styled-components';
 import {
   LongNavbarBox,
   MiniNavbarBox,
@@ -56,8 +55,7 @@ const GraphH1 = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 85%;
-    /* border: 1px solid red; */
+    width: 250px;
     color: #92b4ec;
     font-size: 25px;
     margin-top: 20px;
@@ -70,7 +68,7 @@ const TopPage = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 85%;
+    width: 250px;
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -89,7 +87,6 @@ const ChartContain = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
     div {
-      /* background-color: blue; */
       top: 0px;
       width: 250px;
       height: 250px;
@@ -141,7 +138,7 @@ const H2 = styled.h2`
   margin-top: 80px;
 `;
 
-export const H3 = styled.h3`
+const H3 = styled.h3`
   color: #92b4ec;
   margin-left: 13px;
   margin-bottom: 10px;
@@ -149,7 +146,7 @@ export const H3 = styled.h3`
   font-size: 15px;
 `;
 
-export const H3Title = styled.h3`
+const H3Title = styled.h3`
   color: orange;
   margin-left: 13px;
   margin-bottom: 8px;
@@ -175,6 +172,7 @@ const Div = styled.div`
 `;
 
 const Input = styled.input`
+  width: 150px;
   height: 30px;
   border-top: none;
   border-left: none;
@@ -182,13 +180,12 @@ const Input = styled.input`
   padding-left: 5px;
   padding-right: 5px;
   outline: none;
-  color: #92b4ec;
+  color: #9ed5c5;
   font-weight: 700;
-  border-bottom: 3px solid #92b4ec;
+  border-bottom: 3px solid #9ed5c5;
   ::placeholder {
     color: #777;
     margin-top: 20px;
-    font-size: 12px;
   }
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -239,10 +236,10 @@ const LoadingDiv = styled.div`
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 5px solid #020626;
+    border: 5px solid #8ec3b0;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #020626 transparent transparent transparent;
+    border-color: #8ec3b0 transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -285,12 +282,11 @@ const EditButton = styled.button`
   }
 `;
 
-export const AssetListBox = styled.div`
+const AssetListBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 200px;
-  width: 35%;
+  width: 200px;
   line-height: normal;
   border: 1px solid #92b4ec;
   background-color: #020626;
@@ -1026,13 +1022,20 @@ export const AssetChange = () => {
     <>
       <LongNavbarBox />
       <MiniNavbarBox />
-
       <AssetListPostModal1
         header={`List :  ${AssetType.length} / 6`}
         open={PostListModalopen1}
         api={postAssetApi}
         close={closeModal}
       >
+        <p
+          style={{
+            color: '#444',
+            marginTop: '10px',
+            marginBottom: '10px',
+            marginLeft: '10px',
+          }}
+        ></p>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <Div style={{ flexDirection: 'column' }}>
             {ListTypeData[5] !== '명칭' ? (
@@ -1122,13 +1125,14 @@ export const AssetChange = () => {
           </Div>
         </div>
       </AssetListPostModal1>
+
       {AssetDatas ? (
         <>
           <MainPage>
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
               <ChartContain>
-                {window.innerWidth > 320 || window.innerWidth < 768 ? (
+                {window.innerWidth < 768 ? (
                   <Pie data={AssetAdata} options={mobilePieOptions} />
                 ) : null}
               </ChartContain>
@@ -1140,40 +1144,8 @@ export const AssetChange = () => {
               </TitleH1>
               자산 리스트
             </GraphH1>
-
             <TopPage>
-              <SimpleSlider
-                AssetListBox={AssetListBox}
-                H3={H3}
-                H3Title={H3Title}
-                EditButton={EditButton}
-                ListTypeData={ListTypeData}
-                ListData={ListData}
-                ListTextValue1={ListTextValue1}
-                ListTextValue2={ListTextValue2}
-                ListTextValue3={ListTextValue3}
-                ListTextValue4={ListTextValue4}
-                ListTextValue5={ListTextValue5}
-                ListTextValue6={ListTextValue6}
-              />
-            </TopPage>
-          </MainPage>
-        </>
-      ) : (
-        <>
-          <LongNavbarBox />
-          <MiniNavbarBox />
-          <LoadingDiv>
-            <div className="lds-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </LoadingDiv>
-        </>
-      )}
-      {/* <AssetListBox>
+              <AssetListBox>
                 <H3 style={{ marginTop: '10px' }}>1 &nbsp;) &nbsp;</H3>
                 <H3Title>
                   {ListTypeData[0] === undefined ? (
@@ -1371,755 +1343,24 @@ export const AssetChange = () => {
                     <>총 금액&nbsp;:&nbsp;{ListTextValue6}&nbsp;원</>
                   )}
                 </H3>
-              </AssetListBox> */}
-
-      {/* <MainPage>
-            <GraphH1>보유자산 현황</GraphH1>
-            <TopPage>
-              <ChartContain>
-                <ChartBox>
-                  <FirstGraph>
-                    <GraphPie>
-                      <Pie data={AssetAdata} options={pieOptions} />
-                    </GraphPie>
-                  </FirstGraph>
-                </ChartBox>
-              </ChartContain>
-
-              <MainContain>
-                <AssetListPostModal1
-                  header={`List :  ${AssetType.length} / 6`}
-                  open={PostListModalopen1}
-                  api={postAssetApi}
-                  close={closeModal}
-                >
-                  <p
-                    style={{
-                      color: '#444',
-                      marginTop: '10px',
-                      marginBottom: '10px',
-                      marginLeft: '10px',
-                    }}
-                  ></p>
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      {ListTypeData[5] !== '명칭' ? (
-                        <>
-                          <Input
-                            onChange={TextonChange}
-                            value={Text}
-                            type="text"
-                            placeholder="리스트 생성은 최대 6개까지 가능합니다."
-                            style={{ marginBottom: '15px' }}
-                            disabled
-                          />
-                          <Input
-                            onChange={CashonChange}
-                            value={Cash}
-                            type="number"
-                            placeholder="리스트 생성은 최대 6개까지 가능합니다."
-                            disabled
-                          />
-                        </>
-                      ) : (
-                        <>
-                          <Div>
-                            <Input
-                              onChange={TextonChange}
-                              value={Text}
-                              type="text"
-                              style={{ marginBottom: '5px' }}
-                              placeholder="자산 명칭을 적어주세요. (ex. 다이아몬드)"
-                            />
-                          </Div>
-                          {Text && ListTypeData ? (
-                            <Fade>
-                              {Text === '명칭' ? (
-                                <P
-                                  style={{ color: 'blue' }}
-                                >{`🚨 자산명칭이 "명칭"이면 버튼 비활성화됩니다."`}</P>
-                              ) : null}
-                              <P
-                                style={{ marginTop: '-5px' }}
-                              >{`✨ 자산명칭: "${Text}"`}</P>
-                            </Fade>
-                          ) : null}
-
-                          <Div>
-                            <Input
-                              onChange={CashonChange}
-                              value={Cash}
-                              type="number"
-                              placeholder="숫자로만 금액을 적어주세요. (ex. 10000)"
-                              style={{ marginBottom: '10px' }}
-                            />
-                          </Div>
-                          <Div
-                            style={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                            }}
-                          >
-                            {Cash &&
-                            ListValueData &&
-                            Cashtarget.length <= 21 ? (
-                              <Fade>
-                                <P
-                                  style={{ color: 'blue', marginTop: '-25px' }}
-                                >{`✔ 금액 : "${Cashtarget}원"`}</P>
-
-                                <P
-                                  style={{ marginTop: '-5px' }}
-                                >{`✔ 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                                <P
-                                  style={{ marginTop: '4px' }}
-                                >{`✔ 숫자만 기입 + " , " 포함 21자리까지 금액수정이 가능합니다.`}</P>
-                              </Fade>
-                            ) : Cash &&
-                              AssetDatas &&
-                              Cashtarget.length >= 22 ? (
-                              <Fade>
-                                <P>{`🚨 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                                <P
-                                  style={{ color: 'blue' }}
-                                >{`🚨 현재 금액 자리수가 22자리 이상입니다.`}</P>
-                                <P
-                                  style={{ color: 'blue' }}
-                                >{`🚨 금액을 수정해주세요.`}</P>
-                              </Fade>
-                            ) : null}
-                          </Div>
-                        </>
-                      )}
-                    </Div>
-                  </div>
-                </AssetListPostModal1>
-
-                <AssetTextEditModal1
-                  header="자산 금액 변경"
-                  open={TextModalopen1}
-                  close={closeModal}
-                  EditText={EditText}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[0]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="number"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                      <div style={{ color: '#444', fontSize: '12px' }}></div>
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP1}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM1}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal1>
-
-                <AssetTextEditModal2
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen2}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[1]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP2}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM2}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal2>
-
-                <AssetTextEditModal3
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen3}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[2]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP3}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM3}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal3>
-
-                <AssetTextEditModal4
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen4}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[3]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP4}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM4}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal4>
-
-                <AssetTextEditModal5
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen5}
-                  // api={patchAssetsApi5}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[4]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP5}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM5}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal5>
-
-                <AssetTextEditModal6
-                  header="자산 종류 수정 알림"
-                  open={TextModalopen6}
-                  // api={patchAssetsApi6}
-                  close={closeModal}
-                >
-                  자산 금액 변경 ( 자산 명칭 : {ListTypeData[5]} )
-                  <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <Div style={{ flexDirection: 'column' }}>
-                      <Input
-                        onChange={EditTextonChange}
-                        value={EditText}
-                        type="text"
-                        placeholder="변경하실 자산 금액을 적어주세요. (ex. 10000)"
-                      />
-                    </Div>
-                    <div style={{ marginLeft: '21px' }}>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenP6}
-                        style={{ width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiPlusSm /> 수입
-                      </button>
-                      <button
-                        className="edit"
-                        onClick={openPatchTextModalopenM6}
-                        style={{ marginTop: '10px', width: '65.52px' }}
-                        disabled={EditText.length === 0}
-                      >
-                        <HiMinusSm /> 지출
-                      </button>
-                    </div>
-                  </div>
-                </AssetTextEditModal6>
-
-                <AssetDeleteModal1
-                  open={DelModalopen1}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api1={deletAssetApi1}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      1)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[0]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal1>
-
-                <AssetDeleteModal2
-                  open={DelModalopen2}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api2={deletAssetApi2}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      2)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[1]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal2>
-
-                <AssetDeleteModal3
-                  open={DelModalopen3}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api3={deletAssetApi3}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      3)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[2]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal3>
-
-                <AssetDeleteModal4
-                  open={DelModalopen4}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api4={deletAssetApi4}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      4)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[3]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal4>
-
-                <AssetDeleteModal5
-                  open={DelModalopen5}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api5={deletAssetApi5}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      5)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[4]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal5>
-
-                <AssetDeleteModal6
-                  open={DelModalopen6}
-                  close={closeModal}
-                  header="자산 삭제 알림"
-                  api6={deletAssetApi6}
-                >
-                  <Div style={{ flexDirection: 'column' }}>
-                    <p style={{ marginBottom: '10px' }}>
-                      6)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[5]}
-                    </p>
-                    <p>선택하신 자산을 삭제하시겠습니까?</p>
-                  </Div>
-                </AssetDeleteModal6>
-
-                <AutoModal
-                  open={Modalopen}
-                  close={closeModal}
-                  header="자산 금액 수정 알림"
-                >
-                  자산 금액이 수정 되었습니다.
-                </AutoModal>
-
-                <Modal
-                  open={errTextModalopen}
-                  close={errcloseModal}
-                  header="자산 금액 오류 알림"
-                >
-                  <p>오류 : 수정할 자산명칭 및 자산 금액을 확인해 주시기 </p>
-                  <p style={{ marginLeft: '42px', marginTop: '10px' }}>
-                    바랍니다.
-                  </p>
-                </Modal>
-
-                <Modal
-                  open={errModalopen}
-                  close={errcloseModal}
-                  header="자산 종류 오류 알림"
-                >
-                  오류 : 수정할 자산 종류를 입력해주세요
-                </Modal>
-
-                <Modal
-                  open={errDelModalopen}
-                  close={errcloseModal}
-                  header="자산 리스트 생성 초과"
-                >
-                  <p>리스트는 최대 6개까지 입니다.</p>
-                </Modal>
-
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <TitleH1>
-                    <BsTerminal onClick={openPostListModal1} />
-                  </TitleH1>
-                  <H1
-                    style={{
-                      width: '220px',
-                      height: '50px',
-                      paddingLeft: '10px',
-                    }}
-                  >
-                    자산 리스트
-                  </H1>
-                </div>
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    1 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[0] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[0]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal1}
-                      disabled={ListTypeData[0] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler1}
-                      disabled={ListTypeData[0] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[0] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>
-                        총 금액&nbsp;:&nbsp;
-                        {ListTextValue1}
-                        &nbsp;원
-                      </>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    2 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[1] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[1]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal2}
-                      disabled={ListTypeData[1] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler2}
-                      disabled={ListTypeData[1] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[1] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>총 금액&nbsp;:&nbsp;{ListTextValue2}&nbsp;원</>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    3 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[2] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[2]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal3}
-                      disabled={ListTypeData[2] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler3}
-                      disabled={ListTypeData[2] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[2] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>총 금액&nbsp;:&nbsp;{ListTextValue3}&nbsp;원</>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    4 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[3] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[3]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal4}
-                      disabled={ListTypeData[3] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler4}
-                      disabled={ListTypeData[3] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[3] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>총 금액&nbsp;:&nbsp;{ListTextValue4}&nbsp;원</>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    5 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[4] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[4]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal5}
-                      disabled={ListTypeData[4] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler5}
-                      disabled={ListTypeData[4] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[4] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>총 금액&nbsp;:&nbsp;{ListTextValue5}&nbsp;원</>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <AssetListBox>
-                  <H3Title style={{ marginTop: '10px' }}>
-                    6 &nbsp;) &nbsp;
-                  </H3Title>
-                  <H3Title>
-                    {ListTypeData[5] === undefined ? (
-                      <>명칭</>
-                    ) : (
-                      <>{ListTypeData[5]}</>
-                    )}
-                    <EditButton
-                      className="1"
-                      onClick={openEditTextModal6}
-                      disabled={ListTypeData[5] === '명칭'}
-                    >
-                      <FiEdit />
-                    </EditButton>
-                    &nbsp;
-                    <EditButton
-                      className="1"
-                      onClick={DelModalopenHandler6}
-                      disabled={ListTypeData[5] === '명칭'}
-                    >
-                      <FiDelete />
-                    </EditButton>
-                  </H3Title>
-                  <H3>
-                    {ListData[5] === undefined ? (
-                      <>총 금액&nbsp;:&nbsp;0원</>
-                    ) : (
-                      <>총 금액&nbsp;:&nbsp;{ListTextValue6}&nbsp;원</>
-                    )}
-                  </H3>
-                </AssetListBox>
-
-                <H2 style={{ width: '250px' }}>&nbsp;자산 리스트 추가&nbsp;</H2>
-                <Div>
-                  <Input
-                    onChange={TextonChange}
-                    value={Text}
-                    type="text"
-                    placeholder="자산 명칭을 적어주세요. (ex. 다이아몬드)"
-                  />
-                </Div>
-                {Text && ListTypeData ? (
-                  <Fade>
-                    {Text === '명칭' ? (
-                      <P
-                        style={{ color: 'blue' }}
-                      >{`🚨 자산명칭이 "명칭"이면 버튼 비활성화됩니다."`}</P>
-                    ) : null}
-                    <P>{`✨ 자산명칭: "${Text}"`}</P>
-                  </Fade>
-                ) : null}
-                <Div>
-                  <Input
-                    onChange={CashonChange}
-                    value={Cash}
-                    type="text"
-                    placeholder="숫자로만 금액을 적어주세요. (ex. 10000)"
-                  />
-                  <div>
-                    <TitleCashBtn
-                      Text={Text}
-                      Cash={Cash}
-                      postAssetApi={postAssetApi}
-                      listdata={ListTypeData}
-                      openerrDelModalopen={openerrDelModalopen}
-                    >
-                      수정
-                    </TitleCashBtn>
-                  </div>
-                </Div>
-                {Cash && ListValueData && Cashtarget.length <= 21 ? (
-                  <Fade>
-                    <P
-                      style={{ color: 'blue' }}
-                    >{`✔ 금액 : "${Cashtarget}원"`}</P>
-                    <P>{`✔ 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                    <P>{`✔ 숫자만 기입 + " , " 포함 21자리까지 금액수정이 가능합니다.`}</P>
-                  </Fade>
-                ) : Cash && AssetDatas && Cashtarget.length >= 22 ? (
-                  <Fade>
-                    <P>{`🚨 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                    <P
-                      style={{ color: 'blue' }}
-                    >{`🚨 현재 금액 자리수가 22자리 이상입니다.`}</P>
-                    <P style={{ color: 'blue' }}>{`🚨 금액을 수정해주세요.`}</P>
-                  </Fade>
-                ) : null}
-              </MainContain>
+              </AssetListBox>
             </TopPage>
-          </MainPage> */}
+          </MainPage>
+        </>
+      ) : (
+        <>
+          <LongNavbarBox />
+          <MiniNavbarBox />
+          <LoadingDiv>
+            <div className="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </LoadingDiv>
+        </>
+      )}
     </>
   );
 };
