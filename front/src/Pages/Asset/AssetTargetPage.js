@@ -54,14 +54,22 @@ const GuideBox = styled.div`
     }
   }
   @media only screen and (max-width: 320px) {
-    padding: 10px;
-    width: 100%;
+    margin: 100px;
+
+    width: 300px;
     color: black;
     text-align: center;
+    font-size: 10px;
     .TextHeader {
       text-align: center;
       color: #1c2f71;
       width: 100%;
+    }
+    .Text {
+      font-size: 8px;
+    }
+    .Hilight {
+      color: #4966a9;
     }
   }
 `;
@@ -130,8 +138,9 @@ const ChartContain = styled.div`
     /* margin-left: -50px; */
     margin-bottom: 50px;
     gap: 0px;
-    width: 80%;
-    margin-left: 30px;
+    width: 320px;
+    height: 30%;
+    margin-left: 120px;
   }
 `;
 const ChartBox = styled.div`

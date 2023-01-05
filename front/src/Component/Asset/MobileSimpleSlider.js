@@ -97,6 +97,7 @@ export const SimpleSlider = ({
   ListTextValue5,
   // eslint-disable-next-line no-unused-vars
   ListTextValue6,
+  openEditTextModal1,
 }) => {
   let settings = {
     dots: true,
@@ -115,7 +116,7 @@ export const SimpleSlider = ({
             {ListTypeData[0] === undefined ? <>명칭</> : <>{ListTypeData[0]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal1}
+              onClick={openEditTextModal1}
               disabled={ListTypeData[0] === '명칭'}
             >
               <FiEdit />
@@ -295,272 +296,34 @@ export const SimpleSlider = ({
     </StyledSlider>
   );
 };
+/**
+  const settings = {
 
-// export const SimpleSlider = ({
-//   // eslint-disable-next-line no-unused-vars
-//   AssetListBox,
-//   // eslint-disable-next-line no-unused-vars
-//   H3,
-//   // eslint-disable-next-line no-unused-vars
-//   H3Title,
-//   // eslint-disable-next-line no-unused-vars
-//   EditButton,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTypeData,
-//   // eslint-disable-next-line no-unused-vars
-//   ListData,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue1,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue2,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue3,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue4,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue5,
-//   // eslint-disable-next-line no-unused-vars
-//   ListTextValue6,
-// }) => {
-//   const settings = {
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//   };
-//   // const settings = {
+  dots: true, // 개수 표시 점
+  infinite: true, // 무한 캐러셀
+  speed: 500, // 다음 컨텐츠 까지의 속도
+  slidesToShow: 1, // 화면에 보이는 컨텐츠 수
+  slidesToScroll: 1, // 스크롤 시 넘어가는 컨텐츠 수
+  centerMode: true, // 현재 컨텐츠 가운데 정렬
+  centerPadding: '10px', // 중앙 컨텐츠 padding 값
+  autoplay: true, // 자동 캐러셀
+  autoplaySpeed: 2000, // 자동 캐러셀 속도
+  draggable: false, // 드래그
+  fade: false, // 사라졌다 나타나는 효과
+  arrows: true, // 좌,우 버튼
+  vertical: false, // 세로 캐러셀
+  initialSlide: 1, // 첫 컨텐츠 번호
+  pauseOnFocus: true, // focus시 정지
+  pauseOnHover: true, // hover시 정지
+  responsive: [
+  반응형 옵션
+  {
+    breakpoint: 768, // (숫자)px 이하일 경우
+    settings: {
+      slidesToShow: 1,
+      arrows: true,
+    },
+  },
+  ],
 
-//   // dots: true, // 개수 표시 점
-//   // infinite: true, // 무한 캐러셀
-//   // speed: 500, // 다음 컨텐츠 까지의 속도
-//   // slidesToShow: 1, // 화면에 보이는 컨텐츠 수
-//   // slidesToScroll: 1, // 스크롤 시 넘어가는 컨텐츠 수
-//   // centerMode: true, // 현재 컨텐츠 가운데 정렬
-//   // centerPadding: '10px', // 중앙 컨텐츠 padding 값
-//   // autoplay: true, // 자동 캐러셀
-//   // autoplaySpeed: 2000, // 자동 캐러셀 속도
-//   // draggable: false, // 드래그
-//   // fade: false, // 사라졌다 나타나는 효과
-//   // arrows: true, // 좌,우 버튼
-//   // vertical: false, // 세로 캐러셀
-//   // initialSlide: 1, // 첫 컨텐츠 번호
-//   // pauseOnFocus: true, // focus시 정지
-//   // pauseOnHover: true, // hover시 정지
-//   // responsive: [
-//   // 반응형 옵션
-//   // {
-//   //   breakpoint: 768, // (숫자)px 이하일 경우
-//   //   settings: {
-//   //     slidesToShow: 1,
-//   //     arrows: true,
-//   //   },
-//   // },
-//   // ],
-
-//   return (
-//     <Slider {...settings}>
-//       <div>
-//         <h3>1</h3>
-//         {/* <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>1 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[0] === undefined ? <>명칭</> : <>{ListTypeData[0]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal1}
-//               disabled={ListTypeData[0] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler1}
-//               disabled={ListTypeData[0] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[0] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>
-//                 총 금액&nbsp;:&nbsp;
-//                 {ListTextValue1}
-//                 &nbsp;원
-//               </>
-//             )}
-//           </H3>
-//         </AssetListBox> */}
-//       </div>
-//       <div>
-//         <h3>2</h3>
-//       </div>
-//       <div>
-//         <h3>3</h3>
-//       </div>
-//       <div>
-//         <h3>4</h3>
-//       </div>
-//       <div>
-//         <h3>5</h3>
-//       </div>
-//       <div>
-//         <h3>6</h3>
-//       </div>
-
-//       {/* <div>
-//         <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>2 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[1] === undefined ? <>명칭</> : <>{ListTypeData[1]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal2}
-//               disabled={ListTypeData[1] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler2}
-//               disabled={ListTypeData[1] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[1] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>총 금액&nbsp;:&nbsp;{ListTextValue2}&nbsp;원</>
-//             )}
-//           </H3>
-//         </AssetListBox>
-//       </div>
-//       <div>
-//         <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>3 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[2] === undefined ? <>명칭</> : <>{ListTypeData[2]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal3}
-//               disabled={ListTypeData[2] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler3}
-//               disabled={ListTypeData[2] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[2] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>총 금액&nbsp;:&nbsp;{ListTextValue3}&nbsp;원</>
-//             )}
-//           </H3>
-//         </AssetListBox>
-//       </div> */}
-//       {/* <div>
-//         <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>4 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[3] === undefined ? <>명칭</> : <>{ListTypeData[3]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal4}
-//               disabled={ListTypeData[3] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler4}
-//               disabled={ListTypeData[3] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[3] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>총 금액&nbsp;:&nbsp;{ListTextValue4}&nbsp;원</>
-//             )}
-//           </H3>
-//         </AssetListBox>
-//       </div>
-//       <div>
-//         <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>5 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[4] === undefined ? <>명칭</> : <>{ListTypeData[4]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal5}
-//               disabled={ListTypeData[4] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler5}
-//               disabled={ListTypeData[4] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[4] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>총 금액&nbsp;:&nbsp;{ListTextValue5}&nbsp;원</>
-//             )}
-//           </H3>
-//         </AssetListBox>
-//       </div>
-//       <div>
-//         <AssetListBox>
-//           <H3 style={{ marginTop: '10px' }}>6 &nbsp;) &nbsp;</H3>
-//           <H3Title>
-//             {ListTypeData[5] === undefined ? <>명칭</> : <>{ListTypeData[5]}</>}
-//             <EditButton
-//               className="1"
-//               // onClick={openEditTextModal6}
-//               disabled={ListTypeData[5] === '명칭'}
-//             >
-//               <FiEdit />
-//             </EditButton>
-//             &nbsp;
-//             <EditButton
-//               className="1"
-//               // onClick={DelModalopenHandler6}
-//               disabled={ListTypeData[5] === '명칭'}
-//             >
-//               <FiDelete />
-//             </EditButton>
-//           </H3Title>
-//           <H3>
-//             {ListData[5] === undefined ? (
-//               <>총 금액&nbsp;:&nbsp;0원</>
-//             ) : (
-//               <>총 금액&nbsp;:&nbsp;{ListTextValue6}&nbsp;원</>
-//             )}
-//           </H3>
-//         </AssetListBox>
-//       </div> */}
-//     </Slider>
-//   );
-// };
+ */

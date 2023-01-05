@@ -12,8 +12,8 @@ import { BoardPage } from './Pages/Board/BoardPage';
 import Board from './Pages/Board/Board';
 import MyPage from './Pages/Member/MyPage';
 import BoardContentPage from './Pages/Board/BoardContentPage';
-// import AssetTargetTest from './Pages/Asset/AssetTargetTest';
 import AssetTargetPage from './Pages/Asset/AssetTargetPage';
+// import AssetTartget from './Pages/Asset/AssetTargetPage';
 import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
@@ -44,14 +44,14 @@ const theme = {
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     flex-direction: column;
-    background-color: #020626;
+    background-color: #f9fafb;
     /* margin-top: 300px; */
     min-width: ${DeviceSizes.tabletWidth};
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     flex-direction: column;
-    background-color: #020626;
+    background-color: #f9fafb;
     min-width: ${DeviceSizes.mobileWidth};
     /* margin-top: 300px; */
   }
@@ -81,6 +81,7 @@ function App() {
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/modifyboard/:id" element={<ModifyBoard />} />
             <Route path="/assettarget" element={<AssetTargetPage />} />
+
             {/* <Route path="/assettargetpage" element={<AssetTargetTest />} /> */}
             {/* {authCtx.isLoggedIn && (
           <Route path="/assetchange" element={<AssetChange />} />
