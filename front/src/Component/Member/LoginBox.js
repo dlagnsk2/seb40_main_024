@@ -157,9 +157,6 @@ export const LoginBox = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const URL = process.env.REACT_APP_API_URL;
-  // const ClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-  // const RedirectURL = process.env.REACT_APP_GOOGLE_REDIRECT_URL;
-  // const ClientSecret = process.env.REACT_APP_CLIENT_SECRET;
   const [Modalopen, setModalopen] = useState(false);
   const [errModalopen, setErrModalopen] = useState(false);
 
@@ -239,34 +236,6 @@ export const LoginBox = () => {
     }
   };
 
-  // const GooglePostLogin = async () => {
-  //   try {
-  //     const req = await axios.post(
-  //       `${URL}/login/oauth2/code/google`,
-  //       DataLogin
-  //     );
-  //     const reqToken = req.headers.get('Authorization');
-  //     // const reqRefreshToken = req.headers.get('Refresh');
-  //     authCtx.login(reqToken);
-  //     openModal();
-  //   } catch (e) {
-  //     erropenModal();
-  //   }
-  // };
-  // function handleCallbackResponse(response) {
-  //   console.log(response.credential);
-  // }
-  // useEffect(() => {
-  //   google.accounts.id.initialize({
-  //     client_id: ClientId,
-  //     callback: handleCallbackResponse,
-  //   });
-  //   google.accounts.id.renderButton(document.getElementById('signInDiv'), {
-  //     theme: 'outline',
-  //     size: 'large',
-  //   });
-  // }, []);
-
   return (
     <PageContainer>
       <Container>
@@ -317,7 +286,6 @@ export const LoginBox = () => {
           <Button2>
             <NavForgotPasswordButton />
             <NavSignUpButton />
-            <div id="signInDiv"></div>
           </Button2>
         </ButtonBox>
         <GoogleLogin />

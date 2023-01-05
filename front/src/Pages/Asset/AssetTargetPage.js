@@ -9,6 +9,11 @@ import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
 import GoalChart from '../../Component/Asset/GoalChart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCircleChevronDown,
+  faCircleChevronUp,
+} from '@fortawesome/free-solid-svg-icons';
 
 const GuideBox = styled.div`
   display: flex;
@@ -38,6 +43,7 @@ const GuideBox = styled.div`
     text-align: center;
   } */
   @media only screen and (max-width: 768px) {
+    margin-top: 50px;
     padding: 10px;
     width: 650px;
     color: black;
@@ -54,26 +60,46 @@ const GuideBox = styled.div`
     }
   }
   @media only screen and (max-width: 320px) {
-    margin: 100px;
-
+    margin-left: 170px;
     width: 300px;
     color: black;
     text-align: center;
-    font-size: 10px;
+    .TextHeader {
+      text-align: center;
+      color: #1c2f71;
+      width: 100%;
+    }
+  }
+`;
+const MobileGuideBox = styled.div`
+  @media only screen and (max-width: 320px) {
+    margin-top: 100px;
+    margin-left: 170px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    height: auto;
+    /* text-align: left; */
+    border-top: 5px solid #92b4ec;
+    border-bottom: 5px solid #92b4ec;
+    margin-bottom: 50px;
+    color: grey;
     .TextHeader {
       text-align: center;
       color: #1c2f71;
       width: 100%;
     }
     .Text {
-      font-size: 8px;
+      font-size: 17px;
     }
     .Hilight {
       color: #4966a9;
     }
   }
 `;
-
 const PageContain = styled.div`
   display: flex;
   flex-direction: column;
@@ -140,7 +166,7 @@ const ChartContain = styled.div`
     gap: 0px;
     width: 320px;
     height: 30%;
-    margin-left: 120px;
+    margin-left: 150px;
   }
 `;
 const ChartBox = styled.div`
@@ -155,8 +181,7 @@ const ChartBox = styled.div`
   }
   @media only screen and (max-width: 320px) {
     /* position: relative; */
-    width: 100%;
-    margin-left: 30px;
+    width: 320px;
   }
 `;
 
@@ -213,6 +238,7 @@ const AssetTargetPage = () => {
   const [up, setUp] = useState(0); //저축횟수
   const [countList, setCountList] = useState([]);
   const [Modalopen, setModalopen] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   const closeModal = () => {
     setModalopen(!Modalopen);
@@ -261,6 +287,9 @@ const AssetTargetPage = () => {
 
   const targetLengthonChange = (e) => {
     setTargetLength(e.target.value);
+  };
+  const dropDownHandler = () => {
+    setDropDown(!dropDown);
   };
 
   useEffect(() => {
@@ -425,6 +454,53 @@ const AssetTargetPage = () => {
             </ChartContain> */}
             <div className="Contain">
               <BoxContain>
+                <MobileGuideBox>
+                  {' '}
+                  <h2 className="TextHeader">목표 작성을 위한 안내</h2>
+                  {dropDown ? (
+                    <FontAwesomeIcon
+                      icon={faCircleChevronUp}
+                      color="#92b4ec"
+                      onClick={dropDownHandler}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCircleChevronDown}
+                      color="#92b4ec"
+                      onClick={dropDownHandler}
+                    />
+                  )}
+                  {dropDown ? (
+                    <>
+                      <br />
+                      <p className="Text">
+                        1.{' '}
+                        <span className="Hilight">&apos;나의 목표&apos;</span>에
+                        목표를 작성해주세요.
+                      </p>
+                      <br />
+                      <p className="Text">
+                        2. <span className="Hilight">START</span> 버튼을
+                        클릭하면 목표리스트가 생성됩니다.
+                      </p>
+                      <br />
+                      <p className="Text">
+                        3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                        버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
+                      </p>
+                      <br />
+                      <p className="TextCenter">
+                        *목표는 <span className="Hilight">최대 6개</span>까지
+                        등록할 수 있습니다.*
+                      </p>
+                      <br />
+                      <p className="TextCenter">
+                        *그래프를 통해 목표 달성률을 확인해보세요!*
+                      </p>
+                    </>
+                  ) : null}
+                </MobileGuideBox>
+
                 <GuideBox>
                   <h2 className="TextHeader">목표 작성을 위한 안내</h2>
                   <br />
@@ -452,6 +528,7 @@ const AssetTargetPage = () => {
                     *그래프를 통해 목표 달성률을 확인해보세요!*
                   </p>
                 </GuideBox>
+
                 <ChartContain className="ScrollActive">
                   <GraphH1>목표 현황</GraphH1>
                   <ChartBox>

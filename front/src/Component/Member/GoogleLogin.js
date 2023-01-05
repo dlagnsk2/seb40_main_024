@@ -15,8 +15,6 @@ export default function GoogleLogin() {
       theme: 'outline',
       size: 'large',
     });
-    // console.log(window.google.accounts.TokenClient);
-    // console.log(window.google.accounts.oauth2);
   });
 
   return <div id="google-login-api" ref={googleSignInButton} />;

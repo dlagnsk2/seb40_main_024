@@ -34,6 +34,11 @@ const ComponentContain = styled.div`
     text-align: left;
     color: gray;
   }
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+    margin-left: 180px;
+    height: 400px;
+  }
 `;
 
 const Header = styled.h3`
