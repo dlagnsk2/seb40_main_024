@@ -16,9 +16,9 @@ const ComponentContain = styled.div`
   height: auto;
   border: 5px solid #92b4ec;
   border-radius: 3%;
-  .trashicon {
+  /* .trashicon {
     margin-left: 500px;
-  }
+  } */
   .p {
     font-size: 17px;
     font-weight: 500;

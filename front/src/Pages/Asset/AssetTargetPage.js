@@ -43,7 +43,7 @@ const GuideBox = styled.div`
     text-align: center;
   } */
   @media only screen and (max-width: 768px) {
-    margin-top: 50px;
+    margin-top: 150px;
     padding: 10px;
     width: 650px;
     color: black;
@@ -60,18 +60,13 @@ const GuideBox = styled.div`
     }
   }
   @media only screen and (max-width: 320px) {
-    margin-left: 170px;
-    width: 300px;
-    color: black;
-    text-align: center;
-    .TextHeader {
-      text-align: center;
-      color: #1c2f71;
-      width: 100%;
-    }
+    display: none;
   }
 `;
 const MobileGuideBox = styled.div`
+  @media only screen and (min-width: 321px) {
+    display: none;
+  }
   @media only screen and (max-width: 320px) {
     margin-top: 100px;
     margin-left: 170px;
@@ -446,12 +441,6 @@ const AssetTargetPage = () => {
       <>
         <div>
           <PageContain>
-            {/* <ChartContain className="ScrollActive">
-              <GraphH1>목표 현황</GraphH1>
-              <ChartBox>
-                <GoalChart GoalData={GoalData}></GoalChart>
-              </ChartBox>
-            </ChartContain> */}
             <div className="Contain">
               <BoxContain>
                 <MobileGuideBox>
@@ -462,12 +451,14 @@ const AssetTargetPage = () => {
                       icon={faCircleChevronUp}
                       color="#92b4ec"
                       onClick={dropDownHandler}
+                      cursor="pointer"
                     />
                   ) : (
                     <FontAwesomeIcon
                       icon={faCircleChevronDown}
                       color="#92b4ec"
                       onClick={dropDownHandler}
+                      cursor="pointer"
                     />
                   )}
                   {dropDown ? (
