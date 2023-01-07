@@ -14,10 +14,10 @@ const ButtonAA = styled.button`
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  color: #444;
-  background-color: #8ec3b0;
+  color: #fff;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
@@ -38,10 +38,10 @@ const ButtonBB = styled.button`
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  color: #444;
-  background-color: #8ec3b0;
+  color: #fff;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
@@ -63,11 +63,11 @@ const ButtonCC = styled.button`
   font-weight: 800;
   font-size: 20px;
   transition: 0.25s;
-  color: #444;
+  color: #fff;
   stroke: #000000;
-  background-color: #8ec3b0;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
