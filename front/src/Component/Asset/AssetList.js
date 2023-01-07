@@ -24,6 +24,7 @@ const ComponentContain = styled.div`
     font-size: 17px;
     font-weight: 500;
     color: #92b4ec;
+    font-weight: 500;
   }
   .smallP {
     margin-bottom: 5px;
@@ -63,6 +64,7 @@ const MobileComponentContain = styled.div`
     border-radius: 3%;
     opacity: 1;
     transition: opacity 5s;
+    font-weight: 500;
     .goaltitle {
       color: gray;
     }
@@ -88,7 +90,7 @@ const MobileComponentDetail = styled.div`
     .mobilep {
       font-size: 15px;
       font-weight: 500;
-      color: #1c2f71;
+      color: #92b4ec;
     }
     .mobilesmallP {
       margin-bottom: 5px;
@@ -114,6 +116,10 @@ const Header = styled.h3`
   /* @media only screen and (max-width: 320px) {
     margin-top: -20px;
   } */
+  :hover {
+    color: gray;
+    cursor: pointer;
+  }
 `;
 const MobileHeader = styled.h4`
   @media only screen and (min-width: 321px) {
@@ -131,6 +137,12 @@ const MobileHeader = styled.h4`
     /* border: 2px solid #4a61a9; */
     border-radius: 2rem;
     border: 1px solid #4a61a9;
+    cursor: pointer;
+  }
+  :hover {
+    color: gray;
+    letter-spacing: 1px;
+    transform: scale(1.1);
     cursor: pointer;
   }
 `;
