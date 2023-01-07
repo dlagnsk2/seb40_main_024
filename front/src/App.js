@@ -51,7 +51,7 @@ const Div = styled.div`
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     flex-direction: column;
-    background-color: #f9fafb;
+    background-color: #020626;
     min-width: ${DeviceSizes.mobileWidth};
     /* margin-top: 300px; */
   }

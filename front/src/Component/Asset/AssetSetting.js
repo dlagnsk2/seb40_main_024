@@ -20,6 +20,7 @@ const ComponentContain = styled.div`
     margin-left: 500px;
   } */
   .p {
+    color: #92b4ec;
     font-size: 17px;
     font-weight: 500;
   }
@@ -32,6 +33,7 @@ const ComponentContain = styled.div`
 
 const Header = styled.h3`
   margin-top: 30px;
+  color: #92b4ec;
 `;
 
 const SettingInput = styled.input`
@@ -66,6 +68,9 @@ const TextBox = styled.div`
   width: 300px;
   color: #ffd24c;
   font-size: 30px;
+  @media only screen and (max-width: 521px) {
+    font-size: 20px;
+  }
 `;
 
 const AssetSetting = ({

@@ -76,6 +76,11 @@ const ButtonCC = styled.button`
     position: relative;
     top: 3px;
   }
+  @media only screen and (max-width: 521px) {
+    width: 100px;
+    font-size: 15px;
+    height: 30px;
+  }
 `;
 
 export const ButtonA = () => {

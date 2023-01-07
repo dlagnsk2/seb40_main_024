@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { SaveBtn, EditGoalBtn, DeleteGoalBtn } from '../Common/Button';
 import {
   GoalModifyModal,
@@ -23,7 +23,7 @@ const ComponentContain = styled.div`
   .p {
     font-size: 17px;
     font-weight: 500;
-    color: #1c2f71;
+    color: #92b4ec;
   }
   .smallP {
     margin-bottom: 5px;
@@ -34,6 +34,16 @@ const ComponentContain = styled.div`
   @media only screen and (max-width: 320px) {
     display: none;
   }
+`;
+const boxAnimation = keyframes`
+
+0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
 `;
 const MobileComponentContain = styled.div`
   @media only screen and (min-width: 321px) {
@@ -51,6 +61,11 @@ const MobileComponentContain = styled.div`
     margin-left: 180px;
     height: auto;
     border-radius: 3%;
+    opacity: 1;
+    transition: opacity 5s;
+    .goaltitle {
+      color: gray;
+    }
   }
 `;
 const MobileComponentDetail = styled.div`
@@ -58,6 +73,7 @@ const MobileComponentDetail = styled.div`
     display: none;
   }
   @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
     display: flex;
     flex-direction: column;
     /* display: inline-flex; */
@@ -65,8 +81,10 @@ const MobileComponentDetail = styled.div`
     box-sizing: border-box;
     width: 100%;
     height: auto;
-
     border-radius: 3%;
+    /* opacity: 1;
+    transition: opacity 500ms; */
+
     .mobilep {
       font-size: 15px;
       font-weight: 500;
@@ -86,6 +104,7 @@ const Header = styled.h3`
   box-sizing: border-box;
   width: 120px;
   height: 30px;
+  color: #92b4ec;
   text-align: center;
   /* border: 2px solid #4a61a9; */
   border-radius: 2rem;
@@ -107,6 +126,7 @@ const MobileHeader = styled.h4`
     width: 120px;
     height: 30px;
     margin-top: 10px;
+    color: #92b4ec;
     text-align: center;
     /* border: 2px solid #4a61a9; */
     border-radius: 2rem;
@@ -310,7 +330,7 @@ const AssetList = ({
           >
             나의 목표
           </MobileHeader>
-          {count.goalName}
+          <div className="goaltitle">{count.goalName}</div>
           {listOpen ? (
             <MobileComponentDetail>
               <BtnBox>

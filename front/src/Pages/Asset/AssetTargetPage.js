@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import AssetSetting from '../../Component/Asset/AssetSetting';
 import {
   LongNavbarBox,
@@ -15,6 +15,17 @@ import {
   faCircleChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 
+const boxAnimation = keyframes`
+
+0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+`;
+
 const GuideBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,17 +38,17 @@ const GuideBox = styled.div`
   border-top: 5px solid #92b4ec;
   border-bottom: 5px solid #92b4ec;
   margin-bottom: 50px;
-  color: grey;
+  color: gray;
   .TextHeader {
     text-align: center;
-    color: #1c2f71;
+    color: #92b4ec;
     width: 550px;
   }
   .Text {
     font-size: 17px;
   }
   .Hilight {
-    color: #4966a9;
+    color: #92b4ec;
   }
   /* .TextCenter {
     text-align: center;
@@ -46,12 +57,12 @@ const GuideBox = styled.div`
     margin-top: 150px;
     padding: 10px;
     width: 650px;
-    color: black;
+    color: gray;
   }
   @media only screen and (max-width: 521px) {
     padding: 10px;
     width: 100%;
-    color: black;
+    color: gray;
     text-align: center;
     .TextHeader {
       text-align: center;
@@ -68,6 +79,7 @@ const MobileGuideBox = styled.div`
     display: none;
   }
   @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
     margin-top: 100px;
     margin-left: 170px;
     width: 300px;
@@ -84,15 +96,20 @@ const MobileGuideBox = styled.div`
     color: grey;
     .TextHeader {
       text-align: center;
-      color: #1c2f71;
+      color: #92b4ec;
       width: 100%;
     }
     .Text {
       font-size: 17px;
     }
     .Hilight {
-      color: #4966a9;
+      color: #92b4ec;
     }
+  }
+`;
+const MobileGuideBoxDetail = styled.div`
+  @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
   }
 `;
 const PageContain = styled.div`
@@ -217,6 +234,7 @@ const GraphH1 = styled.h1`
   }
   @media only screen and (max-width: 320px) {
     margin: 0px;
+    font-size: 30px;
   }
 `;
 
@@ -418,7 +436,7 @@ const AssetTargetPage = () => {
       measures: [15],
     },
   ];
-
+  console.log(GoalData[0].id === '목표 예시');
   for (let i = 0; i < countList.length; i++) {
     let countListData = {
       id: countList[i].goalName,
@@ -431,6 +449,11 @@ const AssetTargetPage = () => {
           100
       ),
     };
+    // if(GoalData)
+    if (GoalData[0].id === '목표 예시') {
+      GoalData === countListData;
+    }
+    console.log(countListData);
     GoalData.push(countListData);
   }
 
@@ -462,7 +485,7 @@ const AssetTargetPage = () => {
                     />
                   )}
                   {dropDown ? (
-                    <>
+                    <MobileGuideBoxDetail>
                       <br />
                       <p className="Text">
                         1.{' '}
@@ -488,7 +511,7 @@ const AssetTargetPage = () => {
                       <p className="TextCenter">
                         *그래프를 통해 목표 달성률을 확인해보세요!*
                       </p>
-                    </>
+                    </MobileGuideBoxDetail>
                   ) : null}
                 </MobileGuideBox>
 
