@@ -50,6 +50,11 @@ const ButtonBB = styled.button`
     position: relative;
     top: 3px;
   }
+  @media only screen and (max-width: 320px) {
+    width: 80px;
+    font-size: 13px;
+    height: 25px;
+  }
 `;
 const ButtonCC = styled.button`
   width: 230px;
@@ -76,7 +81,7 @@ const ButtonCC = styled.button`
     position: relative;
     top: 3px;
   }
-  @media only screen and (max-width: 521px) {
+  @media only screen and (max-width: 320px) {
     width: 100px;
     font-size: 15px;
     height: 30px;
