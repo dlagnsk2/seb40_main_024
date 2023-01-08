@@ -17,6 +17,12 @@ const TotalContent = styled.div`
   margin-top: 100px;
   border: 3px solid #9ed5c5;
   border-radius: 10px;
+  @media only screen and (max-width: 768px) {
+    width: 700px;
+  }
+
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const BtnContain = styled.div`
