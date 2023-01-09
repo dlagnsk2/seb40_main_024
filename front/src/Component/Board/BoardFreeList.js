@@ -23,10 +23,10 @@ const Div = styled.div`
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 5px solid #8ec3b0;
+    border: 5px solid #92b4ec;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #8ec3b0 transparent transparent transparent;
+    border-color: #92b4ec transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -51,17 +51,25 @@ const Label = styled.label`
   display: flex;
   margin-top: 15px;
   span {
-    color: #8ec3b0;
+    color: #92b4ec;
     font-size: 15px;
     font-weight: 500;
     margin-left: 100px;
   }
+  @media only screen and (max-width: 768px) {
+  }
+
+  @media only screen and (max-width: 320px) {
+    span {
+      margin-left: -30px;
+    }
+  }
 `;
 
 const Select = styled.select`
-  border: 2.5px solid #9ed5c5;
+  border: 2.5px solid #92b4ec;
   box-sizing: border-box;
-  color: #8ec3b0;
+  color: #92b4ec;
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;

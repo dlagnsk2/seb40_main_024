@@ -23,6 +23,19 @@ const CommentInput = styled.input`
     outline: none;
   }
   font-size: 17px;
+  @media only screen and (max-width: 768px) {
+    width: 550px;
+    margin-right: 15px;
+    margin-left: 70px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 200px;
+    margin-right: 15px;
+    margin-left: 270px;
+    height: 15px;
+    font-size: 12px;
+  }
 `;
 
 function Post() {

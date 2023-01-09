@@ -14,10 +14,10 @@ const ButtonAA = styled.button`
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  color: #444;
-  background-color: #8ec3b0;
+  color: #fff;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
@@ -25,6 +25,11 @@ const ButtonAA = styled.button`
   :active {
     position: relative;
     top: 3px;
+  }
+  @media only screen and (max-width: 320px) {
+    width: 50px;
+    font-size: 12px;
+    height: 25px;
   }
 `;
 const ButtonBB = styled.button`
@@ -38,10 +43,10 @@ const ButtonBB = styled.button`
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  color: #444;
-  background-color: #8ec3b0;
+  color: #fff;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
@@ -49,6 +54,11 @@ const ButtonBB = styled.button`
   :active {
     position: relative;
     top: 3px;
+  }
+  @media only screen and (max-width: 320px) {
+    width: 80px;
+    font-size: 13px;
+    height: 25px;
   }
 `;
 const ButtonCC = styled.button`
@@ -63,11 +73,11 @@ const ButtonCC = styled.button`
   font-weight: 800;
   font-size: 20px;
   transition: 0.25s;
-  color: #444;
+  color: #fff;
   stroke: #000000;
-  background-color: #8ec3b0;
+  background-color: #c0daf9;
   :hover {
-    color: #fff;
+    color: gray;
     letter-spacing: 1px;
     transform: scale(1.1);
     cursor: pointer;
@@ -75,6 +85,11 @@ const ButtonCC = styled.button`
   :active {
     position: relative;
     top: 3px;
+  }
+  @media only screen and (max-width: 320px) {
+    width: 100px;
+    font-size: 15px;
+    height: 30px;
   }
 `;
 

@@ -4,7 +4,6 @@ import useScript from '../../Hooks/useScript';
 // import { postGoogleLogin } from 'api/auth';
 
 // const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-// console.log(`${GoogleClientId}`);
 
 export const GoogleLogin = () => {
   const googleSignInButton = useRef(null);
@@ -23,15 +22,18 @@ export const GoogleLogin = () => {
   return <div id="google-login-api" ref={googleSignInButton} />;
 };
 
-// export const GoogleLogout = () => {
-//   const googleLogoutInButton = useRef(null);
+// export function GoogleLogout() {
+//   const googleSignOutButton = useRef(null);
 
 //   useScript('https://mail.google.com/mail/u/0/?logout&hl=en', () => {
-//     window.google.accounts.id.signOut();
-//     window.google.accounts.id.renderButton(googleLogoutInButton.current, {
+//     window.google.accounts.id.initialize({
+//       client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+//     });
+//     window.google.accounts.id.renderButton(googleSignOutButton.current, {
 //       theme: 'outline',
 //       size: 'large',
 //     });
 //   });
-//   return <div id="google-login-api" ref={googleLogoutInButton} />;
-// };
+
+//   return <div id="google-logout-api" ref={googleSignOutButton} />;
+// }
