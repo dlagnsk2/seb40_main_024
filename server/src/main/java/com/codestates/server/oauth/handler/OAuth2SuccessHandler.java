@@ -3,11 +3,13 @@ package com.codestates.server.oauth.handler;
 import com.codestates.server.auth.jwt.JwtTokenizer;
 import com.codestates.server.auth.utils.CustomAuthorityUtils;
 import com.codestates.server.member.entity.Member;
+//import com.codestates.server.member.entity.Provider;
 import com.codestates.server.member.repository.MemberRepository;
 import com.codestates.server.member.service.MemberService;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -31,53 +33,69 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     private final JwtTokenizer jwtTokenizer;
     private final CustomAuthorityUtils authorityUtils;
     private final MemberService memberService;
-    private final MemberRepository memberRepository;
     public static String REDIRECT_URL = "http://localhost:8080/login/oauth2/code/google" ;
 
     public OAuth2SuccessHandler(JwtTokenizer jwtTokenizer,
-        CustomAuthorityUtils authorityUtils, MemberService memberService, MemberRepository memberRepository) {
+        CustomAuthorityUtils authorityUtils, MemberService memberService) {
         this.jwtTokenizer = jwtTokenizer;
         this.authorityUtils = authorityUtils;
         this.memberService = memberService;
-        this.memberRepository = memberRepository;
     }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        String registrationId = ((OAuth2AuthenticationToken)authentication).getAuthorizedClientRegistrationId();
+        try {
+            String registrationId = ((OAuth2AuthenticationToken) authentication).getAuthorizedClientRegistrationId();
+            if (registrationId.equals("google")) {
+                // 구글 먼저
+                var oAuth2User = (OAuth2User) authentication.getPrincipal();
+                HashMap userInfo = oAuth2User.getAttribute("response");
+                String email = userInfo.get("email").toString();
+                String picture = userInfo.get("picture").toString();
+                String name = userInfo.get("name").toString();
+                List<String> authorities = authorityUtils.createRoles(email);
 
-        // 구글 먼저
-        var oAuth2User = (OAuth2User)authentication.getPrincipal();
-        String email = String.valueOf(oAuth2User.getAttributes().get("email"));
-        String picture = oAuth2User.getAttributes().get("picture").toString();
-        String name = String.valueOf(oAuth2User.getAttributes().get("name"));
-        List<String> authorities = authorityUtils.createRoles(email);
+                saveMember(email, picture, name);
+                redirect(request, response, email, authorities);
+            }
 
-//        if (registrationId.equals("google")) {
-//            String provider = "google";
-//        } else if (registrationId.equals("kakao")) {
-//            String provider = "kakao";
-//        } else if (registrationId.equals("naver")) {
-//            String provider = "naver";
-//        }
+//            } else if (registrationId.equals("kakao")) {
+//                var oAuth2User = (OAuth2User) authentication.getPrincipal();
+//                HashMap userInfo = oAuth2User.getAttribute("properties");
+//                String nickname = userInfo.get("nickname").toString();
+//                String profile_image = userInfo.get("profile_image").toString();
+//                HashMap account = oAuth2User.getAttribute("kakao_account");
+//                String email = account.get("email").toString();
+//                List<String> authorities = authorityUtils.createRoles(email);
+//
+//                saveMember(email, profile_image, nickname);
+//                redirect(request, response, email, authorities);
+//
+//            } else if (registrationId.equals("naver")) {
+//                var oAuth2User = (OAuth2User) authentication.getPrincipal();
+//                HashMap userInfo = oAuth2User.getAttribute("response");
+//                String email = userInfo.get("email").toString();
+//                String profile_image = userInfo.get("profile_image").toString();
+//                String name = userInfo.get("name").toString();
+//                List<String> authorities = authorityUtils.createRoles(email);
+//
+//                saveMember(email, profile_image, name);
+//                redirect(request, response, email, authorities);
+//            }
 
-        if (memberRepository.findByEmail(email).isEmpty()) {
-            saveMember(email, picture, name);
+        } catch (Exception e) {
+            throw e;
         }
-//        saveMember(email, picture, name);
-
-        redirect(request, response, email, authorities);
-
     }
 
     private void saveMember(String email, String picture, String name) {
 
-        if (!memberService.verifyExistsEmails(email)) {
-            Member member = new Member(email, picture, name);
-
-            member.setImage(picture);
+        if (!memberService.verifyExistEmail(email)) {
+            Member member = new Member();
+            member.setPicture(picture);
             member.setName(name);
             member.setEmail(email);
+//            member.setCreatedAt(LocalDateTime);
 
             memberService.createMember(member);
 
@@ -85,46 +103,44 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     }
 
-    private void redirect(HttpServletRequest request, HttpServletResponse response, String username, List<String> authorities) throws IOException {
-        String accessToken = delegateAccessToken(username, authorities);
-        String refreshToken = delegateRefreshToken(username);
+    private void redirect(HttpServletRequest request, HttpServletResponse response, String email, List<String> authorities) throws IOException {
+        String accessToken = delegateAccessToken(email, authorities);
+        String refreshToken = delegateRefreshToken(email);
 
         String uri = createURI(accessToken, refreshToken).toString();
         getRedirectStrategy().sendRedirect(request, response, uri);
     }
 
-    private void redirectKakao(HttpServletRequest request, HttpServletResponse response, String username, List<String> authorities) throws IOException {
-        String accessToken = delegateAccessToken(username, authorities);
-        String refreshToken = delegateRefreshToken(username);
+//    private void redirectKakao(HttpServletRequest request, HttpServletResponse response, String email, String provider, List<String> authorities) throws IOException {
+//        String accessToken = delegateAccessToken(email, authorities, provider);
+//        String refreshToken = delegateRefreshToken(email);
+//
+//        String uri = createKakaoURI(accessToken, refreshToken, request).toString();
+//        getRedirectStrategy().sendRedirect(request, response, uri);
+//    }
 
-        String uri = createKakaoURI(accessToken, refreshToken, request).toString();
-        getRedirectStrategy().sendRedirect(request, response, uri);
-    }
-
-    private String delegateAccessToken(String username, List<String> authorities) {
+    private String delegateAccessToken(String email, List<String> authorities) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("username", username);
+        claims.put("email", email);
         claims.put("roles", authorities);
 
-        String subject = username;
+
         Date expiration = jwtTokenizer.getTokenExpiration(
             jwtTokenizer.getAccessTokenExpirationMinutes());
         String base64EncodedSecretKey = jwtTokenizer.encodeBase64SecretKey(
             jwtTokenizer.getSecretKey());
-        String accessToken = jwtTokenizer.generateAccessToken(claims, subject, expiration, base64EncodedSecretKey);
 
-        return accessToken;
+        return jwtTokenizer.generateAccessToken(claims, email, expiration, base64EncodedSecretKey);
 
     }
 
-    private String delegateRefreshToken(String username) {
-        String subject = username;
+    private String delegateRefreshToken(String email) {
 
         Date expiration = jwtTokenizer.getTokenExpiration(
             jwtTokenizer.getRefreshTokenExpirationMinutes());
         String base64EncodedSecretKey = jwtTokenizer.encodeBase64SecretKey(
             jwtTokenizer.getSecretKey());
-        String refreshToken = jwtTokenizer.generateRefreshToken(subject, expiration,
+        String refreshToken = jwtTokenizer.generateRefreshToken(email, expiration,
             base64EncodedSecretKey);
 
         return refreshToken;
@@ -145,23 +161,23 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             .build()
             .toUri();
     }
-
-    private URI createKakaoURI(String accessToken, String refreshToken,
-        HttpServletRequest request) {
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("access_token", accessToken);
-        queryParams.add("refresh_token", refreshToken);
-
-        return UriComponentsBuilder
-            .newInstance()
-            .scheme("http")
-            .host("localhost")
-            .port(3000)
-            .path("/api/token")
-            .queryParams(queryParams)
-            .build()
-            .toUri();
-    }
+//
+//    private URI createKakaoURI(String accessToken, String refreshToken,
+//        HttpServletRequest request) {
+//
+//        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+//        queryParams.add("access_token", accessToken);
+//        queryParams.add("refresh_token", refreshToken);
+//
+//        return UriComponentsBuilder
+//            .newInstance()
+//            .scheme("http")
+//            .host("localhost")
+//            .port(3000)
+//            .path("/api/token")
+//            .queryParams(queryParams)
+//            .build()
+//            .toUri();
+//    }
 
 }

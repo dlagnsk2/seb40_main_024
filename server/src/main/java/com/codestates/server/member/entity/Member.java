@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
 public class Member extends Auditable {
@@ -20,19 +21,15 @@ public class Member extends Auditable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;
-
     @Column(nullable = false, unique = true, updatable = false)
     private String email;
-
     @Column(nullable = false)
     private String name;
-
     @Column(nullable = false, length = 100)
     private String password;
 
     @Column
-    private String image;
-
+    private String picture;
 
     @ElementCollection(fetch = FetchType.EAGER)
     public List<String> roles = new ArrayList<>();
