@@ -6,7 +6,7 @@ import { NavForgotPasswordButton, NavSignUpButton } from '../Common/Button';
 import { Modal } from '../Common/Modal';
 import AuthContext from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import GoogleLogin from './GoogleLogin';
+import { GoogleLogin } from './GoogleLogin';
 
 const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 console.log(GoogleClientId);
@@ -231,9 +231,17 @@ export const LoginBox = () => {
       // const reqRefreshToken = req.headers.get('Refresh');
       authCtx.login(reqToken);
       openModal();
+      console.log('reqToken', req.headers);
     } catch (e) {
       erropenModal();
     }
+  };
+
+  const LogoutHandler = () => {
+    // navigate('/');
+    window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    // navigate('/');
+    // setTimeout(() => navigate('/'), 1000);
   };
 
   return (
@@ -289,6 +297,11 @@ export const LoginBox = () => {
           </Button2>
         </ButtonBox>
         <GoogleLogin />
+        <button
+          onClick={() => LogoutHandler()}
+          style={{ marginTop: '200px', width: '50px', height: '50px' }}
+        ></button>
+
         {/* <div
           id="g_id_onload"
           data-client_id="224876229930-kd4f9thuq3ku0pem5sgspp05aavh34ok.apps.googleusercontent.com"

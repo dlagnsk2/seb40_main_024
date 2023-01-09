@@ -59,9 +59,13 @@ const LightTheme = {
   bgColor: '#f2f5f7',
 };
 
-const theme = {
+const Darktheme = {
   Device,
   DarkTheme,
+};
+// eslint-disable-next-line no-unused-vars
+const Lighttheme = {
+  Device,
   LightTheme,
 };
 
@@ -73,7 +77,7 @@ const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     display: flex;
     height: 100%;
-    flex-direction: column;
+    flex-direction: row;
     background-color: ${({ theme }) => theme.bgColor};
     /* margin-top: 300px; */
     min-width: ${DeviceSizes.tabletWidth};
@@ -92,26 +96,23 @@ const Div = styled.div`
 function App() {
   // const [isDarkMode, setIsDarkMode] = useRecoilState(false);
   // eslint-disable-next-line no-unused-vars
-  const [isDarkMode, setIsDarkMode] = useState(LightTheme);
+  const [DarkMode, setDarkMode] = useState(false);
 
   const DarkModeHandler = () => {
-    setIsDarkMode(DarkTheme);
-    console.log('Dark isDarkMode', isDarkMode);
+    setDarkMode(true);
+    console.log('DarkMode', DarkMode);
   };
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Darktheme}>
         <LongNavbarBox DarkModeHandler={DarkModeHandler} />
         <MiniNavbarBox DarkModeHandler={DarkModeHandler} />
-        {/* <button onClick={() => toggleDarkMode()} style={{ margin: '200px' }}>
-          다크모드 ㄱㄱㄱㄱ
-        </button> */}
+
         <Div>
           <Routes>
             <Route path="*" element={<Error />}></Route>
             <Route path="/" element={<MainHome />} />
-            {/* <Route path="/asset" element={<Asset />} /> */}
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
