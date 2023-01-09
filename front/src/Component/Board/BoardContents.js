@@ -78,6 +78,7 @@ const IdEtcBox = styled.div`
     padding-bottom: 5px;
   }
   @media only screen and (max-width: 320px) {
+    flex-direction: column;
   }
 `;
 
@@ -94,7 +95,7 @@ const Tag = styled.div`
   background-color: #eaf4fe;
 
   @media only screen and (max-width: 320px) {
-    margin-left: -30px;
+    margin-left: -170px;
     min-width: 30px;
   }
 `;
@@ -108,12 +109,22 @@ const Id = styled.div`
   justify-content: center;
   @media only screen and (max-width: 320px) {
     font-size: 12px;
+    margin-left: -60px;
+    margin-top: -25px;
   }
 `;
 
 const EtcBox = styled.div`
   display: flex;
   margin-left: auto;
+  @media only screen and (max-width: 320px) {
+    margin-left: 20px;
+    .mobileEtcBox {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+    }
+  }
 `;
 
 const Date = styled.div`
@@ -186,6 +197,7 @@ const TitleBox = styled.div`
   font-weight: 600;
   @media only screen and (max-width: 320px) {
     font-size: 17px;
+    margin-left: 15px;
   }
 `;
 
@@ -200,6 +212,7 @@ const TextBox = styled.div`
   margin-top: 15px;
   @media only screen and (max-width: 320px) {
     font-size: 15px;
+    margin-left: 15px;
   }
 `;
 
@@ -339,10 +352,9 @@ const Contents = () => {
           </ImageBox>
           <ContentBox>
             <IdEtcBox>
-              <div>
-                <Tag>{category}</Tag>
-              </div>
+              <Tag>{category}</Tag>
               <Id>{name}</Id>
+
               <EtcBox>
                 <Date>{momentdata}</Date>
                 <View>View : {view}</View>

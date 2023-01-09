@@ -61,7 +61,7 @@ const Label = styled.label`
 
   @media only screen and (max-width: 320px) {
     span {
-      margin-left: -30px;
+      margin-left: -15px;
     }
   }
 `;

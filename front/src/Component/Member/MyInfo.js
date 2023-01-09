@@ -24,6 +24,10 @@ const MyPageContain = styled.div`
   .profileStyle {
     margin-top: 20px;
   }
+  @media only screen and (max-width: 320px) {
+    .profileStyle {
+    }
+  }
 `;
 
 const PageHeader = styled.h1`
@@ -90,6 +94,10 @@ const DivBox = styled.div`
     font-size: 14pt;
     margin-top: 100px;
   }
+  @media only screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 const UserInfo = styled.div`
@@ -101,6 +109,9 @@ const UserInfoHead = styled.h4`
   color: #bcead5;
   font-size: 20px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 320px) {
+    margin-top: 20px;
+  }
 `;
 
 const InfoBox = styled.div``;
@@ -128,6 +139,9 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  @media only screen and (max-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 const MainBtn = styled.div`
@@ -138,6 +152,8 @@ const DivBtn = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const SignOutMessge = styled.div`
@@ -309,12 +325,16 @@ const MyInfo = () => {
               <div className="input-box">
                 <div>{Decode.username}</div>
               </div>
-              <MainBtn>
-                <NameUpdateBtn openModify={openModify}>수정하기</NameUpdateBtn>
-              </MainBtn>
-              <MainBtn>
-                <SignOutBtn openSignOut={openSignOut} />
-              </MainBtn>
+              <div className="btnbox">
+                <MainBtn>
+                  <NameUpdateBtn openModify={openModify}>
+                    수정하기
+                  </NameUpdateBtn>
+                </MainBtn>
+                <MainBtn>
+                  <SignOutBtn openSignOut={openSignOut} />
+                </MainBtn>
+              </div>
             </DivBox>
           </UserInfo>
           <Modal open={Modify} close={closeModal} header="회원정보 수정">

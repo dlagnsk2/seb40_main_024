@@ -28,7 +28,7 @@ const ListBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-left: -45px;
+    margin-left: -25px;
     min-width: 280px;
     height: 50px;
     padding: 20px;
@@ -88,7 +88,7 @@ const IdEtContainer = styled.div`
   margin-left: 10px;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #6a8bca;
+  border-bottom: 3px solid #eaf4fe;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
     border-bottom: none;
