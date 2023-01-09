@@ -170,7 +170,6 @@ export const LoginBox = () => {
   const [isPassword, setIsPassword] = useState(false);
 
   const abc = !(isEmail && isPassword);
-
   // 이메일
   const onChangeEmail = useCallback((e) => {
     const emailRegex =
@@ -289,6 +288,7 @@ export const LoginBox = () => {
           </Button2>
         </ButtonBox>
         <GoogleLogin />
+        {/* <GoogleLogout /> */}
         {/* <div
           id="g_id_onload"
           data-client_id="224876229930-kd4f9thuq3ku0pem5sgspp05aavh34ok.apps.googleusercontent.com"

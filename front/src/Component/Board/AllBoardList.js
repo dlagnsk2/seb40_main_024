@@ -13,8 +13,8 @@ const ListBox = styled.div`
   min-width: 590px;
   height: 156px;
   padding: 20px;
-  border-top: 3px solid #92b4ec;
-  border-bottom: 3px solid #92b4ec;
+  border-top: 3px solid #6a8bca;
+  border-bottom: 3px solid #6a8bca;
   margin-top: 20px;
   margin-bottom: 25px;
   cursor: pointer;
@@ -28,12 +28,12 @@ const ListBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-left: -30px;
+    margin-left: -45px;
     min-width: 280px;
     height: 50px;
     padding: 20px;
-    border-top: 2px solid #def5e5;
-    border-bottom: 2px solid #def5e5;
+    border-top: 2px solid #6a8bca;
+    border-bottom: 2px solid #6a8bca;
     margin-top: 20px;
     margin-bottom: 25px;
     cursor: pointer;

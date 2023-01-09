@@ -37,6 +37,11 @@ const Input = styled.input`
     color: #8ec3b0;
     padding-left: 5px;
   }
+  @media only screen and (max-width: 320px) {
+    width: 150px;
+    font-size: 12px;
+    font-weight: 500;
+  }
 `;
 
 const H2 = styled.h2`
@@ -44,6 +49,9 @@ const H2 = styled.h2`
   text-shadow: 3px 3px 3px 3px #8ec3b0;
   color: #9ed5c5;
   font-weight: bold;
+  @media only screen and (max-width: 320px) {
+    font-size: 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -61,10 +69,17 @@ const Select = styled.select`
   text-align: center;
   outline: none;
   padding: 5px;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+    font-weight: 500;
+  }
 `;
 
 const Btn = styled.div`
   margin-top: 100px;
+  @media only screen and (max-width: 320px) {
+    margin-top: 170px;
+  }
 `;
 const QuillBox = styled.div`
   display: flex;

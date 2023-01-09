@@ -30,6 +30,11 @@ const CommentInput = styled.input`
   }
 
   @media only screen and (max-width: 320px) {
+    width: 200px;
+    margin-right: 15px;
+    margin-left: 270px;
+    height: 15px;
+    font-size: 12px;
   }
 `;
 

@@ -26,6 +26,11 @@ const ButtonAA = styled.button`
     position: relative;
     top: 3px;
   }
+  @media only screen and (max-width: 320px) {
+    width: 50px;
+    font-size: 12px;
+    height: 25px;
+  }
 `;
 const ButtonBB = styled.button`
   width: 120px;
