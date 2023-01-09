@@ -7,7 +7,7 @@ import moment from 'moment';
 import { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../store/AuthContext';
 import { Modal } from '../Common/Modal';
-
+// #6a8bca
 const TotalContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,8 +15,16 @@ const TotalContent = styled.div`
   width: 850px;
   min-height: 400px;
   margin-top: 100px;
-  border: 3px solid #9ed5c5;
+  border: 3px solid #6a8bca;
   border-radius: 10px;
+  color: gray;
+  @media only screen and (max-width: 768px) {
+    width: 700px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 280px;
+  }
 `;
 
 const BtnContain = styled.div`
@@ -34,8 +42,8 @@ const ContentContain = styled.div`
   height: 100%;
   padding: 5px;
   margin-top: 20px;
-  border-top: 3px solid #def5e5;
-  border-bottom: 3px solid #def5e5;
+  border-top: 3px solid #eaf4fe;
+  border-bottom: 3px solid #eaf4fe;
   line-height: normal;
 `;
 
@@ -43,6 +51,9 @@ const ImageBox = styled.div`
   display: flex;
   justify-content: center;
   padding: 20px;
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -54,6 +65,8 @@ const ContentBox = styled.div`
   margin: 10px;
   padding: 10px;
   /* border: 1px solid black; */
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const IdEtcBox = styled.div`
@@ -63,6 +76,8 @@ const IdEtcBox = styled.div`
   padding-bottom: 20px;
   div {
     padding-bottom: 5px;
+  }
+  @media only screen and (max-width: 320px) {
   }
 `;
 
@@ -74,9 +89,14 @@ const Tag = styled.div`
   min-width: 40px;
   margin-right: 10px;
   font-size: 12px;
-  border: 3px solid #bcead5;
+  border: 3px solid #92b4ec;
   border-radius: 10px;
-  background-color: #def5e5;
+  background-color: #eaf4fe;
+
+  @media only screen and (max-width: 320px) {
+    margin-left: -30px;
+    min-width: 30px;
+  }
 `;
 const Id = styled.div`
   display: flex;
@@ -86,6 +106,9 @@ const Id = styled.div`
   line-height: normal;
   align-content: center;
   justify-content: center;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 const EtcBox = styled.div`
@@ -100,6 +123,10 @@ const Date = styled.div`
   line-height: normal;
   align-content: center;
   justify-content: center;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+    margin-left: 5px;
+  }
 `;
 
 const View = styled.div`
@@ -110,6 +137,9 @@ const View = styled.div`
   align-content: center;
   justify-content: center;
   margin: 0 10px 0 10px;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 const LikeBox = styled.div`
@@ -123,6 +153,9 @@ const LikeBox = styled.div`
   color: red;
   -webkit-text-stroke: 1.5px black;
   cursor: pointer;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 const UnLikeBox = styled.div`
@@ -136,6 +169,9 @@ const UnLikeBox = styled.div`
   color: white;
   -webkit-text-stroke: 1.5px black;
   cursor: pointer;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -148,6 +184,9 @@ const TitleBox = styled.div`
   overflow: auto;
   font-size: 23px;
   font-weight: 600;
+  @media only screen and (max-width: 320px) {
+    font-size: 17px;
+  }
 `;
 
 const TextBox = styled.div`
@@ -159,6 +198,9 @@ const TextBox = styled.div`
   padding-top: 5px;
   overflow: auto;
   margin-top: 15px;
+  @media only screen and (max-width: 320px) {
+    font-size: 15px;
+  }
 `;
 
 const Contents = () => {

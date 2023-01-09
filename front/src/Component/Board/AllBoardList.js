@@ -13,13 +13,33 @@ const ListBox = styled.div`
   min-width: 590px;
   height: 156px;
   padding: 20px;
-  border-top: 3px solid #def5e5;
-  border-bottom: 3px solid #def5e5;
+  border-top: 3px solid #6a8bca;
+  border-bottom: 3px solid #6a8bca;
   margin-top: 20px;
   margin-bottom: 25px;
   cursor: pointer;
   :hover {
     background-color: rgba(0, 0, 0, 0.03);
+  }
+  @media only screen and (max-width: 768px) {
+  }
+
+  @media only screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: -45px;
+    min-width: 280px;
+    height: 50px;
+    padding: 20px;
+    border-top: 2px solid #6a8bca;
+    border-bottom: 2px solid #6a8bca;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    :hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
   }
 `;
 
@@ -30,6 +50,9 @@ const ImageBox = styled.div`
   justify-content: center;
   align-content: center;
   line-height: normal;
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const Image = styled.svg`
@@ -40,6 +63,9 @@ const Image = styled.svg`
   width: auto;
   height: auto;
   border-radius: 50%;
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const Container = styled.div`
@@ -50,6 +76,8 @@ const Container = styled.div`
   height: 110px;
   margin-left: 10px;
   /* border: 1px solid #0000ff; */
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const IdEtContainer = styled.div`
@@ -60,8 +88,12 @@ const IdEtContainer = styled.div`
   margin-left: 10px;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #8ec3b0;
+  border-bottom: 3px solid #6a8bca;
   /* border: 1px solid #ff8000; */
+  @media only screen and (max-width: 320px) {
+    border-bottom: none;
+    margin-left: -20px;
+  }
 `;
 
 const IdEtcBox = styled.div`
@@ -69,6 +101,9 @@ const IdEtcBox = styled.div`
   flex-direction: row;
   margin-left: 8px;
   /* border: 1px solid #ff8000; */
+  @media only screen and (max-width: 320px) {
+    margin-top: -15px;
+  }
 `;
 
 const Tag = styled.div`
@@ -79,9 +114,11 @@ const Tag = styled.div`
   min-width: 40px;
   margin-right: 10px;
   font-size: 12px;
-  border: 3px solid #bcead5;
+  border: 3px solid #92b4ec;
   border-radius: 10px;
-  background-color: #def5e5;
+  background-color: #eaf4fe;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const Id = styled.div`
@@ -92,6 +129,8 @@ const Id = styled.div`
   line-height: normal;
   color: #444;
   font-size: 17px;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const Date = styled.div`
@@ -105,6 +144,9 @@ const Date = styled.div`
   color: #444;
   font-size: 13px;
   /* border: 1px solid #ff8000; */
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const View = styled.span`
@@ -116,6 +158,9 @@ const View = styled.span`
   margin-right: 10px;
   color: #444;
   font-size: 13px;
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const TextEtcContainer = styled.div`
@@ -125,6 +170,9 @@ const TextEtcContainer = styled.div`
   width: auto;
   height: 100%;
   margin-left: 10px;
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const Text = styled.div`
@@ -135,6 +183,8 @@ const Text = styled.div`
   padding: 5px;
   font-size: 15px;
   color: #444;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 const LikeBox = styled.div`
   display: flex;
@@ -145,6 +195,8 @@ const LikeBox = styled.div`
   color: red;
   height: 30px;
   margin-right: 10px;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const Likenum = styled.div`
@@ -155,6 +207,8 @@ const Likenum = styled.div`
   margin-left: 2px;
   color: #444;
   /* border: 1px solid #ff8000; */
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 function AllBoardList({ id, title, body, createdAt, like, category, view }) {

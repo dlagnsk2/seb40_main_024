@@ -1,10 +1,30 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import AssetSetting from '../../Component/Asset/AssetSetting';
+import {
+  LongNavbarBox,
+  MiniNavbarBox,
+} from '../../Component/Common/NavebarRev';
 import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
 import GoalChart from '../../Component/Asset/GoalChart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCircleChevronDown,
+  faCircleChevronUp,
+} from '@fortawesome/free-solid-svg-icons';
+
+const boxAnimation = keyframes`
+
+0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+`;
 
 const GuideBox = styled.div`
   display: flex;
@@ -18,30 +38,31 @@ const GuideBox = styled.div`
   border-top: 5px solid #92b4ec;
   border-bottom: 5px solid #92b4ec;
   margin-bottom: 50px;
-  color: grey;
+  color: gray;
   .TextHeader {
     text-align: center;
-    color: #1c2f71;
+    color: #92b4ec;
     width: 550px;
   }
   .Text {
     font-size: 17px;
   }
   .Hilight {
-    color: #4966a9;
+    color: #92b4ec;
   }
   /* .TextCenter {
     text-align: center;
   } */
   @media only screen and (max-width: 768px) {
+    margin-top: 150px;
     padding: 10px;
     width: 650px;
-    color: black;
+    color: gray;
   }
   @media only screen and (max-width: 521px) {
     padding: 10px;
     width: 100%;
-    color: black;
+    color: gray;
     text-align: center;
     .TextHeader {
       text-align: center;
@@ -50,18 +71,47 @@ const GuideBox = styled.div`
     }
   }
   @media only screen and (max-width: 320px) {
+    display: none;
+  }
+`;
+const MobileGuideBox = styled.div`
+  @media only screen and (min-width: 321px) {
+    display: none;
+  }
+  @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
+    margin-top: 100px;
+    margin-left: 170px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
     padding: 10px;
-    width: 100%;
-    color: black;
-    text-align: center;
+    height: auto;
+    /* text-align: left; */
+    border-top: 5px solid #92b4ec;
+    border-bottom: 5px solid #92b4ec;
+    margin-bottom: 50px;
+    color: grey;
     .TextHeader {
       text-align: center;
-      color: #1c2f71;
+      color: #92b4ec;
       width: 100%;
+    }
+    .Text {
+      font-size: 17px;
+    }
+    .Hilight {
+      color: #92b4ec;
     }
   }
 `;
-
+const MobileGuideBoxDetail = styled.div`
+  @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
+  }
+`;
 const PageContain = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,8 +176,9 @@ const ChartContain = styled.div`
     /* margin-left: -50px; */
     margin-bottom: 50px;
     gap: 0px;
-    width: 80%;
-    margin-left: 30px;
+    width: 320px;
+    height: 30%;
+    margin-left: 150px;
   }
 `;
 const ChartBox = styled.div`
@@ -142,8 +193,7 @@ const ChartBox = styled.div`
   }
   @media only screen and (max-width: 320px) {
     /* position: relative; */
-    width: 100%;
-    margin-left: 30px;
+    width: 320px;
   }
 `;
 
@@ -184,6 +234,7 @@ const GraphH1 = styled.h1`
   }
   @media only screen and (max-width: 320px) {
     margin: 0px;
+    font-size: 30px;
   }
 `;
 
@@ -200,6 +251,7 @@ const AssetTargetPage = () => {
   const [up, setUp] = useState(0); //저축횟수
   const [countList, setCountList] = useState([]);
   const [Modalopen, setModalopen] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   const closeModal = () => {
     setModalopen(!Modalopen);
@@ -248,6 +300,9 @@ const AssetTargetPage = () => {
 
   const targetLengthonChange = (e) => {
     setTargetLength(e.target.value);
+  };
+  const dropDownHandler = () => {
+    setDropDown(!dropDown);
   };
 
   useEffect(() => {
@@ -381,7 +436,7 @@ const AssetTargetPage = () => {
       measures: [15],
     },
   ];
-
+  console.log(GoalData[0].id === '목표 예시');
   for (let i = 0; i < countList.length; i++) {
     let countListData = {
       id: countList[i].goalName,
@@ -394,101 +449,154 @@ const AssetTargetPage = () => {
           100
       ),
     };
+    // if(GoalData)
+    if (GoalData[0].id === '목표 예시') {
+      GoalData === countListData;
+    }
+    console.log(countListData);
     GoalData.push(countListData);
   }
 
   return (
     <>
-      <div>
-        <PageContain>
-          {/* <ChartContain className="ScrollActive">
-              <GraphH1>목표 현황</GraphH1>
-              <ChartBox>
-                <GoalChart GoalData={GoalData}></GoalChart>
-              </ChartBox>
-            </ChartContain> */}
-          <div className="Contain">
-            <BoxContain>
-              <GuideBox>
-                <h2 className="TextHeader">목표 작성을 위한 안내</h2>
-                <br />
-                <p className="Text">
-                  1. <span className="Hilight">&apos;나의 목표&apos;</span>에
-                  목표를 작성해주세요.
-                </p>
-                <br />
-                <p className="Text">
-                  2. <span className="Hilight">START</span> 버튼을 클릭하면
-                  목표리스트가 생성됩니다.
-                </p>
-                <br />
-                <p className="Text">
-                  3. 목표리스트의 <span className="Hilight">Saving</span> 버튼을
-                  클릭하여 저축한 기간을 표시할 수 있습니다.
-                </p>
-                <br />
-                <p className="TextCenter">
-                  *목표는 <span className="Hilight">최대 6개</span>까지 등록할
-                  수 있습니다.*
-                </p>
-                <br />
-                <p className="TextCenter">
-                  *그래프를 통해 목표 달성률을 확인해보세요!*
-                </p>
-              </GuideBox>
-              <ChartContain className="ScrollActive">
-                <GraphH1>목표 현황</GraphH1>
-                <ChartBox>
-                  <GoalChart GoalData={GoalData}></GoalChart>
-                </ChartBox>
-              </ChartContain>
-              <AssetSetting
-                goalPost={goalPost}
-                countList={countList}
-                handlerGoal={handlerGoal}
-                handlerExtended={handlerExtended}
-                handlerPeriod={handlerPeriod}
-                handlerTarget={handlerTarget}
-                goal={goal}
-                extended={extended}
-                period={period}
-                target={target}
-                targetAmount={targetAmount}
-              />
-              {countList.map((count, id) => (
-                <AssetList
-                  count={count}
-                  key={id}
-                  id={count.goalId}
+      <LongNavbarBox />
+      <MiniNavbarBox />
+      <>
+        <div>
+          <PageContain>
+            <div className="Contain">
+              <BoxContain>
+                <MobileGuideBox>
+                  {' '}
+                  <h2 className="TextHeader">목표 작성을 위한 안내</h2>
+                  {dropDown ? (
+                    <FontAwesomeIcon
+                      icon={faCircleChevronUp}
+                      color="#92b4ec"
+                      onClick={dropDownHandler}
+                      cursor="pointer"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCircleChevronDown}
+                      color="#92b4ec"
+                      onClick={dropDownHandler}
+                      cursor="pointer"
+                    />
+                  )}
+                  {dropDown ? (
+                    <MobileGuideBoxDetail>
+                      <br />
+                      <p className="Text">
+                        1.{' '}
+                        <span className="Hilight">&apos;나의 목표&apos;</span>에
+                        목표를 작성해주세요.
+                      </p>
+                      <br />
+                      <p className="Text">
+                        2. <span className="Hilight">START</span> 버튼을
+                        클릭하면 목표리스트가 생성됩니다.
+                      </p>
+                      <br />
+                      <p className="Text">
+                        3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                        버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
+                      </p>
+                      <br />
+                      <p className="TextCenter">
+                        *목표는 <span className="Hilight">최대 6개</span>까지
+                        등록할 수 있습니다.*
+                      </p>
+                      <br />
+                      <p className="TextCenter">
+                        *그래프를 통해 목표 달성률을 확인해보세요!*
+                      </p>
+                    </MobileGuideBoxDetail>
+                  ) : null}
+                </MobileGuideBox>
+
+                <GuideBox>
+                  <h2 className="TextHeader">목표 작성을 위한 안내</h2>
+                  <br />
+                  <p className="Text">
+                    1. <span className="Hilight">&apos;나의 목표&apos;</span>에
+                    목표를 작성해주세요.
+                  </p>
+                  <br />
+                  <p className="Text">
+                    2. <span className="Hilight">START</span> 버튼을 클릭하면
+                    목표리스트가 생성됩니다.
+                  </p>
+                  <br />
+                  <p className="Text">
+                    3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                    버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
+                  </p>
+                  <br />
+                  <p className="TextCenter">
+                    *목표는 <span className="Hilight">최대 6개</span>까지 등록할
+                    수 있습니다.*
+                  </p>
+                  <br />
+                  <p className="TextCenter">
+                    *그래프를 통해 목표 달성률을 확인해보세요!*
+                  </p>
+                </GuideBox>
+
+                <ChartContain className="ScrollActive">
+                  <GraphH1>목표 현황</GraphH1>
+                  <ChartBox>
+                    <GoalChart GoalData={GoalData}></GoalChart>
+                  </ChartBox>
+                </ChartContain>
+                <AssetSetting
+                  goalPost={goalPost}
+                  countList={countList}
+                  handlerGoal={handlerGoal}
+                  handlerExtended={handlerExtended}
+                  handlerPeriod={handlerPeriod}
+                  handlerTarget={handlerTarget}
                   goal={goal}
                   extended={extended}
                   period={period}
-                  setGoal={setGoal}
-                  setExtended={setExtended}
-                  setPeriod={setPeriod}
                   target={target}
-                  goalDelete={goalDelete}
                   targetAmount={targetAmount}
-                  goalPatch={goalPatch}
-                  goalNameonChange={goalNameonChange}
-                  goalPriceonChange={goalPriceonChange}
-                  targetLengthonChange={targetLengthonChange}
-                  goalUpPatch={goalUpPatch}
-                  up={up}
-                  goalDownPatch={goalDownPatch}
-                ></AssetList>
-              ))}
-            </BoxContain>
-            <Modal
-              open={Modalopen}
-              close={closeModal}
-              header="목표자산수정 알림"
-            >
-              목표자산이 수정되었습니다.
-            </Modal>
-          </div>
-        </PageContain>
-      </div>
+                />
+                {countList.map((count, id) => (
+                  <AssetList
+                    count={count}
+                    key={id}
+                    id={count.goalId}
+                    goal={goal}
+                    extended={extended}
+                    period={period}
+                    setGoal={setGoal}
+                    setExtended={setExtended}
+                    setPeriod={setPeriod}
+                    target={target}
+                    goalDelete={goalDelete}
+                    targetAmount={targetAmount}
+                    goalPatch={goalPatch}
+                    goalNameonChange={goalNameonChange}
+                    goalPriceonChange={goalPriceonChange}
+                    targetLengthonChange={targetLengthonChange}
+                    goalUpPatch={goalUpPatch}
+                    up={up}
+                    goalDownPatch={goalDownPatch}
+                  ></AssetList>
+                ))}
+              </BoxContain>
+              <Modal
+                open={Modalopen}
+                close={closeModal}
+                header="목표자산수정 알림"
+              >
+                목표자산이 수정되었습니다.
+              </Modal>
+            </div>
+          </PageContain>
+        </div>
+      </>
     </>
   );
 };

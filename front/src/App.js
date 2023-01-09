@@ -85,6 +85,7 @@ const Div = styled.div`
     flex-direction: column;
     background-color: ${({ theme }) => theme.bgColor};
     min-width: ${DeviceSizes.mobileWidth};
+    height: 10000px;
     /* margin-top: 300px; */
   }
 `;

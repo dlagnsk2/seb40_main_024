@@ -16,21 +16,24 @@ const ComponentContain = styled.div`
   height: auto;
   border: 5px solid #92b4ec;
   border-radius: 3%;
-  .trashicon {
+  /* .trashicon {
     margin-left: 500px;
-  }
+  } */
   .p {
+    color: #92b4ec;
     font-size: 17px;
     font-weight: 500;
   }
-  /* @media only screen and (max-width: 521px) {
-    width: 100%;
-    margin-left: 30px;
-  } */
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+    margin-left: 180px;
+    height: 400px;
+  }
 `;
 
 const Header = styled.h3`
   margin-top: 30px;
+  color: #92b4ec;
 `;
 
 const SettingInput = styled.input`
@@ -65,6 +68,9 @@ const TextBox = styled.div`
   width: 300px;
   color: #ffd24c;
   font-size: 30px;
+  @media only screen and (max-width: 521px) {
+    font-size: 20px;
+  }
 `;
 
 const AssetSetting = ({

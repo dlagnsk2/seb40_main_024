@@ -4,6 +4,18 @@
   margin-top: 15px;
   margin-bottom: 30px;
 }
+@media only screen and (max-width: 320px) {
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: -25px;
+  }
+}
+/* @media only screen and (max-width: 320px) {
+  margin-left: 0px;
+} */
 
 ul {
   list-style: none;
@@ -30,7 +42,7 @@ ul.pagination li:last-child {
 
 ul.pagination li a {
   text-decoration: none;
-  color: #8ec3b0;
+  color: #92b4ec;
   font-size: 20px;
 }
 
@@ -39,7 +51,7 @@ ul.pagination li.active a {
 }
 
 ul.pagination li.active {
-  background: #bcead5;
+  background: #eaf4fe;
   border-radius: 10px;
   cursor: pointer;
   transform: translateY(-2px);
@@ -53,5 +65,5 @@ ul.pagination li a.active {
 .page-selection {
   width: 48px;
   height: 30px;
-  color: #8ec3b0;
+  color: #92b4ec;
 }
