@@ -18,11 +18,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class JwtVerificationFilter extends OncePerRequestFilter { // request당 한 번 실행되는 security filter 구현
+public class JwtVerificationFilter extends OncePerRequestFilter {
     private final JwtTokenizer jwtTokenizer;
     private final CustomAuthorityUtils authorityUtils;
 
-    // jwt 검증, claims(토큰에 저장된 정보) 얻는데 사용
     public JwtVerificationFilter(JwtTokenizer jwtTokenizer,
                                  CustomAuthorityUtils authorityUtils) {
         this.jwtTokenizer = jwtTokenizer;

@@ -20,6 +20,7 @@ public enum ExceptionCode {
 
     //시큐리티
     USER_NOT_FOUNT(404, "로그인 시도중 -> 해당 유저가 존재하지 않습니다."),
+    PROVIDER_ERROR(400, "사용자의 유형을 확인하세요."),
 
     // 게시글
     BOARD_NOT_FOUND(404, "존재하지 않는 게시글입니다."),
