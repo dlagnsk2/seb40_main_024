@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { darkMode } from '../../recoil/recoil';
 import MediaQuery from 'react-responsive';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import mark from './Img/mark.png';
 import AuthContext from '../../store/AuthContext';
 import { Modal } from '../Common/Modal';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 const LongContainer = styled.header`
   background-color: #020626;
@@ -13,7 +16,7 @@ const LongContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 60px;
+  height: 50px;
   /* padding-left: 20px; */
   padding-right: 20px;
   position: fixed;
@@ -39,15 +42,18 @@ const HamberBox = styled.div`
 const MarkBox = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: auto;
-  margin-bottom: auto;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-left: 14px;
+  padding: auto;
   z-index: 9999999;
-  width: 50px;
-  min-width: 50px;
-  height: 50px;
-  min-height: 50px;
-  margin: 4px;
-  margin-left: 25px;
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  min-height: 35px;
+  border-radius: 50%;
+  background-color: #fe9301;
   background-image: url(${mark});
   background-position: top center;
   background-size: cover;
@@ -64,7 +70,7 @@ const HamburgerDropMenuBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin-top: 57px;
+  margin-top: 50px;
   position: fixed;
   z-index: 9999999;
   /* border: 1px solid red; */
@@ -76,10 +82,11 @@ const Menu = styled.li`
   align-items: center;
   line-height: normal;
   list-style: none;
-  padding-top: 25px;
+  padding-top: 22px;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 17px;
+  margin-bottom: 5px;
+  font-size: 15px;
   font-weight: bold;
   width: 115px;
 
@@ -119,12 +126,13 @@ const MenuTopList = styled.ul`
   justify-content: center;
   align-items: center;
   line-height: normal;
+  margin-top: 7px;
   background-color: #92b4ec;
   border-top: 1px solid #020626;
   border-left: 5px solid #020626;
   border-right: 5px solid #020626;
   border-bottom: 5px solid #020626;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   /* border-radius: 5px; */
   border-end-start-radius: 5px;
   border-end-end-radius: 5px;
@@ -147,6 +155,7 @@ const MenuList = styled.li`
   align-items: center;
   line-height: normal;
   margin: 5px;
+
   padding: 5px;
   width: 115px;
   height: auto;
@@ -171,14 +180,17 @@ const MenuList = styled.li`
     text-align: center;
   }
 `;
+
 // console.log('theme', theme);
 // eslint-disable-next-line no-unused-vars
-export const LongNavbarBox = ({ DarkModeHandler }) => {
+export const LongNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
   const [Assetclicked, setAssetclicked] = useState(true);
   const [Modalopen, setModalopen] = useState(false);
+  const darkmode = useRecoilValue(darkMode);
+  // console.log('darkmode1', darkmode);
 
   const handleClickAsset = () => {
     setAssetclicked(!Assetclicked);
@@ -204,10 +216,9 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            {/* <button
-              onClick={() => DarkModeHandler()}
-              style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button> */}
+            <ButtonBox onClick={() => DarkModeHandler1()}>
+              {darkmode ? <MdLightMode /> : <MdDarkMode />}
+            </ButtonBox>
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/login')}>로그인</Menu>
               <Menu onClick={() => navigate('/signup')}>회원가입</Menu>
@@ -236,10 +247,9 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
         {isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            {/* <button
-              onClick={() => DarkModeHandler()}
-              style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button> */}
+            <ButtonBox onClick={() => DarkModeHandler1()}>
+              {darkmode ? <MdLightMode /> : <MdDarkMode />}
+            </ButtonBox>
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/mypage')}>마이페이지</Menu>
               {Assetclicked ? (
@@ -271,18 +281,15 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
   );
 };
 
-// eslint-disable-next-line no-unused-vars
-export const MiniNavbarBox = ({ DarkModeHandler }) => {
+export const MiniNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
-  // eslint-disable-next-line no-unused-vars
-  const [Infoclicked, setInfoclicked] = useState(true);
+
   const [Markclicked, setMarkclicked] = useState(true);
   const [Assetclicked, setAssetclicked] = useState(true);
   const [Modalopen, setModalopen] = useState(false);
   // const [Communityclicked, setCommunityclicked] = useState(true);
-  // eslint-disable-next-line prettier/prettier
 
   const handleClickMark = () => {
     setAssetclicked(true);
@@ -322,11 +329,11 @@ export const MiniNavbarBox = ({ DarkModeHandler }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            {/* <button
-              onClick={() => DarkModeHandler()}
-              style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button> */}
-            <MarkBox></MarkBox>
+            <ButtonBox onClick={() => DarkModeHandler1()}></ButtonBox>
+            <MarkBox
+              onClick={() => navigate('/')}
+              style={{ marginRight: '0px' }}
+            ></MarkBox>
             {Markclicked ? null : (
               <>
                 <HamburgerDropMenuBox>
@@ -379,11 +386,11 @@ export const MiniNavbarBox = ({ DarkModeHandler }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            {/* <button
-              onClick={() => DarkModeHandler()}
-              style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button> */}
-            <MarkBox></MarkBox>
+            <ButtonBox onClick={() => DarkModeHandler1()}></ButtonBox>
+            <MarkBox
+              onClick={() => navigate('/')}
+              style={{ marginRight: '0px' }}
+            ></MarkBox>
             {Markclicked ? null : (
               <>
                 <HamburgerDropMenuBox>

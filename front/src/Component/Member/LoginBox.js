@@ -9,8 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from './GoogleLogin';
 import { FcGoogle } from 'react-icons/fc';
 
+// eslint-disable-next-line no-unused-vars
 const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-console.log(GoogleClientId);
+// console.log(GoogleClientId);
 
 const PageContainer = styled.div`
   display: flex;
