@@ -95,8 +95,13 @@ const DivBox = styled.div`
     margin-top: 100px;
   }
   @media only screen and (max-width: 320px) {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
+    .headinputContatiner {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
   }
 `;
 
@@ -316,24 +321,28 @@ const MyInfo = () => {
         <ListContain>
           <UserInfo>
             <DivBox>
-              <UserInfoHead>
-                <span>회원정보</span>
-              </UserInfoHead>
-              <div className="input-box">
-                <div>{Dusername}</div>
-              </div>
-              <div className="input-box">
-                <div>{Decode.username}</div>
-              </div>
-              <div className="btnbox">
-                <MainBtn>
-                  <NameUpdateBtn openModify={openModify}>
-                    수정하기
-                  </NameUpdateBtn>
-                </MainBtn>
-                <MainBtn>
-                  <SignOutBtn openSignOut={openSignOut} />
-                </MainBtn>
+              <div className="headinputContatiner">
+                <div>
+                  <UserInfoHead>
+                    <span>회원정보</span>
+                  </UserInfoHead>
+                  <div className="input-box">
+                    <div>{Dusername}</div>
+                  </div>
+                  <div className="input-box">
+                    <div>{Decode.username}</div>
+                  </div>
+                </div>
+                <div className="btnbox">
+                  <MainBtn>
+                    <NameUpdateBtn openModify={openModify}>
+                      수정하기
+                    </NameUpdateBtn>
+                  </MainBtn>
+                  <MainBtn>
+                    <SignOutBtn openSignOut={openSignOut} />
+                  </MainBtn>
+                </div>
               </div>
             </DivBox>
           </UserInfo>
