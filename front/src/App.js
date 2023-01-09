@@ -1,7 +1,9 @@
-// import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { useRecoilState } from 'recoil';
-
+import { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { useRecoilState, useRecoilValue } from 'recoil';
+// eslint-disable-next-line no-unused-vars
+import { LightState, DarkState, modeState } from './recoil/recoil';
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
 // import { useContext } from 'react';
@@ -27,7 +29,6 @@ import { Error } from './Pages/ErrorPage/Error';
 // import { Assettargetpage } from './Component/Common/Button';
 // import AllBoardList from './Component/Board/AllBoardList';
 import { LongNavbarBox, MiniNavbarBox } from './Component/Common/NavebarRev';
-import { useState } from 'react';
 
 const DeviceSizes = {
   mobileWidth: '320px',
@@ -41,29 +42,17 @@ const Device = {
   laptopWidth: `screen and (max-width: ${DeviceSizes.laptopWidth})`,
 };
 
-// eslint-disable-next-line no-unused-vars
-// const DarkTheme = styled.div`
-//   background-color: #020626;
-// `;
-const DarkTheme = {
-  // color: 'white',
-  bgColor: '#020626',
-};
-
-// eslint-disable-next-line no-unused-vars
-// const LightTheme = styled.div`
-//   background-color: #f2f5f7;
-// `;
-const LightTheme = {
-  // color: 'white',
-  bgColor: '#f2f5f7',
-};
-
-const theme = {
+const DeviceTheme = {
   Device,
-  DarkTheme,
-  LightTheme,
 };
+
+// eslint-disable-next-line no-unused-vars
+const ButtonBox = styled.button`
+  /* background-color: red; */
+  margin-top: 200px;
+  width: 50px;
+  height: 50px;
+`;
 
 // #    background-color: #f2f5f7;
 
@@ -73,9 +62,7 @@ const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     display: flex;
     height: 100%;
-    flex-direction: column;
-    background-color: ${({ theme }) => theme.bgColor};
-    /* margin-top: 300px; */
+    flex-direction: row;
     min-width: ${DeviceSizes.tabletWidth};
   }
 
@@ -83,36 +70,26 @@ const Div = styled.div`
     display: flex;
     height: 100%;
     flex-direction: column;
-    background-color: ${({ theme }) => theme.bgColor};
     min-width: ${DeviceSizes.mobileWidth};
     height: 10000px;
-    /* margin-top: 300px; */
   }
 `;
 
 function App() {
-  // const [isDarkMode, setIsDarkMode] = useRecoilState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [isDarkMode, setIsDarkMode] = useState(LightTheme);
-
-  const DarkModeHandler = () => {
-    setIsDarkMode(DarkTheme);
-    console.log('Dark isDarkMode', isDarkMode);
-  };
+  // const DarkModeHandler1 = () => {};
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <LongNavbarBox DarkModeHandler={DarkModeHandler} />
-        <MiniNavbarBox DarkModeHandler={DarkModeHandler} />
-        {/* <button onClick={() => toggleDarkMode()} style={{ margin: '200px' }}>
-          다크모드 ㄱㄱㄱㄱ
-        </button> */}
+      <ThemeProvider theme={DeviceTheme}>
+        <LongNavbarBox />
+        <MiniNavbarBox />
+        {/* <LongNavbarBox DarkModeHandler={DarkModeHandler} /> */}
+        {/* <MiniNavbarBox DarkModeHandler={DarkModeHandler} /> */}
+        {/* <ButtonBox onClick={() => DarkModeHandler1()}></ButtonBox> */}
         <Div>
           <Routes>
             <Route path="*" element={<Error />}></Route>
             <Route path="/" element={<MainHome />} />
-            {/* <Route path="/asset" element={<Asset />} /> */}
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />

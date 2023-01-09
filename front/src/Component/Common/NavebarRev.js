@@ -172,6 +172,7 @@ const MenuList = styled.li`
   }
 `;
 // console.log('theme', theme);
+// eslint-disable-next-line no-unused-vars
 export const LongNavbarBox = ({ DarkModeHandler }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -203,10 +204,10 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            <button
+            {/* <button
               onClick={() => DarkModeHandler()}
               style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button>
+            ></button> */}
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/login')}>로그인</Menu>
               <Menu onClick={() => navigate('/signup')}>회원가입</Menu>
@@ -235,10 +236,10 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
         {isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            <button
+            {/* <button
               onClick={() => DarkModeHandler()}
               style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button>
+            ></button> */}
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/mypage')}>마이페이지</Menu>
               {Assetclicked ? (
@@ -270,6 +271,7 @@ export const LongNavbarBox = ({ DarkModeHandler }) => {
   );
 };
 
+// eslint-disable-next-line no-unused-vars
 export const MiniNavbarBox = ({ DarkModeHandler }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -281,6 +283,7 @@ export const MiniNavbarBox = ({ DarkModeHandler }) => {
   const [Modalopen, setModalopen] = useState(false);
   // const [Communityclicked, setCommunityclicked] = useState(true);
   // eslint-disable-next-line prettier/prettier
+
   const handleClickMark = () => {
     setAssetclicked(true);
     // setCommunityclicked(true);
@@ -319,10 +322,10 @@ export const MiniNavbarBox = ({ DarkModeHandler }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            <button
+            {/* <button
               onClick={() => DarkModeHandler()}
               style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button>
+            ></button> */}
             <MarkBox></MarkBox>
             {Markclicked ? null : (
               <>
@@ -376,10 +379,10 @@ export const MiniNavbarBox = ({ DarkModeHandler }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            <button
+            {/* <button
               onClick={() => DarkModeHandler()}
               style={{ marginTop: '200px', width: '50px', height: '50px' }}
-            ></button>
+            ></button> */}
             <MarkBox></MarkBox>
             {Markclicked ? null : (
               <>

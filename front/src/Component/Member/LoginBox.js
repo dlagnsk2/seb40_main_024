@@ -6,7 +6,8 @@ import { NavForgotPasswordButton, NavSignUpButton } from '../Common/Button';
 import { Modal } from '../Common/Modal';
 import AuthContext from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import GoogleLogin from './GoogleLogin';
+import { GoogleLogin } from './GoogleLogin';
+import { FcGoogle } from 'react-icons/fc';
 
 const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 console.log(GoogleClientId);
@@ -153,6 +154,40 @@ const Button2 = styled.div`
   justify-content: space-between;
 `;
 
+const GoogleLogoutBox = styled.button`
+  margin-top: 20px;
+  width: 524px;
+  height: 40px;
+  background-color: white;
+  color: rgb(60, 64, 67);
+  border: 1px solid rgb(60, 64, 67, 0.2);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    line-height: normal;
+  }
+
+  p {
+    font-size: 14px;
+    width: 100%;
+    height: 18px;
+    margin: auto;
+  }
+
+  :hover {
+    border: 1px solid rgb(192, 218, 249);
+    background-color: rgb(192, 218, 249, 0.2);
+  }
+`;
+
 export const LoginBox = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -230,9 +265,21 @@ export const LoginBox = () => {
       // const reqRefreshToken = req.headers.get('Refresh');
       authCtx.login(reqToken);
       openModal();
+      console.log('reqToken', req.headers);
     } catch (e) {
       erropenModal();
     }
+  };
+
+  const LogoutHandler = () => {
+    // navigate('/');
+    // useEffect(() => {
+    //   navigate('/');
+    // });
+    window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    // window.location = 'http://localhost:3000/';
+
+    // setTimeout(() => (window.location = 'http://localhost:3000/'), 3000);
   };
 
   return (
@@ -287,15 +334,16 @@ export const LoginBox = () => {
             <NavSignUpButton />
           </Button2>
         </ButtonBox>
-        <GoogleLogin />
-        {/* <GoogleLogout /> */}
-        {/* <div
-          id="g_id_onload"
-          data-client_id="224876229930-kd4f9thuq3ku0pem5sgspp05aavh34ok.apps.googleusercontent.com"
-          data-login_uri="https://accounts.google.com/o/oauth2/v2/auth"
-          // data-your_own_param_1_to_login="any_value"
-          // data-your_own_param_2_to_login="any_value"
-        ></div> */}
+        <div style={{ marginTop: '60px' }}>
+          <GoogleLogin />
+        </div>
+        <GoogleLogoutBox onClick={() => LogoutHandler()}>
+          <div>
+            <FcGoogle style={{ fontSize: '23px', marginRight: '8px' }} />
+            <p>Google 계정으로 로그아웃 </p>
+          </div>
+        </GoogleLogoutBox>
+
         <Modal open={Modalopen} close={closeModal} header="로그인 알림">
           로그인 성공하셨습니다.
         </Modal>
