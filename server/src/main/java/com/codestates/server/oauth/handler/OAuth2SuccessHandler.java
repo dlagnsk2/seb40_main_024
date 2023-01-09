@@ -64,6 +64,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         if (memberRepository.findByEmail(email).isEmpty()) {
             saveMember(email, picture, name);
         }
+//        saveMember(email, picture, name);
 
         redirect(request, response, email, authorities);
 
@@ -110,8 +111,9 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             jwtTokenizer.getAccessTokenExpirationMinutes());
         String base64EncodedSecretKey = jwtTokenizer.encodeBase64SecretKey(
             jwtTokenizer.getSecretKey());
+        String accessToken = jwtTokenizer.generateAccessToken(claims, subject, expiration, base64EncodedSecretKey);
 
-        return jwtTokenizer.generateAccessToken(claims, subject, expiration, base64EncodedSecretKey);
+        return accessToken;
 
     }
 

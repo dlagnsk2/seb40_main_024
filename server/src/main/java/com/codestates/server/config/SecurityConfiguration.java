@@ -11,6 +11,7 @@ import com.codestates.server.oauth.handler.OAuth2SuccessHandler;
 import com.codestates.server.auth.jwt.JwtTokenizer;
 import com.codestates.server.auth.utils.CustomAuthorityUtils;
 import com.codestates.server.member.service.MemberService;
+//import com.codestates.server.oauth.service.CustomOAuth2Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -94,10 +95,15 @@ public class SecurityConfiguration {
 //                        .antMatchers(HttpMethod.GET,"/member", "/board/**", "/board/**").permitAll() // 지정된 URI에서 GET 메서드만 허용
                          // 나머지 모든 요청은 유저 권한이 있어야지 호출할 수 있다.
                 )
+
+                .logout().logoutSuccessUrl("/")
+                .and()
                 .oauth2Login(oauth2 -> oauth2
                     .successHandler(new OAuth2SuccessHandler(jwtTokenizer, authorityUtils, memberService,
-                        memberRepository))
-                );
+                        memberRepository)))
+//                .userInfoEndpoint()
+//                .userService(CustomOAuth2Service)
+                ;
         return http.build();
     }
 
