@@ -7,6 +7,7 @@ import com.codestates.server.member.repository.MemberRepository;
 import com.codestates.server.member.service.MemberService;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URL;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -31,6 +32,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     private final CustomAuthorityUtils authorityUtils;
     private final MemberService memberService;
     private final MemberRepository memberRepository;
+    public static String REDIRECT_URL = "http://localhost:8080/login/oauth2/code/google" ;
 
     public OAuth2SuccessHandler(JwtTokenizer jwtTokenizer,
         CustomAuthorityUtils authorityUtils, MemberService memberService, MemberRepository memberRepository) {
@@ -59,12 +61,10 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 //            String provider = "naver";
 //        }
 
-
-
-
         if (memberRepository.findByEmail(email).isEmpty()) {
             saveMember(email, picture, name);
         }
+//        saveMember(email, picture, name);
 
         redirect(request, response, email, authorities);
 
@@ -111,8 +111,9 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             jwtTokenizer.getAccessTokenExpirationMinutes());
         String base64EncodedSecretKey = jwtTokenizer.encodeBase64SecretKey(
             jwtTokenizer.getSecretKey());
+        String accessToken = jwtTokenizer.generateAccessToken(claims, subject, expiration, base64EncodedSecretKey);
 
-        return jwtTokenizer.generateAccessToken(claims, subject, expiration, base64EncodedSecretKey);
+        return accessToken;
 
     }
 
@@ -139,7 +140,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             .scheme("http")
             .host("localhost")
 //            .port(80)
-            .path("/receive-token.html")
+            .path("/api/token")
             .queryParams(queryParams)
             .build()
             .toUri();
@@ -157,7 +158,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             .scheme("http")
             .host("localhost")
             .port(3000)
-            .path("/receive-token.html")
+            .path("/api/token")
             .queryParams(queryParams)
             .build()
             .toUri();
