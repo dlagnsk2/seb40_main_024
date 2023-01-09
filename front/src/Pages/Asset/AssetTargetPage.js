@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AssetSetting from '../../Component/Asset/AssetSetting';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
@@ -403,100 +399,96 @@ const AssetTargetPage = () => {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
-      <>
-        <div>
-          <PageContain>
-            {/* <ChartContain className="ScrollActive">
+      <div>
+        <PageContain>
+          {/* <ChartContain className="ScrollActive">
               <GraphH1>목표 현황</GraphH1>
               <ChartBox>
                 <GoalChart GoalData={GoalData}></GoalChart>
               </ChartBox>
             </ChartContain> */}
-            <div className="Contain">
-              <BoxContain>
-                <GuideBox>
-                  <h2 className="TextHeader">목표 작성을 위한 안내</h2>
-                  <br />
-                  <p className="Text">
-                    1. <span className="Hilight">&apos;나의 목표&apos;</span>에
-                    목표를 작성해주세요.
-                  </p>
-                  <br />
-                  <p className="Text">
-                    2. <span className="Hilight">START</span> 버튼을 클릭하면
-                    목표리스트가 생성됩니다.
-                  </p>
-                  <br />
-                  <p className="Text">
-                    3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
-                    버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
-                  </p>
-                  <br />
-                  <p className="TextCenter">
-                    *목표는 <span className="Hilight">최대 6개</span>까지 등록할
-                    수 있습니다.*
-                  </p>
-                  <br />
-                  <p className="TextCenter">
-                    *그래프를 통해 목표 달성률을 확인해보세요!*
-                  </p>
-                </GuideBox>
-                <ChartContain className="ScrollActive">
-                  <GraphH1>목표 현황</GraphH1>
-                  <ChartBox>
-                    <GoalChart GoalData={GoalData}></GoalChart>
-                  </ChartBox>
-                </ChartContain>
-                <AssetSetting
-                  goalPost={goalPost}
-                  countList={countList}
-                  handlerGoal={handlerGoal}
-                  handlerExtended={handlerExtended}
-                  handlerPeriod={handlerPeriod}
-                  handlerTarget={handlerTarget}
+          <div className="Contain">
+            <BoxContain>
+              <GuideBox>
+                <h2 className="TextHeader">목표 작성을 위한 안내</h2>
+                <br />
+                <p className="Text">
+                  1. <span className="Hilight">&apos;나의 목표&apos;</span>에
+                  목표를 작성해주세요.
+                </p>
+                <br />
+                <p className="Text">
+                  2. <span className="Hilight">START</span> 버튼을 클릭하면
+                  목표리스트가 생성됩니다.
+                </p>
+                <br />
+                <p className="Text">
+                  3. 목표리스트의 <span className="Hilight">Saving</span> 버튼을
+                  클릭하여 저축한 기간을 표시할 수 있습니다.
+                </p>
+                <br />
+                <p className="TextCenter">
+                  *목표는 <span className="Hilight">최대 6개</span>까지 등록할
+                  수 있습니다.*
+                </p>
+                <br />
+                <p className="TextCenter">
+                  *그래프를 통해 목표 달성률을 확인해보세요!*
+                </p>
+              </GuideBox>
+              <ChartContain className="ScrollActive">
+                <GraphH1>목표 현황</GraphH1>
+                <ChartBox>
+                  <GoalChart GoalData={GoalData}></GoalChart>
+                </ChartBox>
+              </ChartContain>
+              <AssetSetting
+                goalPost={goalPost}
+                countList={countList}
+                handlerGoal={handlerGoal}
+                handlerExtended={handlerExtended}
+                handlerPeriod={handlerPeriod}
+                handlerTarget={handlerTarget}
+                goal={goal}
+                extended={extended}
+                period={period}
+                target={target}
+                targetAmount={targetAmount}
+              />
+              {countList.map((count, id) => (
+                <AssetList
+                  count={count}
+                  key={id}
+                  id={count.goalId}
                   goal={goal}
                   extended={extended}
                   period={period}
+                  setGoal={setGoal}
+                  setExtended={setExtended}
+                  setPeriod={setPeriod}
                   target={target}
+                  goalDelete={goalDelete}
                   targetAmount={targetAmount}
-                />
-                {countList.map((count, id) => (
-                  <AssetList
-                    count={count}
-                    key={id}
-                    id={count.goalId}
-                    goal={goal}
-                    extended={extended}
-                    period={period}
-                    setGoal={setGoal}
-                    setExtended={setExtended}
-                    setPeriod={setPeriod}
-                    target={target}
-                    goalDelete={goalDelete}
-                    targetAmount={targetAmount}
-                    goalPatch={goalPatch}
-                    goalNameonChange={goalNameonChange}
-                    goalPriceonChange={goalPriceonChange}
-                    targetLengthonChange={targetLengthonChange}
-                    goalUpPatch={goalUpPatch}
-                    up={up}
-                    goalDownPatch={goalDownPatch}
-                  ></AssetList>
-                ))}
-              </BoxContain>
-              <Modal
-                open={Modalopen}
-                close={closeModal}
-                header="목표자산수정 알림"
-              >
-                목표자산이 수정되었습니다.
-              </Modal>
-            </div>
-          </PageContain>
-        </div>
-      </>
+                  goalPatch={goalPatch}
+                  goalNameonChange={goalNameonChange}
+                  goalPriceonChange={goalPriceonChange}
+                  targetLengthonChange={targetLengthonChange}
+                  goalUpPatch={goalUpPatch}
+                  up={up}
+                  goalDownPatch={goalDownPatch}
+                ></AssetList>
+              ))}
+            </BoxContain>
+            <Modal
+              open={Modalopen}
+              close={closeModal}
+              header="목표자산수정 알림"
+            >
+              목표자산이 수정되었습니다.
+            </Modal>
+          </div>
+        </PageContain>
+      </div>
     </>
   );
 };

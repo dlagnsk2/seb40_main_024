@@ -36,7 +36,7 @@ export const mobilePieOptions = {
         font: {
           size: 15,
         },
-        color: 'rgba(255, 255, 255)',
+        color: '#020626',
       },
       animation: {
         duration: 0,

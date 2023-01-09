@@ -1,9 +1,5 @@
 import Quill from '../../Component/Common/Quill';
 import styled from 'styled-components';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import { BoardPostBtn } from '../../Component/Common/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -127,8 +123,6 @@ function FreeCommunity() {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <MainPost>
         <H2>자유게시글 작성하기</H2>
         <Header>
