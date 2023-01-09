@@ -15,9 +15,9 @@ const LongContainer = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   width: 100%;
   height: 50px;
-  /* padding-left: 20px; */
   padding-right: 20px;
   position: fixed;
   z-index: 999990;
@@ -27,8 +27,10 @@ const HamberBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  align-items: center;
+  height: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
   margin-left: 24px;
   cursor: pointer;
   div {
@@ -42,11 +44,13 @@ const HamberBox = styled.div`
 const MarkBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+
   align-items: center;
-  margin: auto;
+  justify-content: center;
   margin-left: 14px;
   padding: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   z-index: 9999999;
   width: 35px;
   min-width: 35px;
@@ -216,10 +220,11 @@ export const LongNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            <ButtonBox onClick={() => DarkModeHandler1()}>
-              {darkmode ? <MdLightMode /> : <MdDarkMode />}
-            </ButtonBox>
+
             <RowDropMenuBox>
+              <ButtonBox onClick={() => DarkModeHandler1()}>
+                {darkmode ? <MdLightMode /> : <MdDarkMode />}
+              </ButtonBox>
               <Menu onClick={() => navigate('/login')}>로그인</Menu>
               <Menu onClick={() => navigate('/signup')}>회원가입</Menu>
               {Assetclicked ? (
@@ -247,10 +252,10 @@ export const LongNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
         {isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
-            <ButtonBox onClick={() => DarkModeHandler1()}>
-              {darkmode ? <MdLightMode /> : <MdDarkMode />}
-            </ButtonBox>
             <RowDropMenuBox>
+              <ButtonBox onClick={() => DarkModeHandler1()}>
+                {darkmode ? <MdLightMode /> : <MdDarkMode />}
+              </ButtonBox>
               <Menu onClick={() => navigate('/mypage')}>마이페이지</Menu>
               {Assetclicked ? (
                 <>
