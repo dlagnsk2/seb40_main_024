@@ -285,10 +285,10 @@ export const MiniNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
-
   const [Markclicked, setMarkclicked] = useState(true);
   const [Assetclicked, setAssetclicked] = useState(true);
   const [Modalopen, setModalopen] = useState(false);
+  const darkmode = useRecoilValue(darkMode);
   // const [Communityclicked, setCommunityclicked] = useState(true);
 
   const handleClickMark = () => {
@@ -329,7 +329,9 @@ export const MiniNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            <ButtonBox onClick={() => DarkModeHandler1()}></ButtonBox>
+            <ButtonBox onClick={() => DarkModeHandler1()}>
+              {darkmode ? <MdLightMode /> : <MdDarkMode />}
+            </ButtonBox>
             <MarkBox
               onClick={() => navigate('/')}
               style={{ marginRight: '0px' }}
@@ -386,7 +388,9 @@ export const MiniNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
               <div></div>
               <div></div>
             </HamberBox>
-            <ButtonBox onClick={() => DarkModeHandler1()}></ButtonBox>
+            <ButtonBox onClick={() => DarkModeHandler1()}>
+              {darkmode ? <MdLightMode /> : <MdDarkMode />}
+            </ButtonBox>
             <MarkBox
               onClick={() => navigate('/')}
               style={{ marginRight: '0px' }}
