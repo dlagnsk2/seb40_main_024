@@ -1,7 +1,3 @@
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import styled from 'styled-components';
 import { FreeBoardList } from '../../Component/Board/BoardFreeList';
 import { useContext, useState } from 'react';
@@ -77,8 +73,6 @@ export const BoardPage = () => {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <PageContainer>
         <Box>
           <PostListSpace>

@@ -1,9 +1,5 @@
 import Quill from '../../Component/Common/Quill';
 import styled from 'styled-components';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import { BoardPatchBtn } from '../../Component/Common/Button';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -121,8 +117,6 @@ function ModifyBoard() {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <MainPost>
         <H2>게시글 수정하기</H2>
         <Header>

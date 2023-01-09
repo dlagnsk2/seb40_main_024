@@ -14,12 +14,28 @@ const LongContainer = styled.header`
   justify-content: space-between;
   width: 100%;
   height: 60px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   padding-right: 20px;
   position: fixed;
   z-index: 999990;
   top: 0;
 `;
+const HamberBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 24px;
+  cursor: pointer;
+  div {
+    height: 5px;
+    width: 30px;
+    background-color: #f2f5f7;
+    border-radius: 5px;
+  }
+`;
+
 const MarkBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -31,11 +47,13 @@ const MarkBox = styled.div`
   height: 50px;
   min-height: 50px;
   margin: 4px;
+  margin-left: 25px;
   background-image: url(${mark});
   background-position: top center;
   background-size: cover;
   cursor: pointer;
 `;
+
 const RowDropMenuBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -67,10 +85,10 @@ const Menu = styled.li`
 
   cursor: pointer;
   :hover {
-    color: #ffff;
+    color: #f2f5f7;
   }
   :active {
-    color: #9ed5c5;
+    color: #f2f5f7;
   }
 `;
 const MiniMenu = styled.li`
@@ -78,23 +96,21 @@ const MiniMenu = styled.li`
   flex-direction: column;
   align-items: center;
   line-height: normal;
-  color: #444;
+  color: #92b4ec;
   list-style: none;
   padding-top: 25px;
-  margin-left: 5px;
-  margin-right: 5px;
   font-size: 17px;
   font-weight: bold;
   width: 135px;
   height: auto;
-  background-color: #8ec3b0;
-  border: 3px solid #8ec3b0;
+  background-color: #020626;
+  border: 3px solid #020626;
   cursor: pointer;
   :hover {
-    color: #ffff;
+    color: #f2f5f7;
   }
   :active {
-    color: #9ed5c5;
+    color: #f2f5f7;
   }
 `;
 const MenuTopList = styled.ul`
@@ -103,15 +119,15 @@ const MenuTopList = styled.ul`
   justify-content: center;
   align-items: center;
   line-height: normal;
-  background-color: #def5e5;
-  border-top: #8ec3b0;
-  border-left: 3px solid #8ec3b0;
-  border-right: 3px solid #8ec3b0;
-  border-bottom: 3px solid #8ec3b0;
+  background-color: #92b4ec;
+  border-top: 1px solid #020626;
+  border-left: 5px solid #020626;
+  border-right: 5px solid #020626;
+  border-bottom: 5px solid #020626;
   margin-top: 10px;
+  /* border-radius: 5px; */
   border-end-start-radius: 5px;
   border-end-end-radius: 5px;
-  color: #444;
 `;
 const MiniMenuTopList = styled.ul`
   display: flex;
@@ -119,14 +135,10 @@ const MiniMenuTopList = styled.ul`
   justify-content: center;
   align-items: center;
   line-height: normal;
-  background-color: #def5e5;
-  border-top: #8ec3b0;
-  border-left: 3px solid #8ec3b0;
-  border-right: 3px solid #8ec3b0;
-  border-bottom: 3px solid #8ec3b0;
   margin-top: 10px;
   border-radius: 5px;
-  color: #444;
+  background-color: #92b4ec;
+  border: 3px solid #92b4ec;
 `;
 const MenuList = styled.li`
   display: flex;
@@ -138,17 +150,17 @@ const MenuList = styled.li`
   padding: 5px;
   width: 115px;
   height: auto;
-  color: #444;
-  /* display: table-cell; */
-  /* border: 1px solid green; */
+  color: #020626;
+
   list-style: none;
-  /* background-color: #8ec3b0; */
+
   :hover {
-    background-color: #8ec3b0;
+    background-color: #8991a5;
+    color: #020626;
     border-radius: 5px;
   }
   :active {
-    color: #9ed5c5;
+    color: #f2f5f7;
   }
   p {
     display: flex;
@@ -159,8 +171,8 @@ const MenuList = styled.li`
     text-align: center;
   }
 `;
-
-export const LongNavbarBox = () => {
+// console.log('theme', theme);
+export const LongNavbarBox = ({ DarkModeHandler }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
@@ -191,6 +203,10 @@ export const LongNavbarBox = () => {
         {!isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
+            <button
+              onClick={() => DarkModeHandler()}
+              style={{ marginTop: '200px', width: '50px', height: '50px' }}
+            ></button>
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/login')}>로그인</Menu>
               <Menu onClick={() => navigate('/signup')}>회원가입</Menu>
@@ -219,6 +235,10 @@ export const LongNavbarBox = () => {
         {isLoggedIn && (
           <LongContainer>
             <MarkBox onClick={() => navigate('/')}></MarkBox>
+            <button
+              onClick={() => DarkModeHandler()}
+              style={{ marginTop: '200px', width: '50px', height: '50px' }}
+            ></button>
             <RowDropMenuBox>
               <Menu onClick={() => navigate('/mypage')}>마이페이지</Menu>
               {Assetclicked ? (
@@ -250,7 +270,7 @@ export const LongNavbarBox = () => {
   );
 };
 
-export const MiniNavbarBox = () => {
+export const MiniNavbarBox = ({ DarkModeHandler }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
@@ -294,7 +314,16 @@ export const MiniNavbarBox = () => {
       <MediaQuery minWidth={0} maxWidth={768}>
         {!isLoggedIn && (
           <LongContainer>
-            <MarkBox onClick={handleClickMark}></MarkBox>
+            <HamberBox onClick={handleClickMark}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </HamberBox>
+            <button
+              onClick={() => DarkModeHandler()}
+              style={{ marginTop: '200px', width: '50px', height: '50px' }}
+            ></button>
+            <MarkBox></MarkBox>
             {Markclicked ? null : (
               <>
                 <HamburgerDropMenuBox>
@@ -342,7 +371,16 @@ export const MiniNavbarBox = () => {
         )}
         {isLoggedIn && (
           <LongContainer>
-            <MarkBox onClick={handleClickMark}></MarkBox>
+            <HamberBox onClick={handleClickMark}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </HamberBox>
+            <button
+              onClick={() => DarkModeHandler()}
+              style={{ marginTop: '200px', width: '50px', height: '50px' }}
+            ></button>
+            <MarkBox></MarkBox>
             {Markclicked ? null : (
               <>
                 <HamburgerDropMenuBox>

@@ -1,3 +1,7 @@
+// import { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { useRecoilState } from 'recoil';
+
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
 // import { useContext } from 'react';
@@ -22,6 +26,8 @@ import ModifyBoard from './Pages/Board/ModifyBoard';
 import { Error } from './Pages/ErrorPage/Error';
 // import { Assettargetpage } from './Component/Common/Button';
 // import AllBoardList from './Component/Board/AllBoardList';
+import { LongNavbarBox, MiniNavbarBox } from './Component/Common/NavebarRev';
+import { useState } from 'react';
 
 const DeviceSizes = {
   mobileWidth: '320px',
@@ -35,34 +41,73 @@ const Device = {
   laptopWidth: `screen and (max-width: ${DeviceSizes.laptopWidth})`,
 };
 
-const theme = {
-  Device,
+// eslint-disable-next-line no-unused-vars
+// const DarkTheme = styled.div`
+//   background-color: #020626;
+// `;
+const DarkTheme = {
+  // color: 'white',
+  bgColor: '#020626',
 };
 
-// #dee2e6
-// #020626
+// eslint-disable-next-line no-unused-vars
+// const LightTheme = styled.div`
+//   background-color: #f2f5f7;
+// `;
+const LightTheme = {
+  // color: 'white',
+  bgColor: '#f2f5f7',
+};
+
+const theme = {
+  Device,
+  DarkTheme,
+  LightTheme,
+};
+
+// #    background-color: #f2f5f7;
+
+// #    background-color: #020626;
+
 const Div = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
+    display: flex;
+    height: 100%;
     flex-direction: column;
-    background-color: #f9fafb;
+    background-color: ${({ theme }) => theme.bgColor};
     /* margin-top: 300px; */
     min-width: ${DeviceSizes.tabletWidth};
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
+    display: flex;
+    height: 100%;
     flex-direction: column;
-    background-color: #020626;
+    background-color: ${({ theme }) => theme.bgColor};
     min-width: ${DeviceSizes.mobileWidth};
     height: 10000px;
     /* margin-top: 300px; */
   }
 `;
+
 function App() {
-  // const authCtx = useContext(AuthContext);
+  // const [isDarkMode, setIsDarkMode] = useRecoilState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [isDarkMode, setIsDarkMode] = useState(LightTheme);
+
+  const DarkModeHandler = () => {
+    setIsDarkMode(DarkTheme);
+    console.log('Dark isDarkMode', isDarkMode);
+  };
 
   return (
     <>
       <ThemeProvider theme={theme}>
+        <LongNavbarBox DarkModeHandler={DarkModeHandler} />
+        <MiniNavbarBox DarkModeHandler={DarkModeHandler} />
+        {/* <button onClick={() => toggleDarkMode()} style={{ margin: '200px' }}>
+          다크모드 ㄱㄱㄱㄱ
+        </button> */}
         <Div>
           <Routes>
             <Route path="*" element={<Error />}></Route>

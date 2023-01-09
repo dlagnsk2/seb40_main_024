@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import useScript from '../../Hooks/useScript';
 // import { postGoogleLogin } from 'api/auth';
+
 // const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 // window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';

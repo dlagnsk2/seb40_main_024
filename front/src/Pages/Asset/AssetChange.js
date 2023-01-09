@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styled from 'styled-components';
 import { SimpleSlider } from '../../Component/Asset/MobileSimpleSlider';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import { TitleCashBtn, ZeroCashBtn1 } from '../../Component/Common/Button';
 import { Fade } from 'react-awesome-reveal';
 import { useState, useEffect, useContext } from 'react';
@@ -42,7 +38,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 767px) {
     min-width: 320px;
     padding-top: 60px;
     display: flex;
@@ -50,23 +46,43 @@ const MainPage = styled.div`
     align-items: center;
     height: 100%;
   }
+  @media screen and (min-width: 768px) {
+    min-width: 768px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+  }
 `;
 
 const GraphH1 = styled.h1`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 85%;
     /* border: 1px solid red; */
+    text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
-    font-size: 25px;
+    font-size: 30px;
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 999999px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    /* border: 1px solid red; */
+    text-shadow: 1px 1px 2px #1c2f71;
+    color: #92b4ec;
+    font-size: 30px;
     margin-top: 20px;
   }
 `;
 
 const TopPage = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,22 +91,22 @@ const TopPage = styled.div`
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #071047;
-    border: 1px solid #92b4ec;
-    box-shadow: 2px 2px 2px #a3bfef;
+    background-color: #8991a5;
+    border: 5px solid #92b4ec;
+    /* box-shadow: 2px 2px 2px #a3bfef; */
     padding-bottom: 20px;
   }
 `;
 
-const ChartContain = styled.div`
-  @media screen and (max-width: 768px) {
+const PieContain = styled.div`
+  @media screen and (max-width: 767px) {
     display: flex;
     margin-right: 0px;
     width: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
     div {
-      /* background-color: blue; */
+      background-color: blue;
       top: 0px;
       width: 250px;
       height: 250px;
@@ -293,7 +309,7 @@ export const AssetListBox = styled.div`
   min-width: 200px;
   width: 35%;
   line-height: normal;
-  border: 1px solid #92b4ec;
+  border: 3px solid #020626;
   background-color: #020626;
   padding: 5px;
   border-radius: 5px;
@@ -1025,9 +1041,6 @@ export const AssetChange = () => {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
-
       <AssetListPostModal1
         header={`List :  ${AssetType.length} / 6`}
         open={PostListModalopen1}
@@ -1348,11 +1361,11 @@ export const AssetChange = () => {
           <MainPage>
             <GraphH1>보유자산 현황</GraphH1>
             <TopPage>
-              <ChartContain>
-                {window.innerWidth > 320 || window.innerWidth < 768 ? (
+              <PieContain>
+                {window.innerWidth > 320 || window.innerWidth < 767 ? (
                   <Pie data={AssetAdata} options={mobilePieOptions} />
                 ) : null}
-              </ChartContain>
+              </PieContain>
             </TopPage>
 
             <GraphH1>
@@ -1383,8 +1396,6 @@ export const AssetChange = () => {
         </>
       ) : (
         <>
-          <LongNavbarBox />
-          <MiniNavbarBox />
           <LoadingDiv>
             <div className="lds-ring">
               <div></div>
