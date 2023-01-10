@@ -7,10 +7,13 @@ import useScript from '../../Hooks/useScript';
 
 export const GoogleLogin = () => {
   const googleSignInButton = useRef(null);
-
+  function handleResponse(response) {
+    console.log('Encoded JWT ID token: ' + response);
+  }
   useScript('https://accounts.google.com/gsi/client', () => {
     window.google.accounts.id.initialize({
       client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      callback: handleResponse,
     });
 
     window.google.accounts.id.renderButton(googleSignInButton.current, {

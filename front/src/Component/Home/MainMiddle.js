@@ -90,6 +90,82 @@ const MiddleDiv = styled.div`
     margin: 10px;
     border-radius: 20px;
   }
+  @media only screen and (max-width: 768px) {
+    .div1 {
+      height: 500px;
+      width: 768px;
+    }
+    .Main1 {
+      padding-top: 100px;
+      margin-top: 80px;
+    }
+    .div2 {
+      text-align: center;
+      height: 500px;
+      width: 768px;
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+    .div3 {
+      display: flex;
+      justify-content: center;
+      height: 1000px;
+      .span {
+        margin-top: 150px;
+        span {
+          font-size: 20px;
+        }
+      }
+      img {
+        width: 640px;
+        height: 453px;
+      }
+    }
+    .div4 {
+      display: flex;
+      justify-content: center;
+      text-align: end;
+      height: 1000px;
+      .span {
+        margin-top: 200px;
+        span {
+          font-size: 20px;
+        }
+      }
+      img {
+        width: 600px;
+        height: 600px;
+      }
+    }
+    .div5 {
+      text-align: center;
+      height: 400px;
+      span {
+        font-size: 20px;
+      }
+    }
+    button {
+      margin: 10px;
+    }
+    .MainAImg {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .MainAImgs {
+      width: 100%;
+      height: 300px;
+      margin-top: 10px;
+      border-radius: 30px;
+    }
+    .MainBImgs {
+      width: 100%;
+      height: 300px;
+      margin-top: 110px;
+      border-radius: 20px;
+    }
+  }
 `;
 
 const Middle = () => {

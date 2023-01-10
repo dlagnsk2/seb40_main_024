@@ -95,8 +95,6 @@ const DivBox = styled.div`
     margin-top: 100px;
   }
   @media only screen and (max-width: 320px) {
-    /* display: flex;
-    flex-direction: row; */
     .headinputContatiner {
       display: flex;
       flex-direction: row;
