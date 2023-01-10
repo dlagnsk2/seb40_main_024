@@ -66,7 +66,7 @@ const GraphH1 = styled.h1`
     text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 70px;
   }
   @media screen and (max-width: 999999px) {
     display: flex;
@@ -77,7 +77,7 @@ const GraphH1 = styled.h1`
     text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 70px;
   }
 `;
 
