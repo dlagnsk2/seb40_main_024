@@ -10,7 +10,7 @@ const ListBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-width: 590px;
+  min-width: 740px;
   height: 156px;
   padding: 20px;
   border-top: 3px solid #6a8bca;
