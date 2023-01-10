@@ -278,6 +278,8 @@ export const LoginBox = () => {
     //   navigate('/');
     // });
     window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    authCtx.logout();
+    navigate('/');
     // window.location = 'http://localhost:3000/';
 
     // setTimeout(() => (window.location = 'http://localhost:3000/'), 3000);
