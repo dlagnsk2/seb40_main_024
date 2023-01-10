@@ -194,7 +194,7 @@ export const LongNavbarBox = ({ ButtonBox, DarkModeHandler1 }) => {
   const [Assetclicked, setAssetclicked] = useState(true);
   const [Modalopen, setModalopen] = useState(false);
   const darkmode = useRecoilValue(darkMode);
-  // console.log('darkmode1', darkmode);
+  console.log('isLoggedIn', isLoggedIn);
 
   const handleClickAsset = () => {
     setAssetclicked(!Assetclicked);
