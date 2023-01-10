@@ -336,7 +336,7 @@ export const LoginBox = () => {
           </Button2>
         </ButtonBox>
         <div style={{ marginTop: '60px' }}>
-          <GoogleLogin />
+          <GoogleLogin openModal={openModal} />
         </div>
         <GoogleLogoutBox onClick={() => LogoutHandler()}>
           <div>
