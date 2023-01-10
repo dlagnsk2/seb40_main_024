@@ -8,7 +8,7 @@ import useScript from '../../Hooks/useScript';
 export const GoogleLogin = () => {
   const googleSignInButton = useRef(null);
   function handleResponse(response) {
-    console.log('Encoded JWT ID token: ' + response);
+    console.log('Encoded JWT ID token: ' + response.credential);
   }
   useScript('https://accounts.google.com/gsi/client', () => {
     window.google.accounts.id.initialize({
