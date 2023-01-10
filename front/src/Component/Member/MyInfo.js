@@ -32,8 +32,8 @@ const MyPageContain = styled.div`
 
 const PageHeader = styled.h1`
   margin-bottom: 50px;
-  border-bottom: 5px solid #8ec3b0;
-  color: #9ed5c5;
+  border-bottom: 5px solid #6a8bca;
+  color: #92b4ec;
   width: 200px;
   font-size: 40px;
 `;
@@ -106,10 +106,11 @@ const DivBox = styled.div`
 const UserInfo = styled.div`
   width: 300px;
   margin-left: 50px;
+  color: #606060;
 `;
 
 const UserInfoHead = styled.h4`
-  color: #bcead5;
+  color: #92b4ec;
   font-size: 20px;
   margin-bottom: 20px;
   @media only screen and (max-width: 320px) {
@@ -128,7 +129,7 @@ const Input = styled.input`
   outline: none;
   color: #444;
   font-weight: 700;
-  border-bottom: 3px solid #9ed5c5;
+  border-bottom: 3px solid #6a8bca;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
