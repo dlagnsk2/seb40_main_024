@@ -15,7 +15,6 @@ export const GoogleLogin = ({ openModal }) => {
     const reqToken = response.credential;
     // localStorage.setItem('token', response.credential);
     authCtx.login(reqToken);
-
     openModal();
   };
 

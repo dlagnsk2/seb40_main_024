@@ -150,7 +150,6 @@ function App() {
     setdarkmode(!darkmode);
   };
 
-  console.log('darkmode', darkmode);
   return (
     <>
       <ThemeProvider theme={darkmode ? darkDeviceTheme : lightDeviceTheme}>

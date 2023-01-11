@@ -15,7 +15,7 @@ const ButtonAA = styled.button`
   font-weight: 600;
   transition: 0.25s;
   color: #fff;
-  background-color: #c0daf9;
+  background-color: #92b4ec;
   :hover {
     color: gray;
     letter-spacing: 1px;
@@ -44,7 +44,7 @@ const ButtonBB = styled.button`
   font-weight: 600;
   transition: 0.25s;
   color: #fff;
-  background-color: #c0daf9;
+  background-color: #92b4ec;
   :hover {
     color: gray;
     letter-spacing: 1px;
@@ -75,7 +75,7 @@ const ButtonCC = styled.button`
   transition: 0.25s;
   color: #fff;
   stroke: #000000;
-  background-color: #c0daf9;
+  background-color: #92b4ec;
   :hover {
     color: gray;
     letter-spacing: 1px;
@@ -373,7 +373,7 @@ export const ReviseBtn = ({ UserPatch }) => {
 };
 export const SignOutMessgeBtn = ({ UserDelete }) => {
   return (
-    <ButtonAA style={{ backgroundColor: '#9ed5cd' }} onClick={UserDelete}>
+    <ButtonAA style={{ backgroundColor: '#92b4ec' }} onClick={UserDelete}>
       탈퇴하기
     </ButtonAA>
   );
