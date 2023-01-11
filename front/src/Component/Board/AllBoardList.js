@@ -117,6 +117,7 @@ const Tag = styled.div`
   border: 3px solid #92b4ec;
   border-radius: 10px;
   background-color: #eaf4fe;
+  color: #444;
   @media only screen and (max-width: 320px) {
   }
 `;
@@ -127,7 +128,7 @@ const Id = styled.div`
   height: 30px;
   align-items: center;
   line-height: normal;
-  color: #444;
+
   font-size: 17px;
   @media only screen and (max-width: 320px) {
   }
@@ -141,7 +142,7 @@ const Date = styled.div`
   line-height: normal;
   margin-left: 10px;
   margin-right: 10px;
-  color: #444;
+
   font-size: 13px;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
@@ -156,7 +157,7 @@ const View = styled.span`
   align-items: center;
   line-height: normal;
   margin-right: 10px;
-  color: #444;
+
   font-size: 13px;
   @media only screen and (max-width: 320px) {
     display: none;
@@ -182,7 +183,7 @@ const Text = styled.div`
   height: auto;
   padding: 5px;
   font-size: 15px;
-  color: #444;
+
   @media only screen and (max-width: 320px) {
   }
 `;
@@ -205,7 +206,7 @@ const Likenum = styled.div`
   align-items: center;
   line-height: normal;
   margin-left: 2px;
-  color: #444;
+
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
   }
