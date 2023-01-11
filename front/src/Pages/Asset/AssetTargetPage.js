@@ -146,7 +146,7 @@ const ChartContain = styled.div`
   width: 750px;
   height: 50%;
   position: fixed !important;
-  margin-top: 0px;
+  margin-top: -280px;
   margin-left: -800px;
   gap: 50px;
   @media only screen and (max-width: 768px) {

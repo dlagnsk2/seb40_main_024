@@ -6,7 +6,7 @@ const FooterMain = styled.div`
   display: flex;
   text-align: center;
   justify-content: space-evenly;
-  background-color: #8ec3b0;
+  background-color: #92b4ec;
   margin-top: 100px;
   padding: 70px;
   line-height: normal;
@@ -36,7 +36,7 @@ const FooterMain = styled.div`
       color: #ffff;
     }
     :active {
-      color: #9ed5c5;
+      color: #c0daf9;
     }
   }
 `;
@@ -44,16 +44,6 @@ const FooterMain = styled.div`
 function Footer() {
   return (
     <FooterMain>
-      <div className="Footers">
-        <a href="https://github.com/junny1995">
-          <FontAwesomeIcon icon={faGithub} className="github" />
-          <span>
-            Frontend
-            <br />
-            황인준
-          </span>
-        </a>
-      </div>
       <div className="Footers">
         <a href="https://github.com/dlagnsk2">
           <FontAwesomeIcon icon={faGithub} className="github" />
@@ -74,16 +64,7 @@ function Footer() {
           </span>
         </a>
       </div>
-      <div className="Footers">
-        <a href="https://github.com/HongSungHak">
-          <FontAwesomeIcon icon={faGithub} className="github" />
-          <span>
-            Backend
-            <br />
-            홍성학
-          </span>
-        </a>
-      </div>
+
       <div className="Footers">
         <a href="https://github.com/codinginfant">
           <FontAwesomeIcon icon={faGithub} className="github" />
@@ -94,20 +75,11 @@ function Footer() {
           </span>
         </a>
       </div>
-      <div className="Footers">
-        <a href="https://github.com/JadeMK">
-          <FontAwesomeIcon icon={faGithub} className="github" />
-          <span>
-            Backend
-            <br />
-            김민주
-          </span>
-        </a>
-      </div>
+
       <span className="FooterInfo">
-        CodeStates - Main Projects - Team24
+        CodeStates - Main Project Refactoring - Team24
         <br />
-        22.11.08 ~ 22.12.04
+        22.12.26 ~ 23.01.19
       </span>
     </FooterMain>
   );

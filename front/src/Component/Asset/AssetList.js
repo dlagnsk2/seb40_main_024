@@ -200,7 +200,9 @@ const Info = styled.div`
 `;
 
 const InfoHead = styled.h4`
-  color: #bcead5;
+  display: flex;
+  justify-content: center;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 20px;
   .number {
@@ -217,7 +219,7 @@ const Input = styled.input`
   outline: none;
   color: #444;
   font-weight: 700;
-  border-bottom: 3px solid #9ed5c5;
+  border-bottom: 3px solid #c0daf9;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -250,7 +252,7 @@ const NewBtnBox = styled.div`
   margin-bottom: 10px;
 `;
 const UpBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -258,7 +260,7 @@ const UpBtn = styled.button`
   font-weight: 900;
 `;
 const DownBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -267,11 +269,11 @@ const DownBtn = styled.button`
 `;
 
 const SavingInfoHead = styled.h4`
-  color: #bcead5;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 5px;
   .number {
-    color: #8ec3b0;
+    color: #92b4ec;
   }
 `;
 // const MobileGoalList = styled.div`

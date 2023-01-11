@@ -88,7 +88,7 @@ const IdEtContainer = styled.div`
   margin-left: 10px;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #eaf4fe;
+  border-bottom: 3px solid #c0daf9;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
     border-bottom: none;

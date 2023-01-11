@@ -42,8 +42,8 @@ const ContentContain = styled.div`
   height: 100%;
   padding: 5px;
   margin-top: 20px;
-  border-top: 3px solid #eaf4fe;
-  border-bottom: 3px solid #eaf4fe;
+  border-top: 3px solid #c0daf9;
+  border-bottom: 3px solid #c0daf9;
   line-height: normal;
 `;
 
