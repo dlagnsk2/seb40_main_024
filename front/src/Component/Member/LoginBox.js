@@ -27,7 +27,8 @@ const Container = styled.div`
   margin: 250px;
   width: 600px;
   height: 700px;
-  border: 8px solid #def5e5;
+  background-color: #f2f5f7;
+  border: 8px solid #92b4ec;
   border-radius: 10px;
 `;
 
@@ -37,8 +38,8 @@ const TitleBox = styled.div`
   width: 160px;
   font-size: 40px;
   font-weight: bold;
-  border-bottom: 5px solid #8ec3b0;
-  color: #8ec3b0;
+  border-bottom: 5px solid #92b4ec;
+  color: #92b4ec;
   border-radius: 1px;
 `;
 
@@ -80,7 +81,7 @@ const InputBox = styled.div`
 
   input:focus,
   input:not(:placeholder-shown) {
-    border-bottom: solid 1px #8ec3b0;
+    border-bottom: solid 1px #92b4ec;
     outline: none;
   }
   input[type='submit'] {
@@ -98,7 +99,7 @@ const InputBox = styled.div`
     line-height: 24px;
     letter-spacing: -1px;
     &.success {
-      color: #8ec3b0;
+      color: #92b4ec;
     }
     &.error {
       color: red;
@@ -132,7 +133,7 @@ const Button = styled.div`
     transition: 0.25s;
     color: #444;
     &.success {
-      background-color: #8ec3b0;
+      background-color: #92b4ec;
       :hover {
         color: #fff;
         letter-spacing: 1px;

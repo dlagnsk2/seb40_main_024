@@ -15,7 +15,8 @@ const Container = styled.div`
   margin: 250px;
   width: 600px;
   height: 700px;
-  border: 8px solid #def5e5;
+  border: 8px solid #92b4ec;
+  background-color: #f2f5f7;
   border-radius: 10px;
 `;
 
@@ -25,8 +26,8 @@ const TitleBox = styled.div`
   width: 290px;
   font-size: 40px;
   font-weight: bold;
-  border-bottom: 5px solid #8ec3b0;
-  color: #8ec3b0;
+  border-bottom: 5px solid #92b4ec;
+  color: #92b4ec;
   border-radius: 1px;
 `;
 
