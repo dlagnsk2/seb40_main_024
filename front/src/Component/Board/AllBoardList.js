@@ -10,7 +10,7 @@ const ListBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 840px;
+  /* max-width: 840px; */
   height: 156px;
   padding: 20px;
   border-top: 3px solid #6a8bca;
@@ -117,6 +117,7 @@ const Tag = styled.div`
   border: 3px solid #92b4ec;
   border-radius: 10px;
   background-color: #eaf4fe;
+  color: #444;
   @media only screen and (max-width: 320px) {
   }
 `;
@@ -127,7 +128,6 @@ const Id = styled.div`
   height: 30px;
   align-items: center;
   line-height: normal;
-  color: #606060;
   font-size: 17px;
   @media only screen and (max-width: 320px) {
   }
@@ -141,7 +141,6 @@ const Date = styled.div`
   line-height: normal;
   margin-left: 10px;
   margin-right: 10px;
-  color: #606060;
   font-size: 13px;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
@@ -156,7 +155,6 @@ const View = styled.span`
   align-items: center;
   line-height: normal;
   margin-right: 10px;
-  color: #606060;
   font-size: 13px;
   @media only screen and (max-width: 320px) {
     display: none;
@@ -168,8 +166,8 @@ const TextEtcContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: auto;
-  height: 100%;
   margin-left: 10px;
+  max-height: 50px;
   @media only screen and (max-width: 320px) {
     display: none;
   }
@@ -178,14 +176,16 @@ const TextEtcContainer = styled.div`
 const Text = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: auto;
+  width: auto;
   padding: 5px;
   font-size: 15px;
-  color: #606060;
+  min-width: 300px;
+  max-height: 50px;
+  overflow: hidden;
   @media only screen and (max-width: 320px) {
   }
 `;
+
 const LikeBox = styled.div`
   display: flex;
   font-size: 15px;
@@ -205,8 +205,6 @@ const Likenum = styled.div`
   align-items: center;
   line-height: normal;
   margin-left: 2px;
-  color: #606060;
-  /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
   }
 `;

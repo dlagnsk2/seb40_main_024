@@ -106,7 +106,6 @@ const DivBox = styled.div`
 const UserInfo = styled.div`
   width: 300px;
   margin-left: 50px;
-  color: #606060;
 `;
 
 const UserInfoHead = styled.h4`

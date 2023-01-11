@@ -63,9 +63,9 @@ const MobileComponentContain = styled.div`
     opacity: 1;
     transition: opacity 5s;
     font-weight: 500;
-    .goaltitle {
+    /* .goaltitle {
       color: gray;
-    }
+    } */
   }
 `;
 const MobileComponentDetail = styled.div`
@@ -152,7 +152,7 @@ const SettingInput = styled.div`
   font-size: 25px;
   border-bottom: solid 2px #adcaf3;
   margin-top: 20px;
-  color: grey;
+
   @media only screen and (max-width: 320px) {
     width: 60%;
     font-size: 20px;

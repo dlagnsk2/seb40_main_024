@@ -81,6 +81,7 @@ const ButtonBox = styled.button`
 const LightDiv = styled.div`
   width: auto;
   height: auto;
+  color: #020626;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
@@ -113,6 +114,7 @@ const LightDiv = styled.div`
 const DarkDiv = styled.div`
   width: auto;
   height: auto;
+  color: #f2f5f7;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
@@ -141,7 +143,7 @@ const DarkDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.darkTheme.bgColor};
-  } ;
+  }
 `;
 
 // console.log('window.innerHeight', `${window.innerHeight}px`);

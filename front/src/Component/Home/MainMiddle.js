@@ -29,7 +29,7 @@ const MiddleDiv = styled.div`
     text-align: center;
     height: 1200px;
     img {
-      width: auto;
+      width: 100%;
       height: auto;
     }
   }
@@ -91,7 +91,8 @@ const MiddleDiv = styled.div`
     border-radius: 30px;
   }
   .MainBImgs {
-    width: 300px;
+    width: 100%;
+    /* width: 300px; */
     height: 300px;
     margin: 10px;
     border-radius: 20px;
@@ -163,24 +164,24 @@ const Middle = () => {
                     />
                   );
                 })}
+                <h2
+                  style={{
+                    marginTop: '50px',
+                    color: '#92b4ec',
+                  }}
+                >
+                  자산 관리의 모든것,
+                  <br />그 이상을 만들어내는 호주머니
+                  <br />
+                  대한민국 어디서나
+                  <br />
+                  함께 관리하고 즐기는
+                  <br />
+                  간편한 시스템
+                </h2>
               </div>
             );
           })}
-          <h2
-            style={{
-              marginTop: '50px',
-              color: '#92b4ec',
-            }}
-          >
-            자산 관리의 모든것,
-            <br />그 이상을 만들어내는 호주머니
-            <br />
-            대한민국 어디서나
-            <br />
-            함께 관리하고 즐기는
-            <br />
-            간편한 시스템
-          </h2>
         </Fade>
       </div>
       <div id="3" className="div3">
