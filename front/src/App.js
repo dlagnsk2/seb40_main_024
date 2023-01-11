@@ -80,6 +80,8 @@ const ButtonBox = styled.button`
   }
 `;
 const LightDiv = styled.div`
+  width: auto;
+  height: auto;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
@@ -87,7 +89,6 @@ const LightDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightTheme.bgColor};
-    /* min-width: ${DeviceSizes.etcWidth}; */
   }
 
   @media ${({ theme }) => theme.Device.tabletWidth} {
@@ -97,7 +98,6 @@ const LightDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightTheme.bgColor};
-    /* min-width: ${DeviceSizes.tabletWidth}; */
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
@@ -112,9 +112,12 @@ const LightDiv = styled.div`
 `;
 
 const DarkDiv = styled.div`
+  width: auto;
+  height: auto;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
+
     min-height: 1500px;
     align-items: center;
     justify-content: center;
@@ -124,6 +127,7 @@ const DarkDiv = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     display: flex;
     min-height: 1500px;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -133,7 +137,7 @@ const DarkDiv = styled.div`
   @media ${({ theme }) => theme.Device.mobileWidth} {
     display: flex;
     min-height: 1500px;
-    width: auto;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;

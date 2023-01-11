@@ -6,13 +6,15 @@ const FooterMain = styled.div`
   display: flex;
   text-align: center;
   justify-content: space-evenly;
-  background-color: #8ec3b0;
+  background-color: #dce3e9;
   margin-top: 100px;
   padding: 70px;
   line-height: normal;
   font-size: 17px;
   font-weight: bold;
   color: #333;
+  width: 100%;
+  min-width: 550px;
   .github {
     display: flex;
     font-size: 50px;
@@ -104,11 +106,6 @@ function Footer() {
           </span>
         </a>
       </div>
-      <span className="FooterInfo">
-        CodeStates - Main Projects - Team24
-        <br />
-        22.11.08 ~ 22.12.04
-      </span>
     </FooterMain>
   );
 }
