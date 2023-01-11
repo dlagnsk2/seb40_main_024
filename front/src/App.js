@@ -161,8 +161,6 @@ function App() {
           ButtonBox={ButtonBox}
           DarkModeHandler1={DarkModeHandler1}
         />
-        {/* <LongNavbarBox DarkModeHandler={DarkModeHandler} /> */}
-        {/* <MiniNavbarBox DarkModeHandler={DarkModeHandler} /> */}
 
         {darkmode ? (
           <DarkDiv>
