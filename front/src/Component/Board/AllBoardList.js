@@ -157,7 +157,6 @@ const View = styled.span`
   align-items: center;
   line-height: normal;
   margin-right: 10px;
-
   font-size: 13px;
   @media only screen and (max-width: 320px) {
     display: none;
@@ -169,8 +168,8 @@ const TextEtcContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: auto;
-  height: 100%;
   margin-left: 10px;
+  max-height: 50px;
   @media only screen and (max-width: 320px) {
     display: none;
   }
@@ -179,14 +178,16 @@ const TextEtcContainer = styled.div`
 const Text = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: auto;
+  width: auto;
   padding: 5px;
   font-size: 15px;
-
+  min-width: 300px;
+  max-height: 50px;
+  overflow: hidden;
   @media only screen and (max-width: 320px) {
   }
 `;
+
 const LikeBox = styled.div`
   display: flex;
   font-size: 15px;
@@ -206,8 +207,6 @@ const Likenum = styled.div`
   align-items: center;
   line-height: normal;
   margin-left: 2px;
-
-  /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
   }
 `;
