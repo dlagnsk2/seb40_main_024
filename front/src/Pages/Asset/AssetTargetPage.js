@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import AssetSetting from '../../Component/Asset/AssetSetting';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
+
 import AssetList from '../../Component/Asset/AssetList';
 import axios from 'axios';
 import { Modal } from '../../Component/Common/Modal';
@@ -45,7 +42,7 @@ const GuideBox = styled.div`
   .Text {
     font-size: 17px;
   }
-  .Hilight {
+  .Highlight {
     color: #92b4ec;
   }
   /* .TextCenter {
@@ -314,7 +311,6 @@ const AssetTargetPage = () => {
         setCountList(res.data._embedded.responseList);
         setUp(res.data._embedded.responseList.completed);
         setUp(res.data._embedded.responseList.incompleted);
-        // console.log('get', res);
       } catch (err) {
         // console.log('error', err);
       }
@@ -457,8 +453,6 @@ const AssetTargetPage = () => {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <>
         <div>
           <PageContain>
@@ -487,22 +481,23 @@ const AssetTargetPage = () => {
                       <br />
                       <p className="Text">
                         1.{' '}
-                        <span className="Hilight">&apos;나의 목표&apos;</span>에
-                        목표를 작성해주세요.
+                        <span className="Highlight">&apos;나의 목표&apos;</span>
+                        에 목표를 작성해주세요.
                       </p>
                       <br />
                       <p className="Text">
-                        2. <span className="Hilight">START</span> 버튼을
+                        2. <span className="Highlight">START</span> 버튼을
                         클릭하면 목표리스트가 생성됩니다.
                       </p>
                       <br />
                       <p className="Text">
-                        3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
-                        버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
+                        3. 목표리스트의{' '}
+                        <span className="Highlight">Saving</span> 버튼을
+                        클릭하여 저축한 기간을 표시할 수 있습니다.
                       </p>
                       <br />
                       <p className="TextCenter">
-                        *목표는 <span className="Hilight">최대 6개</span>까지
+                        *목표는 <span className="Highlight">최대 6개</span>까지
                         등록할 수 있습니다.*
                       </p>
                       <br />
@@ -517,23 +512,23 @@ const AssetTargetPage = () => {
                   <h2 className="TextHeader">목표 작성을 위한 안내</h2>
                   <br />
                   <p className="Text">
-                    1. <span className="Hilight">&apos;나의 목표&apos;</span>에
-                    목표를 작성해주세요.
+                    1. <span className="Highlight">&apos;나의 목표&apos;</span>
+                    에 목표를 작성해주세요.
                   </p>
                   <br />
                   <p className="Text">
-                    2. <span className="Hilight">START</span> 버튼을 클릭하면
+                    2. <span className="Highlight">START</span> 버튼을 클릭하면
                     목표리스트가 생성됩니다.
                   </p>
                   <br />
                   <p className="Text">
-                    3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                    3. 목표리스트의 <span className="Highlight">Saving</span>{' '}
                     버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
                   </p>
                   <br />
                   <p className="TextCenter">
-                    *목표는 <span className="Hilight">최대 6개</span>까지 등록할
-                    수 있습니다.*
+                    *목표는 <span className="Highlight">최대 6개</span>까지
+                    등록할 수 있습니다.*
                   </p>
                   <br />
                   <p className="TextCenter">
