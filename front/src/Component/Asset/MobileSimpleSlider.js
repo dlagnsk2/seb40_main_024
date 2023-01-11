@@ -44,7 +44,6 @@ const StyledSlider = styled(Slider)`
     padding: 0;
     left: 50%;
     bottom: 10px;
-
     transform: translate(-50%, -50%);
   }
 
@@ -68,8 +67,6 @@ const StyledSlider = styled(Slider)`
     font-size: 25px;
     width: 25px;
     opacity: 1;
-
-    /* background-color: #020626; */
   }
   .slick-arrow.slick-next {
     display: flex;
@@ -81,19 +78,7 @@ const StyledSlider = styled(Slider)`
     font-size: 25px;
     width: 25px;
     opacity: 1;
-
-    /* background-color: #020626; */
   }
-
-  /* .slick-dots li button:before {
-    width: 6px;
-    height: 6px;
-    color: #020626;
-  }
-
-  .slick-dots li.slick-active button:before {
-    color: #020626 !important;
-  } */
 
   li {
     margin: 0;
@@ -125,6 +110,28 @@ export const SimpleSlider = ({
   // eslint-disable-next-line no-unused-vars
   ListTextValue6,
   openEditTextModal1,
+  // eslint-disable-next-line no-unused-vars
+  openEditTextModal2,
+  // eslint-disable-next-line no-unused-vars
+  openEditTextModal3,
+  // eslint-disable-next-line no-unused-vars
+  openEditTextModal4,
+  // eslint-disable-next-line no-unused-vars
+  openEditTextModal5,
+  // eslint-disable-next-line no-unused-vars
+  openEditTextModal6,
+
+  DelModalopenHandler1,
+  // eslint-disable-next-line no-unused-vars
+  DelModalopenHandler2,
+  // eslint-disable-next-line no-unused-vars
+  DelModalopenHandler3,
+  // eslint-disable-next-line no-unused-vars
+  DelModalopenHandler4,
+  // eslint-disable-next-line no-unused-vars
+  DelModalopenHandler5,
+  // eslint-disable-next-line no-unused-vars
+  DelModalopenHandler6,
 }) => {
   let settings = {
     dots: true,
@@ -151,7 +158,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler1}
+              onClick={DelModalopenHandler1}
               disabled={ListTypeData[0] === '명칭'}
             >
               <FiDelete />
@@ -170,6 +177,7 @@ export const SimpleSlider = ({
           </H3>
         </AssetListBox>
       </div>
+
       <div>
         <AssetListBox>
           <H3 style={{ marginTop: '10px' }}>2 &nbsp;) &nbsp;</H3>
@@ -177,7 +185,7 @@ export const SimpleSlider = ({
             {ListTypeData[1] === undefined ? <>명칭</> : <>{ListTypeData[1]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal2}
+              onClick={openEditTextModal2}
               disabled={ListTypeData[1] === '명칭'}
             >
               <FiEdit />
@@ -185,7 +193,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler2}
+              onClick={DelModalopenHandler2}
               disabled={ListTypeData[1] === '명칭'}
             >
               <FiDelete />
@@ -207,7 +215,7 @@ export const SimpleSlider = ({
             {ListTypeData[2] === undefined ? <>명칭</> : <>{ListTypeData[2]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal3}
+              onClick={openEditTextModal3}
               disabled={ListTypeData[2] === '명칭'}
             >
               <FiEdit />
@@ -215,7 +223,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler3}
+              onClick={DelModalopenHandler3}
               disabled={ListTypeData[2] === '명칭'}
             >
               <FiDelete />
@@ -237,7 +245,7 @@ export const SimpleSlider = ({
             {ListTypeData[3] === undefined ? <>명칭</> : <>{ListTypeData[3]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal4}
+              onClick={openEditTextModal4}
               disabled={ListTypeData[3] === '명칭'}
             >
               <FiEdit />
@@ -245,7 +253,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler4}
+              onClick={DelModalopenHandler4}
               disabled={ListTypeData[3] === '명칭'}
             >
               <FiDelete />
@@ -267,7 +275,7 @@ export const SimpleSlider = ({
             {ListTypeData[4] === undefined ? <>명칭</> : <>{ListTypeData[4]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal5}
+              onClick={openEditTextModal5}
               disabled={ListTypeData[4] === '명칭'}
             >
               <FiEdit />
@@ -275,7 +283,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler5}
+              onClick={DelModalopenHandler5}
               disabled={ListTypeData[4] === '명칭'}
             >
               <FiDelete />
@@ -297,7 +305,7 @@ export const SimpleSlider = ({
             {ListTypeData[5] === undefined ? <>명칭</> : <>{ListTypeData[5]}</>}
             <EditButton
               className="1"
-              // onClick={openEditTextModal6}
+              onClick={openEditTextModal6}
               disabled={ListTypeData[5] === '명칭'}
             >
               <FiEdit />
@@ -305,7 +313,7 @@ export const SimpleSlider = ({
             &nbsp;
             <EditButton
               className="1"
-              // onClick={DelModalopenHandler6}
+              onClick={DelModalopenHandler6}
               disabled={ListTypeData[5] === '명칭'}
             >
               <FiDelete />

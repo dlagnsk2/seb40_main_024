@@ -38,11 +38,19 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 767px) {
     min-width: 320px;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  @media screen and (min-width: 999999px) {
+    min-width: 768px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     height: 100%;
   }
@@ -58,7 +66,18 @@ const GraphH1 = styled.h1`
     text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 70px;
+  }
+  @media screen and (max-width: 999999px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    /* border: 1px solid red; */
+    text-shadow: 1px 1px 2px #1c2f71;
+    color: #92b4ec;
+    font-size: 30px;
+    margin-top: 70px;
   }
 `;
 
@@ -72,7 +91,7 @@ const TopPage = styled.div`
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #8991a5;
+    background-color: #e8f0fe;
     border: 5px solid #92b4ec;
     /* box-shadow: 2px 2px 2px #a3bfef; */
     padding-bottom: 20px;

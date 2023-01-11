@@ -15,7 +15,6 @@ import Board from './Pages/Board/Board';
 import MyPage from './Pages/Member/MyPage';
 import BoardContentPage from './Pages/Board/BoardContentPage';
 import AssetTargetPage from './Pages/Asset/AssetTargetPage';
-// import AssetTartget from './Pages/Asset/AssetTargetPage';
 import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
@@ -80,6 +79,8 @@ const ButtonBox = styled.button`
   }
 `;
 const LightDiv = styled.div`
+  width: auto;
+  height: auto;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
@@ -87,7 +88,6 @@ const LightDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightTheme.bgColor};
-    /* min-width: ${DeviceSizes.etcWidth}; */
   }
 
   @media ${({ theme }) => theme.Device.tabletWidth} {
@@ -97,7 +97,6 @@ const LightDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightTheme.bgColor};
-    /* min-width: ${DeviceSizes.tabletWidth}; */
   }
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
@@ -112,9 +111,12 @@ const LightDiv = styled.div`
 `;
 
 const DarkDiv = styled.div`
+  width: auto;
+  height: auto;
   @media ${({ theme }) => theme.Device.etcWidth} {
     display: flex;
     flex-direction: column;
+
     min-height: 1500px;
     align-items: center;
     justify-content: center;
@@ -124,6 +126,7 @@ const DarkDiv = styled.div`
   @media ${({ theme }) => theme.Device.tabletWidth} {
     display: flex;
     min-height: 1500px;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -133,7 +136,7 @@ const DarkDiv = styled.div`
   @media ${({ theme }) => theme.Device.mobileWidth} {
     display: flex;
     min-height: 1500px;
-    width: auto;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -161,8 +164,6 @@ function App() {
           ButtonBox={ButtonBox}
           DarkModeHandler1={DarkModeHandler1}
         />
-        {/* <LongNavbarBox DarkModeHandler={DarkModeHandler} /> */}
-        {/* <MiniNavbarBox DarkModeHandler={DarkModeHandler} /> */}
 
         {darkmode ? (
           <DarkDiv>

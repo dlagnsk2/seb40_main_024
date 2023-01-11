@@ -6,13 +6,15 @@ const FooterMain = styled.div`
   display: flex;
   text-align: center;
   justify-content: space-evenly;
-  background-color: #92b4ec;
+  background-color: #dce3e9;
   margin-top: 100px;
   padding: 70px;
   line-height: normal;
   font-size: 17px;
   font-weight: bold;
   color: #333;
+  width: 100%;
+  min-width: 550px;
   .github {
     display: flex;
     font-size: 50px;
@@ -75,12 +77,16 @@ function Footer() {
           </span>
         </a>
       </div>
-
-      <span className="FooterInfo">
-        CodeStates - Main Project Refactoring - Team24
-        <br />
-        22.12.26 ~ 23.01.19
-      </span>
+      <div className="Footers">
+        <a href="https://github.com/JadeMK">
+          <FontAwesomeIcon icon={faGithub} className="github" />
+          <span>
+            Backend
+            <br />
+            김민주
+          </span>
+        </a>
+      </div>
     </FooterMain>
   );
 }

@@ -27,7 +27,7 @@ const Container = styled.div`
   margin: 250px;
   width: 600px;
   height: 700px;
-  background-color: #f2f5f7;
+  background-color: #e8f0fe;
   border: 8px solid #92b4ec;
   border-radius: 10px;
 `;
@@ -275,16 +275,9 @@ export const LoginBox = () => {
   };
 
   const LogoutHandler = () => {
-    // navigate('/');
-    // useEffect(() => {
-    //   navigate('/');
-    // });
     window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
     authCtx.logout();
     navigate('/');
-    // window.location = 'http://localhost:3000/';
-
-    // setTimeout(() => (window.location = 'http://localhost:3000/'), 3000);
   };
 
   return (
