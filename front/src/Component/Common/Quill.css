@@ -38,6 +38,9 @@
   border-end-end-radius: 10px;
   border-end-start-radius: 10px;
 }
+.ql-editor {
+  color: #606060;
+}
 @media only screen and (max-width: 768px) {
   .ql-container.ql-snow {
     width: 650px;

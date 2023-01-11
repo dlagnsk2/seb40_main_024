@@ -37,14 +37,12 @@ const ComponentContain = styled.div`
   }
 `;
 const boxAnimation = keyframes`
-
 0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
-
 `;
 const MobileComponentContain = styled.div`
   @media only screen and (min-width: 321px) {
@@ -86,7 +84,6 @@ const MobileComponentDetail = styled.div`
     border-radius: 3%;
     /* opacity: 1;
     transition: opacity 500ms; */
-
     .mobilep {
       font-size: 15px;
       font-weight: 500;
@@ -112,7 +109,6 @@ const Header = styled.h3`
   border-radius: 2rem;
   border: 1px solid #4a61a9;
   margin-bottom: 10px;
-
   /* @media only screen and (max-width: 320px) {
     margin-top: -20px;
   } */
@@ -329,6 +325,7 @@ const AssetList = ({
   const listOpenHandler = () => {
     setListOpen(!listOpen);
   };
+
   return (
     <>
       <div style={{ display: 'flex' }}>

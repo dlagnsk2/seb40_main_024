@@ -16,14 +16,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const boxAnimation = keyframes`
-
 0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
-
 `;
 
 const GuideBox = styled.div`

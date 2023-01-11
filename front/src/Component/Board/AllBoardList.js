@@ -127,7 +127,7 @@ const Id = styled.div`
   height: 30px;
   align-items: center;
   line-height: normal;
-  color: #444;
+  color: #606060;
   font-size: 17px;
   @media only screen and (max-width: 320px) {
   }
@@ -141,7 +141,7 @@ const Date = styled.div`
   line-height: normal;
   margin-left: 10px;
   margin-right: 10px;
-  color: #444;
+  color: #606060;
   font-size: 13px;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
@@ -156,7 +156,7 @@ const View = styled.span`
   align-items: center;
   line-height: normal;
   margin-right: 10px;
-  color: #444;
+  color: #606060;
   font-size: 13px;
   @media only screen and (max-width: 320px) {
     display: none;
@@ -182,7 +182,7 @@ const Text = styled.div`
   height: auto;
   padding: 5px;
   font-size: 15px;
-  color: #444;
+  color: #606060;
   @media only screen and (max-width: 320px) {
   }
 `;
@@ -205,7 +205,7 @@ const Likenum = styled.div`
   align-items: center;
   line-height: normal;
   margin-left: 2px;
-  color: #444;
+  color: #606060;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
   }
