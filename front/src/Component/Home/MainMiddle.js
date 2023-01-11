@@ -40,7 +40,9 @@ const MiddleDiv = styled.div`
     .span {
       margin-top: 150px;
       span {
-        font-size: 20px;
+        font-size: 30px;
+        color: #606060;
+        font-weight: 700;
       }
     }
     img {
@@ -56,7 +58,9 @@ const MiddleDiv = styled.div`
     .span {
       margin-top: 200px;
       span {
-        font-size: 20px;
+        font-size: 30px;
+        color: #606060;
+        font-weight: 700;
       }
     }
     img {
@@ -68,7 +72,9 @@ const MiddleDiv = styled.div`
     text-align: center;
     height: 400px;
     span {
-      font-size: 20px;
+      font-size: 30px;
+      color: #606060;
+      font-weight: 700;
     }
   }
   button {
@@ -91,6 +97,8 @@ const MiddleDiv = styled.div`
     margin: 10px;
     border-radius: 20px;
   }
+  @media only screen and (max-width: 768px) {
+  }
 `;
 
 const Middle = () => {
@@ -104,7 +112,7 @@ const Middle = () => {
           <span
             style={{
               color: '#FFD24C',
-              fontSize: '35px',
+              fontSize: '50px',
               fontWeight: 'bold',
             }}
           >
@@ -184,6 +192,7 @@ const Middle = () => {
               style={{
                 marginRight: '50px',
                 color: '#92b4ec',
+                marginTop: '20px',
               }}
             >
               누구나 무료로 자산을 입력해
@@ -236,6 +245,7 @@ const Middle = () => {
               style={{
                 marginLeft: '50px',
                 color: '#92b4ec',
+                marginTop: '20px',
               }}
             >
               다양한 사람들과
@@ -255,6 +265,7 @@ const Middle = () => {
           <h2
             style={{
               color: '#92b4ec',
+              marginTop: '20px',
             }}
           >
             지금바로 저희와 함께

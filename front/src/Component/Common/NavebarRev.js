@@ -46,7 +46,6 @@ const HamberBox = styled.div`
 const MarkBox = styled.div`
   display: flex;
   flex-direction: row;
-
   align-items: center;
   justify-content: center;
   margin-left: 14px;

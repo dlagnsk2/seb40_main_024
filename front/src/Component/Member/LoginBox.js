@@ -207,6 +207,7 @@ export const LoginBox = () => {
   const [isPassword, setIsPassword] = useState(false);
 
   const abc = !(isEmail && isPassword);
+  console.log('token', authCtx);
   // 이메일
   const onChangeEmail = useCallback((e) => {
     const emailRegex =

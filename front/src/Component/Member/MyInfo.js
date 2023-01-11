@@ -24,12 +24,16 @@ const MyPageContain = styled.div`
   .profileStyle {
     margin-top: 20px;
   }
+  @media only screen and (max-width: 320px) {
+    .profileStyle {
+    }
+  }
 `;
 
 const PageHeader = styled.h1`
   margin-bottom: 50px;
-  border-bottom: 5px solid #8ec3b0;
-  color: #9ed5c5;
+  border-bottom: 5px solid #6a8bca;
+  color: #92b4ec;
   width: 200px;
   font-size: 40px;
 `;
@@ -90,6 +94,13 @@ const DivBox = styled.div`
     font-size: 14pt;
     margin-top: 100px;
   }
+  @media only screen and (max-width: 320px) {
+    .headinputContatiner {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
 `;
 
 const UserInfo = styled.div`
@@ -98,9 +109,12 @@ const UserInfo = styled.div`
 `;
 
 const UserInfoHead = styled.h4`
-  color: #bcead5;
+  color: #92b4ec;
   font-size: 20px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 320px) {
+    margin-top: 20px;
+  }
 `;
 
 const InfoBox = styled.div``;
@@ -114,7 +128,7 @@ const Input = styled.input`
   outline: none;
   color: #444;
   font-weight: 700;
-  border-bottom: 3px solid #9ed5c5;
+  border-bottom: 3px solid #6a8bca;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -128,6 +142,9 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  @media only screen and (max-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 const MainBtn = styled.div`
@@ -138,6 +155,8 @@ const DivBtn = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  @media only screen and (max-width: 320px) {
+  }
 `;
 
 const SignOutMessge = styled.div`
@@ -300,21 +319,29 @@ const MyInfo = () => {
         <ListContain>
           <UserInfo>
             <DivBox>
-              <UserInfoHead>
-                <span>회원정보</span>
-              </UserInfoHead>
-              <div className="input-box">
-                <div>{Dusername}</div>
+              <div className="headinputContatiner">
+                <div>
+                  <UserInfoHead>
+                    <span>회원정보</span>
+                  </UserInfoHead>
+                  <div className="input-box">
+                    <div>{Dusername}</div>
+                  </div>
+                  <div className="input-box">
+                    <div>{Decode.username}</div>
+                  </div>
+                </div>
+                <div className="btnbox">
+                  <MainBtn>
+                    <NameUpdateBtn openModify={openModify}>
+                      수정하기
+                    </NameUpdateBtn>
+                  </MainBtn>
+                  <MainBtn>
+                    <SignOutBtn openSignOut={openSignOut} />
+                  </MainBtn>
+                </div>
               </div>
-              <div className="input-box">
-                <div>{Decode.username}</div>
-              </div>
-              <MainBtn>
-                <NameUpdateBtn openModify={openModify}>수정하기</NameUpdateBtn>
-              </MainBtn>
-              <MainBtn>
-                <SignOutBtn openSignOut={openSignOut} />
-              </MainBtn>
             </DivBox>
           </UserInfo>
           <Modal open={Modify} close={closeModal} header="회원정보 수정">

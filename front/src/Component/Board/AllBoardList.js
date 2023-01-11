@@ -10,7 +10,7 @@ const ListBox = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-width: 590px;
+  /* max-width: 840px; */
   height: 156px;
   padding: 20px;
   border-top: 3px solid #6a8bca;
@@ -26,7 +26,7 @@ const ListBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-left: -45px;
+    margin-left: -25px;
     min-width: 280px;
     height: 50px;
     padding: 20px;
@@ -84,7 +84,7 @@ const IdEtContainer = styled.div`
   margin-left: 10px;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #6a8bca;
+  border-bottom: 3px solid #c0daf9;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {
     border-bottom: none;
@@ -122,7 +122,6 @@ const Id = styled.div`
   height: 30px;
   align-items: center;
   line-height: normal;
-
   font-size: 17px;
 `;
 
@@ -134,7 +133,6 @@ const Date = styled.div`
   line-height: normal;
   margin-left: 10px;
   margin-right: 10px;
-
   font-size: 13px;
   /* border: 1px solid #ff8000; */
   @media only screen and (max-width: 320px) {

@@ -61,7 +61,7 @@ const CommentBox = styled.div`
   h4 {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-bottom: 3px solid #def5e5;
+    border-bottom: 3px solid #c0daf9;
   }
 `;
 

@@ -37,14 +37,12 @@ const ComponentContain = styled.div`
   }
 `;
 const boxAnimation = keyframes`
-
 0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
-
 `;
 const MobileComponentContain = styled.div`
   @media only screen and (min-width: 321px) {
@@ -65,9 +63,9 @@ const MobileComponentContain = styled.div`
     opacity: 1;
     transition: opacity 5s;
     font-weight: 500;
-    .goaltitle {
+    /* .goaltitle {
       color: gray;
-    }
+    } */
   }
 `;
 const MobileComponentDetail = styled.div`
@@ -86,7 +84,6 @@ const MobileComponentDetail = styled.div`
     border-radius: 3%;
     /* opacity: 1;
     transition: opacity 500ms; */
-
     .mobilep {
       font-size: 15px;
       font-weight: 500;
@@ -112,7 +109,6 @@ const Header = styled.h3`
   border-radius: 2rem;
   border: 1px solid #4a61a9;
   margin-bottom: 10px;
-
   /* @media only screen and (max-width: 320px) {
     margin-top: -20px;
   } */
@@ -156,7 +152,7 @@ const SettingInput = styled.div`
   font-size: 25px;
   border-bottom: solid 2px #adcaf3;
   margin-top: 20px;
-  color: grey;
+
   @media only screen and (max-width: 320px) {
     width: 60%;
     font-size: 20px;
@@ -204,7 +200,9 @@ const Info = styled.div`
 `;
 
 const InfoHead = styled.h4`
-  color: #bcead5;
+  display: flex;
+  justify-content: center;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 20px;
   .number {
@@ -221,7 +219,7 @@ const Input = styled.input`
   outline: none;
   color: #444;
   font-weight: 700;
-  border-bottom: 3px solid #9ed5c5;
+  border-bottom: 3px solid #c0daf9;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -254,7 +252,7 @@ const NewBtnBox = styled.div`
   margin-bottom: 10px;
 `;
 const UpBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -262,7 +260,7 @@ const UpBtn = styled.button`
   font-weight: 900;
 `;
 const DownBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -271,11 +269,11 @@ const DownBtn = styled.button`
 `;
 
 const SavingInfoHead = styled.h4`
-  color: #bcead5;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 5px;
   .number {
-    color: #8ec3b0;
+    color: #92b4ec;
   }
 `;
 // const MobileGoalList = styled.div`
@@ -329,6 +327,7 @@ const AssetList = ({
   const listOpenHandler = () => {
     setListOpen(!listOpen);
   };
+
   return (
     <>
       <div style={{ display: 'flex' }}>
