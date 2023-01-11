@@ -21,8 +21,6 @@ const ListBox = styled.div`
   :hover {
     background-color: rgba(0, 0, 0, 0.03);
   }
-  @media only screen and (max-width: 768px) {
-  }
 
   @media only screen and (max-width: 320px) {
     display: flex;
@@ -76,8 +74,6 @@ const Container = styled.div`
   height: 110px;
   margin-left: 10px;
   /* border: 1px solid #0000ff; */
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 const IdEtContainer = styled.div`
@@ -118,8 +114,6 @@ const Tag = styled.div`
   border-radius: 10px;
   background-color: #eaf4fe;
   color: #444;
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 const Id = styled.div`
@@ -130,8 +124,6 @@ const Id = styled.div`
   line-height: normal;
 
   font-size: 17px;
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 const Date = styled.div`
@@ -179,13 +171,12 @@ const Text = styled.div`
   display: flex;
   flex-direction: row;
   width: auto;
+
   padding: 5px;
   font-size: 15px;
   min-width: 300px;
   max-height: 50px;
   overflow: hidden;
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 const LikeBox = styled.div`
@@ -197,8 +188,6 @@ const LikeBox = styled.div`
   color: red;
   height: 30px;
   margin-right: 10px;
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 const Likenum = styled.div`
@@ -207,8 +196,6 @@ const Likenum = styled.div`
   align-items: center;
   line-height: normal;
   margin-left: 2px;
-  @media only screen and (max-width: 320px) {
-  }
 `;
 
 function AllBoardList({ id, title, body, createdAt, like, category, view }) {
