@@ -3,8 +3,8 @@ import { ResponsiveBullet } from '@nivo/bullet';
 const GoalChart = ({ GoalData }) => {
   return (
     <ResponsiveBullet
-      data={GoalData.map((d) => ({
-        ...d,
+      data={GoalData.map((goal) => ({
+        ...goal,
         title: (
           <text dy={5}>
             <tspan
@@ -14,7 +14,7 @@ const GoalChart = ({ GoalData }) => {
                 fontSize: '15px',
               }}
             >
-              {d.id}
+              {goal.id}
             </tspan>
           </text>
         ),
@@ -22,7 +22,7 @@ const GoalChart = ({ GoalData }) => {
       margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
       spacing={46}
       titleAlign="start"
-      titleOffsetX={-70}
+      titleOffsetX={-80}
       rangeBorderColor={{ from: 'color', modifiers: [] }}
       rangeBorderWidth={15}
       rangeColors="#FFD24C"

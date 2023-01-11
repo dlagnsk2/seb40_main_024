@@ -38,7 +38,7 @@ const FooterMain = styled.div`
       color: #ffff;
     }
     :active {
-      color: #9ed5c5;
+      color: #c0daf9;
     }
   }
 `;
@@ -46,16 +46,6 @@ const FooterMain = styled.div`
 function Footer() {
   return (
     <FooterMain>
-      <div className="Footers">
-        <a href="https://github.com/junny1995">
-          <FontAwesomeIcon icon={faGithub} className="github" />
-          <span>
-            Frontend
-            <br />
-            황인준
-          </span>
-        </a>
-      </div>
       <div className="Footers">
         <a href="https://github.com/dlagnsk2">
           <FontAwesomeIcon icon={faGithub} className="github" />
@@ -76,16 +66,7 @@ function Footer() {
           </span>
         </a>
       </div>
-      <div className="Footers">
-        <a href="https://github.com/HongSungHak">
-          <FontAwesomeIcon icon={faGithub} className="github" />
-          <span>
-            Backend
-            <br />
-            홍성학
-          </span>
-        </a>
-      </div>
+
       <div className="Footers">
         <a href="https://github.com/codinginfant">
           <FontAwesomeIcon icon={faGithub} className="github" />

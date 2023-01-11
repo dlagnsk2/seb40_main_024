@@ -21,16 +21,16 @@ const Input = styled.input`
   border-left: none;
   border-right: none;
   outline: none;
-  color: #8ec3b0;
+  color: #92b4ec;
   font-weight: 700;
-  border-bottom: 3px solid #bcead5;
+  border-bottom: 3px solid #c0daf9;
   background: rgba(222, 245, 229, 0.15);
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
   ::placeholder {
-    color: #8ec3b0;
+    color: #c0daf9;
     padding-left: 5px;
   }
   @media only screen and (max-width: 320px) {
@@ -42,8 +42,8 @@ const Input = styled.input`
 
 const H2 = styled.h2`
   margin-top: 150px;
-  text-shadow: 3px 3px 3px 3px #8ec3b0;
-  color: #9ed5c5;
+  text-shadow: 3px 3px 3px 3px #d6e9fd;
+  color: #92b4ec;
   font-weight: bold;
   @media only screen and (max-width: 320px) {
     font-size: 20px;
@@ -56,9 +56,9 @@ const Header = styled.div`
 `;
 
 const Select = styled.select`
-  border: 2.5px solid #9ed5c5;
+  border: 2.5px solid #92b4ec;
   box-sizing: border-box;
-  color: #8ec3b0;
+  color: #92b4ec;
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;

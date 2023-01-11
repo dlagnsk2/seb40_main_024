@@ -13,14 +13,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const boxAnimation = keyframes`
-
 0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
-
 `;
 
 const GuideBox = styled.div`
@@ -35,7 +33,6 @@ const GuideBox = styled.div`
   border-top: 5px solid #92b4ec;
   border-bottom: 5px solid #92b4ec;
   margin-bottom: 50px;
-  color: gray;
   .TextHeader {
     text-align: center;
     color: #92b4ec;
@@ -44,7 +41,7 @@ const GuideBox = styled.div`
   .Text {
     font-size: 17px;
   }
-  .Hilight {
+  .Highlight {
     color: #92b4ec;
   }
   /* .TextCenter {
@@ -54,12 +51,10 @@ const GuideBox = styled.div`
     margin-top: 150px;
     padding: 10px;
     width: 650px;
-    color: gray;
   }
   @media only screen and (max-width: 521px) {
     padding: 10px;
     width: 100%;
-    color: gray;
     text-align: center;
     .TextHeader {
       text-align: center;
@@ -90,7 +85,6 @@ const MobileGuideBox = styled.div`
     border-top: 5px solid #92b4ec;
     border-bottom: 5px solid #92b4ec;
     margin-bottom: 50px;
-    color: grey;
     .TextHeader {
       text-align: center;
       color: #92b4ec;
@@ -148,7 +142,7 @@ const ChartContain = styled.div`
   width: 750px;
   height: 50%;
   position: fixed !important;
-  margin-top: 0px;
+  margin-top: -280px;
   margin-left: -800px;
   gap: 50px;
   @media only screen and (max-width: 768px) {
@@ -313,7 +307,6 @@ const AssetTargetPage = () => {
         setCountList(res.data._embedded.responseList);
         setUp(res.data._embedded.responseList.completed);
         setUp(res.data._embedded.responseList.incompleted);
-        // console.log('get', res);
       } catch (err) {
         // console.log('error', err);
       }
@@ -482,22 +475,23 @@ const AssetTargetPage = () => {
                   <MobileGuideBoxDetail>
                     <br />
                     <p className="Text">
-                      1. <span className="Hilight">&apos;나의 목표&apos;</span>
-                      에 목표를 작성해주세요.
+                      1.{' '}
+                      <span className="Highlight">&apos;나의 목표&apos;</span>에
+                      목표를 작성해주세요.
                     </p>
                     <br />
                     <p className="Text">
-                      2. <span className="Hilight">START</span> 버튼을 클릭하면
-                      목표리스트가 생성됩니다.
+                      2. <span className="Highlight">START</span> 버튼을
+                      클릭하면 목표리스트가 생성됩니다.
                     </p>
                     <br />
                     <p className="Text">
-                      3. 목표리스트의 <span className="Hilight">Saving</span>{' '}
+                      3. 목표리스트의 <span className="Highlight">Saving</span>{' '}
                       버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
                     </p>
                     <br />
                     <p className="TextCenter">
-                      *목표는 <span className="Hilight">최대 6개</span>까지
+                      *목표는 <span className="Highlight">최대 6개</span>까지
                       등록할 수 있습니다.*
                     </p>
                     <br />
@@ -512,22 +506,22 @@ const AssetTargetPage = () => {
                 <h2 className="TextHeader">목표 작성을 위한 안내</h2>
                 <br />
                 <p className="Text">
-                  1. <span className="Hilight">&apos;나의 목표&apos;</span>에
+                  1. <span className="Highlight">&apos;나의 목표&apos;</span>에
                   목표를 작성해주세요.
                 </p>
                 <br />
                 <p className="Text">
-                  2. <span className="Hilight">START</span> 버튼을 클릭하면
+                  2. <span className="Highlight">START</span> 버튼을 클릭하면
                   목표리스트가 생성됩니다.
                 </p>
                 <br />
                 <p className="Text">
-                  3. 목표리스트의 <span className="Hilight">Saving</span> 버튼을
-                  클릭하여 저축한 기간을 표시할 수 있습니다.
+                  3. 목표리스트의 <span className="Highlight">Saving</span>{' '}
+                  버튼을 클릭하여 저축한 기간을 표시할 수 있습니다.
                 </p>
                 <br />
                 <p className="TextCenter">
-                  *목표는 <span className="Hilight">최대 6개</span>까지 등록할
+                  *목표는 <span className="Highlight">최대 6개</span>까지 등록할
                   수 있습니다.*
                 </p>
                 <br />
