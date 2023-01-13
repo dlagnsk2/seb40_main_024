@@ -271,6 +271,7 @@ export const LoginBox = () => {
       console.log('reqToken', req.headers);
     } catch (e) {
       erropenModal();
+      console.log('e', e);
     }
   };
 
