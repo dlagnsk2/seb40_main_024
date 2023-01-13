@@ -5,7 +5,6 @@ import styled, { ThemeProvider } from 'styled-components';
 // import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainHome from './Pages/Home/MainHome';
-// import Asset from './Pages/Asset/Asset';
 import { AssetChange } from './Pages/Asset/AssetChange';
 import { LoginPage } from './Pages/Member/LoginPage';
 import { SignupPage } from './Pages/Member/SignupPage';
