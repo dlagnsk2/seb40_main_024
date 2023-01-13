@@ -114,6 +114,7 @@ public class SecurityConfiguration {
         configuration.addAllowedOrigin("http://24kgb.co.uk.s3-website.ap-northeast-2.amazonaws.com/");
         configuration.addAllowedOrigin("http://refactoring-seb40-main-024.s3-website.ap-northeast-2.amazonaws.com/");
         configuration.addAllowedOrigin("https://refactoring-hojumoney.netlify.app/");
+        configuration.addAllowedOrigin("https://refactoring-hojumoney.store/");
 
 
 //        configuration.addAllowedOriginPattern("*");

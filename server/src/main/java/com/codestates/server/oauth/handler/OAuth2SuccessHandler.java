@@ -33,7 +33,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     private final JwtTokenizer jwtTokenizer;
     private final CustomAuthorityUtils authorityUtils;
     private final MemberService memberService;
-    public static String REDIRECT_URL = "http://localhost:8080/login/oauth2/code/google" ;
+    public static String REDIRECT_URL = "https://refactoring-hojumoney.store/login/oauth2/code/google";
 
     public OAuth2SuccessHandler(JwtTokenizer jwtTokenizer,
         CustomAuthorityUtils authorityUtils, MemberService memberService) {
