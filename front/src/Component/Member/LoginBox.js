@@ -274,7 +274,8 @@ export const LoginBox = () => {
       erropenModal();
     }
   };
-
+  //1
+  //1
   const LogoutHandler = () => {
     window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
     authCtx.logout();
