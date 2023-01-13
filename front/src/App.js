@@ -21,8 +21,6 @@ import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
 // import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
-// import { Assettargetpage } from './Component/Common/Button';
-// import AllBoardList from './Component/Board/AllBoardList';
 import { LongNavbarBox, MiniNavbarBox } from './Component/Common/NavebarRev';
 
 // #    background-color: #f2f5f7;
