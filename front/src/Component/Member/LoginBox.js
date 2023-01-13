@@ -270,7 +270,7 @@ export const LoginBox = () => {
       openModal();
       // console.log('reqToken', req.headers);
     } catch (e) {
-      console.log('e', e);
+      console.log('error', e);
       erropenModal();
     }
   };
