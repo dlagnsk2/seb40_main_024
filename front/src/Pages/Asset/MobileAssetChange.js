@@ -38,7 +38,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 767px) {
     min-width: 320px;
     padding-top: 60px;
     display: flex;
@@ -46,26 +46,21 @@ const MainPage = styled.div`
     align-items: center;
     height: 100%;
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 999999px) {
     min-width: 768px;
     padding-top: 60px;
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
+    align-items: center;
     height: 100%;
-    /* border: 10px solid pink; */
   }
 `;
 
 const GraphH1 = styled.h1`
-  margin-left: auto;
-  margin-right: auto;
-  height: 45px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: normal;
     width: 85%;
     /* border: 1px solid red; */
     text-shadow: 1px 1px 2px #1c2f71;
@@ -73,72 +68,41 @@ const GraphH1 = styled.h1`
     font-size: 30px;
     margin-top: 70px;
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (max-width: 999999px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: normal;
     width: 85%;
+    /* border: 1px solid red; */
     text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
     font-size: 30px;
     margin-top: 70px;
-    /* border: 1px solid red; */
   }
 `;
 
 const TopPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #e8f0fe;
-  border: 5px solid #92b4ec;
-  /* box-shadow: 2px 2px 2px #a3bfef; */
-  padding-bottom: 20px;
-  @media screen and (max-width: 768px) {
-    width: 420px;
-  }
-  @media screen and (min-width: 769px) {
-    width: 800px;
-  }
-`;
-const ContainBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* border: 1px solid yellow; */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (min-width: 769px) {
-    width: 800px;
-    margin-left: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #e8f0fe;
+    border: 5px solid #92b4ec;
+    /* box-shadow: 2px 2px 2px #a3bfef; */
+    padding-bottom: 20px;
   }
 `;
 
 const PieContain = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: flex;
     margin-right: 0px;
     width: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    div {
-      background-color: blue;
-      top: 0px;
-      width: 250px;
-      height: 250px;
-    }
-  }
-  @media screen and (min-width: 769px) {
-    display: flex;
-    margin-right: 0px;
-    width: 800px;
     margin-top: 20px;
     margin-bottom: 20px;
     div {
@@ -250,12 +214,6 @@ const Input = styled.input`
   ::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-  @media screen and (max-width: 768px) {
-    width: 200px;
-  }
-  @media screen and (min-width: 769px) {
-    width: 400px;
   }
 `;
 
@@ -1081,12 +1039,6 @@ export const AssetChange = () => {
     }
   });
 
-  // if (window.innerWidth === 769) {
-  //   window.location.reload();
-
-  // }
-  console.log(window.innerWidth);
-
   return (
     <>
       <AssetListPostModal1
@@ -1191,7 +1143,7 @@ export const AssetChange = () => {
         EditText={EditText}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[0]} )
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
@@ -1205,7 +1157,7 @@ export const AssetChange = () => {
             <button
               className="edit"
               onClick={openPatchTextModalopenP1}
-              style={{ width: '65.52px', marginRight: '10px' }}
+              style={{ width: '65.52px' }}
               disabled={EditText.length === 0}
             >
               <HiPlusSm /> 수입
@@ -1223,7 +1175,7 @@ export const AssetChange = () => {
       </AssetTextEditModal1>
 
       <AssetTextEditModal2
-        header="자산 금액 변경"
+        header="자산 종류 수정 알림"
         open={TextModalopen2}
         close={closeModal}
       >
@@ -1259,7 +1211,7 @@ export const AssetChange = () => {
       </AssetTextEditModal2>
 
       <AssetTextEditModal3
-        header="자산 금액 변경"
+        header="자산 종류 수정 알림"
         open={TextModalopen3}
         close={closeModal}
       >
@@ -1295,7 +1247,7 @@ export const AssetChange = () => {
       </AssetTextEditModal3>
 
       <AssetTextEditModal4
-        header="자산 금액 변경"
+        header="자산 종류 수정 알림"
         open={TextModalopen4}
         close={closeModal}
       >
@@ -1331,8 +1283,9 @@ export const AssetChange = () => {
       </AssetTextEditModal4>
 
       <AssetTextEditModal5
-        header="자산 금액 변경"
+        header="자산 종류 수정 알림"
         open={TextModalopen5}
+        // api={patchAssetsApi5}
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[4]} )
@@ -1369,6 +1322,7 @@ export const AssetChange = () => {
       <AssetTextEditModal6
         header="자산 종류 수정 알림"
         open={TextModalopen6}
+        // api={patchAssetsApi6}
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[5]} )
@@ -1402,235 +1356,42 @@ export const AssetChange = () => {
         </div>
       </AssetTextEditModal6>
 
-      <AssetDeleteModal1
-        open={DelModalopen1}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api1={deletAssetApi1}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            1)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[0]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal1>
-
-      <AssetDeleteModal2
-        open={DelModalopen2}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api2={deletAssetApi2}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            2)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[1]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal2>
-
-      <AssetDeleteModal3
-        open={DelModalopen3}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api3={deletAssetApi3}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            3)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[2]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal3>
-
-      <AssetDeleteModal4
-        open={DelModalopen4}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api4={deletAssetApi4}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            4)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[3]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal4>
-
-      <AssetDeleteModal5
-        open={DelModalopen5}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api5={deletAssetApi5}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            5)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[4]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal5>
-
-      <AssetDeleteModal6
-        open={DelModalopen6}
-        close={closeModal}
-        header="자산 삭제 알림"
-        api6={deletAssetApi6}
-      >
-        <Div style={{ flexDirection: 'column' }}>
-          <p style={{ marginBottom: '10px' }}>
-            6)&nbsp;자산명&nbsp;:&nbsp;{ListTypeData[5]}
-          </p>
-          <p>선택하신 자산을 삭제하시겠습니까?</p>
-        </Div>
-      </AssetDeleteModal6>
-
-      <AutoModal
-        open={Modalopen}
-        close={closeModal}
-        header="자산 금액 수정 알림"
-      >
-        자산 금액이 수정 되었습니다.
-      </AutoModal>
-
-      <Modal
-        open={errTextModalopen}
-        close={errcloseModal}
-        header="자산 금액 오류 알림"
-      >
-        <p>오류 : 수정할 자산명칭 및 자산 금액을 확인해 주시기 </p>
-        <p style={{ marginLeft: '42px', marginTop: '10px' }}>바랍니다.</p>
-      </Modal>
-
-      <Modal
-        open={errModalopen}
-        close={errcloseModal}
-        header="자산 종류 오류 알림"
-      >
-        오류 : 수정할 자산 종류를 입력해주세요
-      </Modal>
-
-      <Modal
-        open={errDelModalopen}
-        close={errcloseModal}
-        header="자산 리스트 생성 초과"
-      >
-        <p>리스트는 최대 6개까지 입니다.</p>
-      </Modal>
-
       {AssetDatas ? (
         <>
           <MainPage>
-            <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-              <GraphH1>보유자산 현황</GraphH1>
-              <TopPage>
-                <PieContain>
+            <GraphH1>보유자산 현황</GraphH1>
+            <TopPage>
+              <PieContain>
+                {window.innerWidth > 320 || window.innerWidth < 767 ? (
                   <Pie data={AssetAdata} options={mobilePieOptions} />
-                </PieContain>
-              </TopPage>
-            </div>
+                ) : null}
+              </PieContain>
+            </TopPage>
 
-            <ContainBox>
-              <GraphH1>
-                <TitleH1>
-                  <BsTerminal onClick={openPostListModal1} />
-                </TitleH1>
-                자산 리스트
-              </GraphH1>
+            <GraphH1>
+              <TitleH1>
+                <BsTerminal onClick={openPostListModal1} />
+              </TitleH1>
+              자산 리스트
+            </GraphH1>
 
-              <TopPage>
-                <SimpleSlider
-                  AssetListBox={AssetListBox}
-                  H3={H3}
-                  H3Title={H3Title}
-                  EditButton={EditButton}
-                  ListTypeData={ListTypeData}
-                  ListData={ListData}
-                  ListTextValue1={ListTextValue1}
-                  ListTextValue2={ListTextValue2}
-                  ListTextValue3={ListTextValue3}
-                  ListTextValue4={ListTextValue4}
-                  ListTextValue5={ListTextValue5}
-                  ListTextValue6={ListTextValue6}
-                  openEditTextModal1={openEditTextModal1}
-                  openEditTextModal2={openEditTextModal2}
-                  openEditTextModal3={openEditTextModal3}
-                  openEditTextModal4={openEditTextModal4}
-                  openEditTextModal5={openEditTextModal5}
-                  openEditTextModal6={openEditTextModal6}
-                  DelModalopenHandler1={DelModalopenHandler1}
-                  DelModalopenHandler2={DelModalopenHandler2}
-                  DelModalopenHandler3={DelModalopenHandler3}
-                  DelModalopenHandler4={DelModalopenHandler4}
-                  DelModalopenHandler5={DelModalopenHandler5}
-                  DelModalopenHandler6={DelModalopenHandler6}
-                />
-              </TopPage>
-
-              <GraphH1>자산 리스트 추가</GraphH1>
-              <TopPage style={{ height: '250px', paddingBottom: '0px' }}>
-                <div style={{ marginTop: 'auto', marginBottom: 'auto' }}>
-                  <Div>
-                    <Input
-                      onChange={TextonChange}
-                      value={Text}
-                      type="text"
-                      placeholder="자산 명칭을 적어주세요. (ex. 다이아몬드)"
-                    />
-                  </Div>
-                  {Text && ListTypeData ? (
-                    <Fade>
-                      {Text === '명칭' ? (
-                        <P
-                          style={{ color: 'blue' }}
-                        >{`🚨 자산명칭이 "명칭"이면 버튼 비활성화됩니다."`}</P>
-                      ) : null}
-                      <P>{`✨ 자산명칭: "${Text}"`}</P>
-                    </Fade>
-                  ) : null}
-
-                  <Div>
-                    <Input
-                      onChange={CashonChange}
-                      value={Cash}
-                      type="text"
-                      placeholder="숫자로만 금액을 적어주세요. (ex. 10000)"
-                    />
-                    <div>
-                      <TitleCashBtn
-                        Text={Text}
-                        Cash={Cash}
-                        postAssetApi={postAssetApi}
-                        listdata={ListTypeData}
-                        openerrDelModalopen={openerrDelModalopen}
-                      >
-                        수정
-                      </TitleCashBtn>
-                    </div>
-                  </Div>
-                  {Cash && ListValueData && Cashtarget.length <= 21 ? (
-                    <Fade>
-                      <P
-                        style={{ color: 'blue' }}
-                      >{`✔ 금액 : "${Cashtarget}원"`}</P>
-                      <P>{`✔ 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                      <P>{`✔ 숫자만 기입 + " , " 포함 21자리까지 금액수정이 가능합니다.`}</P>
-                    </Fade>
-                  ) : Cash && AssetDatas && Cashtarget.length >= 22 ? (
-                    <Fade>
-                      <P>{`🚨 금액 자리수 : ${Cashtarget.length}자리`}</P>
-                      <P
-                        style={{ color: 'blue' }}
-                      >{`🚨 현재 금액 자리수가 22자리 이상입니다.`}</P>
-                      <P
-                        style={{ color: 'blue' }}
-                      >{`🚨 금액을 수정해주세요.`}</P>
-                    </Fade>
-                  ) : null}
-                </div>
-              </TopPage>
-            </ContainBox>
+            <TopPage>
+              <SimpleSlider
+                AssetListBox={AssetListBox}
+                H3={H3}
+                H3Title={H3Title}
+                EditButton={EditButton}
+                ListTypeData={ListTypeData}
+                ListData={ListData}
+                ListTextValue1={ListTextValue1}
+                ListTextValue2={ListTextValue2}
+                ListTextValue3={ListTextValue3}
+                ListTextValue4={ListTextValue4}
+                ListTextValue5={ListTextValue5}
+                ListTextValue6={ListTextValue6}
+                openEditTextModal1={openEditTextModal1}
+              />
+            </TopPage>
           </MainPage>
         </>
       ) : (

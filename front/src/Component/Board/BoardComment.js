@@ -16,12 +16,20 @@ const TotalComment = styled.div`
   flex-direction: column;
   padding: 20px;
   width: 850px;
-  border: 3px solid #9ed5c5;
+  border: 3px solid #6a8bca;
   border-radius: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
+  color: gray;
   :last-child {
     margin-bottom: 100px;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 700px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 280px;
   }
 `;
 
@@ -31,12 +39,20 @@ const CommentContain = styled.div`
   width: auto;
   padding: 5px;
   line-height: normal;
+  @media only screen and (max-width: 320px) {
+    font-size: 15px;
+  }
 `;
 
 const ImageBox = styled.div`
   display: flex;
   justify-content: center;
   padding: 10px 20px;
+  @media only screen and (max-width: 320px) {
+    width: 70px;
+    height: 70px;
+    margin-left: -20px;
+  }
 `;
 
 const CommentBox = styled.div`
@@ -45,7 +61,7 @@ const CommentBox = styled.div`
   h4 {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-bottom: 3px solid #def5e5;
+    border-bottom: 3px solid #c0daf9;
   }
 `;
 

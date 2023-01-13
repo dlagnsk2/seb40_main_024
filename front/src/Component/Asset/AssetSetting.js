@@ -14,18 +14,26 @@ const ComponentContain = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  border: 5px solid #9ed5c5;
-  .trashicon {
+  border: 5px solid #92b4ec;
+  border-radius: 3%;
+  /* .trashicon {
     margin-left: 500px;
-  }
+  } */
   .p {
+    color: #92b4ec;
     font-size: 17px;
     font-weight: 500;
+  }
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+    margin-left: 180px;
+    height: 400px;
   }
 `;
 
 const Header = styled.h3`
   margin-top: 30px;
+  color: #92b4ec;
 `;
 
 const SettingInput = styled.input`
@@ -35,12 +43,15 @@ const SettingInput = styled.input`
   height: 60px;
   margin: 10px;
   font-size: 20px;
-  border: solid 2px #9ed5c5;
+  border: solid 2px #6a8bca;
   border-radius: 10px;
   &:focus {
     outline: none;
-    border-color: #8ec3b0;
+    border-color: #c0daf9;
     box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+  }
+  @media only screen and (max-width: 521px) {
+    width: 60%;
   }
 `;
 
@@ -55,8 +66,11 @@ const TextBox = styled.div`
   margin: auto;
   height: 70px;
   width: 300px;
-  color: red;
+  color: #ffd24c;
   font-size: 30px;
+  @media only screen and (max-width: 521px) {
+    font-size: 20px;
+  }
 `;
 
 const AssetSetting = ({

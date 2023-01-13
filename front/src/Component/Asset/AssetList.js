@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { SaveBtn, EditGoalBtn, DeleteGoalBtn } from '../Common/Button';
 import {
   GoalModifyModal,
@@ -18,12 +18,12 @@ const ComponentContain = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  border: 5px solid #def5e5;
-  .trashicon {
-    margin-left: 500px;
-  }
+  border: 5px solid #d6e9fd;
+  border-radius: 3%;
   .p {
     font-size: 17px;
+    font-weight: 500;
+    color: #92b4ec;
     font-weight: 500;
   }
   .smallP {
@@ -32,10 +32,115 @@ const ComponentContain = styled.div`
     text-align: left;
     color: gray;
   }
+  @media only screen and (max-width: 320px) {
+    display: none;
+  }
+`;
+const boxAnimation = keyframes`
+0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+const MobileComponentContain = styled.div`
+  @media only screen and (min-width: 321px) {
+    display: none;
+  }
+  @media only screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 5px solid #d6e9fd;
+    width: 300px;
+    margin-left: 180px;
+    height: auto;
+    border-radius: 3%;
+    opacity: 1;
+    transition: opacity 5s;
+    font-weight: 500;
+    /* .goaltitle {
+      color: gray;
+    } */
+  }
+`;
+const MobileComponentDetail = styled.div`
+  @media only screen and (min-width: 321px) {
+    display: none;
+  }
+  @media only screen and (max-width: 320px) {
+    animation: ${boxAnimation} 1s 0s;
+    display: flex;
+    flex-direction: column;
+    /* display: inline-flex; */
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    border-radius: 3%;
+    /* opacity: 1;
+    transition: opacity 500ms; */
+    .mobilep {
+      font-size: 15px;
+      font-weight: 500;
+      color: #92b4ec;
+    }
+    .mobilesmallP {
+      margin-bottom: 5px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      color: gray;
+    }
+  }
 `;
 
 const Header = styled.h3`
+  box-sizing: border-box;
+  width: 120px;
+  height: 30px;
+  color: #92b4ec;
+  text-align: center;
+  /* border: 2px solid #4a61a9; */
+  border-radius: 2rem;
+  border: 1px solid #4a61a9;
   margin-bottom: 10px;
+  /* @media only screen and (max-width: 320px) {
+    margin-top: -20px;
+  } */
+  :hover {
+    color: gray;
+    cursor: pointer;
+  }
+`;
+const MobileHeader = styled.h4`
+  @media only screen and (min-width: 321px) {
+    display: none;
+  }
+  @media only screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    color: #92b4ec;
+    text-align: center;
+    /* border: 2px solid #4a61a9; */
+    border-radius: 2rem;
+    border: 1px solid #4a61a9;
+    cursor: pointer;
+  }
+  :hover {
+    color: gray;
+    letter-spacing: 1px;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
 
 const SettingInput = styled.div`
@@ -45,13 +150,12 @@ const SettingInput = styled.div`
   height: 50px;
   margin: 10px;
   font-size: 25px;
-  border-bottom: solid 2px #9ed5c5;
+  border-bottom: solid 2px #adcaf3;
   margin-top: 20px;
-  color: grey;
-  &:focus {
-    outline: none;
-    border-color: #8ec3b0;
-    box-shadow: 0px 0px 0px 4px hsla(206, 100%, 40%, 0.15);
+
+  @media only screen and (max-width: 320px) {
+    width: 60%;
+    font-size: 20px;
   }
 `;
 
@@ -64,13 +168,16 @@ const CalcurlatedBox = styled.div`
   padding: 10px;
   margin-bottom: 20px;
   text-align: center;
-  background-color: rgba(188, 234, 213, 30%);
+  background-color: #d6e9fd;
   :hover {
     box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
     .li {
       color: black;
       font-weight: 700;
     }
+  }
+  @media only screen and (max-width: 320px) {
+    width: 70%;
   }
 `;
 
@@ -93,7 +200,9 @@ const Info = styled.div`
 `;
 
 const InfoHead = styled.h4`
-  color: #bcead5;
+  display: flex;
+  justify-content: center;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 20px;
   .number {
@@ -110,7 +219,7 @@ const Input = styled.input`
   outline: none;
   color: #444;
   font-weight: 700;
-  border-bottom: 3px solid #9ed5c5;
+  border-bottom: 3px solid #c0daf9;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -127,6 +236,12 @@ const BtnBox = styled.div`
   height: 40px;
   gap: 10px;
   margin-left: 350px;
+  @media only screen and (max-width: 320px) {
+    margin-top: -25px;
+    width: 80px;
+    margin-left: 190px;
+    gap: 5px;
+  }
 `;
 const NewBtnBox = styled.div`
   display: flex;
@@ -137,7 +252,7 @@ const NewBtnBox = styled.div`
   margin-bottom: 10px;
 `;
 const UpBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -145,7 +260,7 @@ const UpBtn = styled.button`
   font-weight: 900;
 `;
 const DownBtn = styled.button`
-  width: 50px;
+  width: 80px;
   height: 30px;
   background-color: #bcead5;
   border-radius: 10%;
@@ -154,13 +269,24 @@ const DownBtn = styled.button`
 `;
 
 const SavingInfoHead = styled.h4`
-  color: #bcead5;
+  color: #6a8bca;
   font-size: 20px;
   margin-bottom: 5px;
   .number {
-    color: #8ec3b0;
+    color: #92b4ec;
   }
 `;
+// const MobileGoalList = styled.div`
+//   box-sizing: border-box;
+//   width: 120px;
+//   height: 30px;
+//   text-align: center;
+//   /* border: 2px solid #4a61a9; */
+//   border-radius: 2rem;
+//   background-color: #4a61a9;
+//   margin-bottom: 10px;
+//   color: #fff;
+// `;
 
 const AssetList = ({
   count,
@@ -182,6 +308,7 @@ const AssetList = ({
   const [save, setSave] = useState(false);
   const [Modify, setModify] = useState(false);
   const [Modalopen, setModalopen] = useState(false);
+  const [listOpen, setListOpen] = useState(false);
 
   const openSavingModal = () => {
     setSave(!save);
@@ -197,10 +324,204 @@ const AssetList = ({
   const openModify = () => {
     setModify(true);
   };
+  const listOpenHandler = () => {
+    setListOpen(!listOpen);
+  };
 
   return (
     <>
       <div style={{ display: 'flex' }}>
+        <MobileComponentContain>
+          <MobileHeader
+            placeholder="자동차"
+            type="text"
+            onChange={(e) => setGoal(e.target.value)}
+            value={goal}
+            onClick={listOpenHandler}
+          >
+            나의 목표
+          </MobileHeader>
+          <div className="goaltitle">{count.goalName}</div>
+          {listOpen ? (
+            <MobileComponentDetail>
+              <BtnBox>
+                <EditGoalBtn
+                  openModify={openModify}
+                  id={count.goalId}
+                ></EditGoalBtn>
+                <DeleteGoalBtn
+                  goalDelete={goalDelete}
+                  id={count.goalId}
+                ></DeleteGoalBtn>
+              </BtnBox>
+              <p className="mobilep">목표 금액</p>
+              <SettingInput
+                placeholder="30,000,000원"
+                type="number"
+                onChange={(e) => setExtended(e.target.value)}
+                value={extended}
+              >
+                {count.goalPrice
+                  .toString()
+                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}{' '}
+                원
+              </SettingInput>
+              <p className="mobilep">목표 기간</p>
+              <SettingInput
+                placeholder="12개월"
+                type="number"
+                onChange={(e) => setPeriod(e.target.value)}
+                value={period}
+              >
+                {count.targetLength} 개월
+              </SettingInput>
+              <CalcurlatedBox>
+                <p className="mobilesmallP">
+                  <li>
+                    {' '}
+                    매달 저축액:{' '}
+                    {Number(count.calculatedPrice)
+                      .toString()
+                      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}{' '}
+                    원
+                  </li>
+                </p>
+                <p className="mobilesmallP">
+                  <li>
+                    {' '}
+                    남은 금액:{' '}
+                    {Number(Math.ceil(count.goalPrice)) <
+                    (Number(count.targetLength) - count.completed) *
+                      Number(count.calculatedPrice)
+                      ? Number(Math.ceil(count.goalPrice))
+                          .toString()
+                          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+                      : (
+                          (Number(count.targetLength) - count.completed) *
+                          Number(count.calculatedPrice)
+                        )
+                          .toString()
+                          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}{' '}
+                    원{' '}
+                  </li>
+                </p>
+
+                <p className="mobilesmallP">
+                  <li className="savingContent">
+                    남은 기간: {Number(count.targetLength) - count.completed}{' '}
+                    개월{' '}
+                  </li>
+                </p>
+              </CalcurlatedBox>
+              <SaveBtn openSavingModal={openSavingModal}></SaveBtn>
+              <GoalModifyModal
+                id={count.goalId}
+                open={Modify}
+                close={openModal}
+                header="목표자산 수정"
+                goalPatch={goalPatch}
+              >
+                <Div>
+                  <ListContain>
+                    <Info>
+                      <div>
+                        <InfoHead>목표자산 수정</InfoHead>
+                        <Input
+                          onChange={goalNameonChange}
+                          placeholder="나의 목표"
+                        ></Input>
+                        <Input
+                          type="number"
+                          onChange={goalPriceonChange}
+                          placeholder="금액"
+                        />
+                        <Input
+                          type="number"
+                          onChange={targetLengthonChange}
+                          placeholder="기간"
+                        />
+                      </div>
+                    </Info>
+                  </ListContain>
+                  <Modal open={Modalopen} close={closeModal} header="알림">
+                    목표달성에 도전해보세요!
+                  </Modal>
+                </Div>
+              </GoalModifyModal>
+              <SavingModal
+                open={save}
+                close={openModal}
+                goalUpPatch={goalUpPatch}
+                goalDownPatch={goalDownPatch}
+                header="저축 기간"
+              >
+                <Div>
+                  <ListContain>
+                    <Info>
+                      <div className="saving">
+                        <SavingInfoHead>
+                          <FontAwesomeIcon icon={faCheck} color="grey" /> 목표
+                          기간:{' '}
+                          <span className="number">{count.targetLength}</span>
+                          개월
+                        </SavingInfoHead>
+                        <SavingInfoHead>
+                          <FontAwesomeIcon icon={faCheck} color="grey" /> 저축
+                          기간:{' '}
+                          <span className="number">{count.completed}</span>
+                          개월
+                        </SavingInfoHead>
+                        <SavingInfoHead>
+                          <FontAwesomeIcon icon={faCheck} color="grey" /> 남은
+                          금액:{' '}
+                          <span className="number">
+                            {Number(Math.ceil(count.goalPrice)) <
+                            (Number(count.targetLength) - count.completed) *
+                              Number(count.calculatedPrice)
+                              ? Number(Math.ceil(count.goalPrice))
+                                  .toString()
+                                  .replace(
+                                    /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                                    ','
+                                  )
+                              : (
+                                  (Number(count.targetLength) -
+                                    count.completed) *
+                                  Number(count.calculatedPrice)
+                                )
+                                  .toString()
+                                  .replace(
+                                    /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                                    ','
+                                  )}{' '}
+                          </span>
+                          원
+                        </SavingInfoHead>
+
+                        <NewBtnBox>
+                          <UpBtn onClick={goalUpPatch} data-id={id}>
+                            UP
+                          </UpBtn>
+                          <DownBtn onClick={goalDownPatch} data-id={id}>
+                            DOWN
+                          </DownBtn>
+                        </NewBtnBox>
+                      </div>
+                    </Info>
+                  </ListContain>
+                  <Modal
+                    open={Modalopen}
+                    close={closeModal}
+                    header="저축기간 저장 알림"
+                  >
+                    저축 기간이 저장되었습니다.
+                  </Modal>
+                </Div>
+              </SavingModal>
+            </MobileComponentDetail>
+          ) : null}
+        </MobileComponentContain>
+
         <ComponentContain>
           <br />
           <BtnBox>
@@ -328,11 +649,13 @@ const AssetList = ({
                   <div className="saving">
                     <SavingInfoHead>
                       <FontAwesomeIcon icon={faCheck} color="grey" /> 목표 기간:{' '}
-                      <span className="number">{count.targetLength}</span>개월
+                      <span className="number">{count.targetLength}</span>
+                      개월
                     </SavingInfoHead>
                     <SavingInfoHead>
                       <FontAwesomeIcon icon={faCheck} color="grey" /> 저축 기간:{' '}
-                      <span className="number">{count.completed}</span>개월
+                      <span className="number">{count.completed}</span>
+                      개월
                     </SavingInfoHead>
                     <SavingInfoHead>
                       <FontAwesomeIcon icon={faCheck} color="grey" /> 남은 금액:{' '}

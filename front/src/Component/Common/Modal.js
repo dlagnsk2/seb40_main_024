@@ -23,12 +23,12 @@ const Div = styled.div`
     border: 0;
   }
   .modal > section {
-    width: 90%;
-    max-width: 450px;
+    min-width: 290px;
     margin: 0 auto;
     border-radius: 0.3rem;
-    background-color: #fff;
-    width: 800px;
+    background-color: #dee2e6;
+    width: 90%;
+    border: 1px solid #92b4ec;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-show 0.6s;
     overflow: hidden;
@@ -36,8 +36,9 @@ const Div = styled.div`
   .modal > section > header {
     position: relative;
     padding: 16px 64px 16px 16px;
-    background-color: #9ed5cd;
+    background-color: #020626;
     font-weight: 700;
+    color: #92b4ec;
   }
   .modal > section > header button {
     position: absolute;
@@ -55,21 +56,41 @@ const Div = styled.div`
     border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
   }
+  .modal > section > main > div {
+    height: 250px;
+  }
+  .modal > section > main > div > div {
+    width: 256px;
+  }
+  .modal > section > main > div > div > div {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .modal > section > main > div > div > div > input {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: transparent;
+  }
   .modal > section > footer {
     padding: 12px 16px;
     text-align: right;
   }
+
   .modal > section > footer button {
     padding: 6px 12px;
-    color: #fff;
-    background-color: #9ed5cd;
+    color: #92b4ec;
+    font-weight: bold;
+    background-color: #020626;
     border-radius: 5px;
     font-size: 13px;
   }
   .modal > section > main button {
     padding: 6px 12px;
-    color: #fff;
-    background-color: #9ed5cd;
+    color: #92b4ec;
+    font-weight: bold;
+    background-color: #020626;
     border-radius: 5px;
     font-size: 13px;
   }

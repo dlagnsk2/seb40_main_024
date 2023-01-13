@@ -1,7 +1,3 @@
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import styled from 'styled-components';
 import { FreeBoardList } from '../../Component/Board/BoardFreeList';
 import { useContext, useState } from 'react';
@@ -28,9 +24,13 @@ const TitleBox = styled.div`
   justify-content: center;
   font-size: 30px;
   font-weight: bold;
-  color: #8ec3b0;
+  color: #92b4ec;
   margin-top: 120px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 320px) {
+    font-size: 25px;
+    margin-left: -40px;
+  }
 `;
 
 const PostListSpace = styled.div`
@@ -73,8 +73,6 @@ export const BoardPage = () => {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <PageContainer>
         <Box>
           <PostListSpace>

@@ -6,6 +6,12 @@ import { NavForgotPasswordButton, NavSignUpButton } from '../Common/Button';
 import { Modal } from '../Common/Modal';
 import AuthContext from '../../store/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from './GoogleLogin';
+import { FcGoogle } from 'react-icons/fc';
+
+// eslint-disable-next-line no-unused-vars
+const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+// console.log(GoogleClientId);
 
 const PageContainer = styled.div`
   display: flex;
@@ -21,7 +27,8 @@ const Container = styled.div`
   margin: 250px;
   width: 600px;
   height: 700px;
-  border: 8px solid #def5e5;
+  background-color: #e8f0fe;
+  border: 8px solid #92b4ec;
   border-radius: 10px;
 `;
 
@@ -31,8 +38,8 @@ const TitleBox = styled.div`
   width: 160px;
   font-size: 40px;
   font-weight: bold;
-  border-bottom: 5px solid #8ec3b0;
-  color: #8ec3b0;
+  border-bottom: 5px solid #92b4ec;
+  color: #92b4ec;
   border-radius: 1px;
 `;
 
@@ -74,7 +81,7 @@ const InputBox = styled.div`
 
   input:focus,
   input:not(:placeholder-shown) {
-    border-bottom: solid 1px #8ec3b0;
+    border-bottom: solid 1px #92b4ec;
     outline: none;
   }
   input[type='submit'] {
@@ -92,7 +99,7 @@ const InputBox = styled.div`
     line-height: 24px;
     letter-spacing: -1px;
     &.success {
-      color: #8ec3b0;
+      color: #92b4ec;
     }
     &.error {
       color: red;
@@ -126,7 +133,7 @@ const Button = styled.div`
     transition: 0.25s;
     color: #444;
     &.success {
-      background-color: #8ec3b0;
+      background-color: #92b4ec;
       :hover {
         color: #fff;
         letter-spacing: 1px;
@@ -149,6 +156,40 @@ const Button2 = styled.div`
   justify-content: space-between;
 `;
 
+const GoogleLogoutBox = styled.button`
+  margin-top: 20px;
+  width: 524px;
+  height: 40px;
+  background-color: white;
+  color: rgb(60, 64, 67);
+  border: 1px solid rgb(60, 64, 67, 0.2);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    line-height: normal;
+  }
+
+  p {
+    font-size: 14px;
+    width: 100%;
+    height: 18px;
+    margin: auto;
+  }
+
+  :hover {
+    border: 1px solid rgb(192, 218, 249);
+    background-color: rgb(192, 218, 249, 0.2);
+  }
+`;
+
 export const LoginBox = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -166,7 +207,7 @@ export const LoginBox = () => {
   const [isPassword, setIsPassword] = useState(false);
 
   const abc = !(isEmail && isPassword);
-
+  console.log('token', authCtx);
   // 이메일
   const onChangeEmail = useCallback((e) => {
     const emailRegex =
@@ -227,15 +268,23 @@ export const LoginBox = () => {
       // const reqRefreshToken = req.headers.get('Refresh');
       authCtx.login(reqToken);
       openModal();
+      console.log('reqToken', req.headers);
     } catch (e) {
       erropenModal();
     }
+  };
+
+  const LogoutHandler = () => {
+    window.location = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    authCtx.logout();
+    navigate('/');
   };
 
   return (
     <PageContainer>
       <Container>
         <TitleBox>로그인</TitleBox>
+
         <InputBox>
           <div className="input-box">
             <input
@@ -283,6 +332,16 @@ export const LoginBox = () => {
             <NavSignUpButton />
           </Button2>
         </ButtonBox>
+        <div style={{ marginTop: '60px' }}>
+          <GoogleLogin openModal={openModal} />
+        </div>
+        <GoogleLogoutBox onClick={() => LogoutHandler()}>
+          <div>
+            <FcGoogle style={{ fontSize: '23px', marginRight: '8px' }} />
+            <p>Google 계정으로 로그아웃 </p>
+          </div>
+        </GoogleLogoutBox>
+
         <Modal open={Modalopen} close={closeModal} header="로그인 알림">
           로그인 성공하셨습니다.
         </Modal>

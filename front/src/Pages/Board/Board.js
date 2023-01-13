@@ -1,9 +1,5 @@
 import Quill from '../../Component/Common/Quill';
 import styled from 'styled-components';
-import {
-  LongNavbarBox,
-  MiniNavbarBox,
-} from '../../Component/Common/NavebarRev';
 import { BoardPostBtn } from '../../Component/Common/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -25,25 +21,33 @@ const Input = styled.input`
   border-left: none;
   border-right: none;
   outline: none;
-  color: #8ec3b0;
+  color: #92b4ec;
   font-weight: 700;
-  border-bottom: 3px solid #bcead5;
+  border-bottom: 3px solid #c0daf9;
   background: rgba(222, 245, 229, 0.15);
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
   ::placeholder {
-    color: #8ec3b0;
+    color: #c0daf9;
     padding-left: 5px;
+  }
+  @media only screen and (max-width: 320px) {
+    width: 150px;
+    font-size: 12px;
+    font-weight: 500;
   }
 `;
 
 const H2 = styled.h2`
   margin-top: 150px;
-  text-shadow: 3px 3px 3px 3px #8ec3b0;
-  color: #9ed5c5;
+  text-shadow: 3px 3px 3px 3px #d6e9fd;
+  color: #92b4ec;
   font-weight: bold;
+  @media only screen and (max-width: 320px) {
+    font-size: 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -52,19 +56,26 @@ const Header = styled.div`
 `;
 
 const Select = styled.select`
-  border: 2.5px solid #9ed5c5;
+  border: 2.5px solid #92b4ec;
   box-sizing: border-box;
-  color: #8ec3b0;
+  color: #92b4ec;
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;
   text-align: center;
   outline: none;
   padding: 5px;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+    font-weight: 500;
+  }
 `;
 
 const Btn = styled.div`
   margin-top: 100px;
+  @media only screen and (max-width: 320px) {
+    margin-top: 170px;
+  }
 `;
 const QuillBox = styled.div`
   display: flex;
@@ -127,8 +138,6 @@ function FreeCommunity() {
 
   return (
     <>
-      <LongNavbarBox />
-      <MiniNavbarBox />
       <MainPost>
         <H2>자유게시글 작성하기</H2>
         <Header>
