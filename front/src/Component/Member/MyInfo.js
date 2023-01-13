@@ -80,7 +80,7 @@ const DivBox = styled.div`
   }
   input:focus,
   input:not(:placeholder-shown) {
-    border-bottom: solid 1px #8ec3b0;
+    border-bottom: solid 1px #6a8bca;
     outline: none;
   }
   input[type='submit'] {
