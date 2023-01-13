@@ -19,7 +19,6 @@ import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
-// import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
 import { LongNavbarBox, MiniNavbarBox } from './Component/Common/NavebarRev';
 
