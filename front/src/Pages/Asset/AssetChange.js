@@ -34,7 +34,6 @@ import AuthContext from '../../store/AuthContext';
 import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
 const URL = process.env.REACT_APP_API_URL;
 
 const MainPage = styled.div`
