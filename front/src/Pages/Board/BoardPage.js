@@ -10,6 +10,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 `;
 
 const Box = styled.div`

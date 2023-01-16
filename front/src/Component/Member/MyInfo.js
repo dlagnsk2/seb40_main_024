@@ -14,7 +14,6 @@ import { Modal } from '../Common/Modal';
 import { useNavigate } from 'react-router-dom';
 
 const MyPageContain = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;

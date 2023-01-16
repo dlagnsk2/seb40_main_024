@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
 public class Member extends Auditable {
@@ -26,6 +27,9 @@ public class Member extends Auditable {
     private String name;
     @Column(nullable = false, length = 100)
     private String password;
+
+    @Column
+    private String picture;
 
     @ElementCollection(fetch = FetchType.EAGER)
     public List<String> roles = new ArrayList<>();
@@ -44,6 +48,7 @@ public class Member extends Auditable {
         this.email = email;
         this.name = name;
         this.password = password;
+
     }
 
     @Builder

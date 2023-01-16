@@ -89,6 +89,10 @@ public class MemberService {
             throw new CustomException(ExceptionCode.DUPLICATE_MEMBER);
     }
 
+    public boolean verifyExistEmail(String email) {
+        return memberRepository.existsByEmail(email);
+    }
+
     public Long findMemberId(String email) {
         Optional<Member> optionalMember = memberRepository.findByEmail(email);
         Member findMember = optionalMember.orElseThrow(() -> new CustomException(ExceptionCode.MEMBER_NOT_FOUND));

@@ -15,13 +15,15 @@ const LongContainer = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   width: 100%;
   height: 50px;
   padding-right: 20px;
   position: fixed;
   z-index: 999990;
   top: 0;
+  @media screen and (max-width: 320px) {
+    width: 320px;
+  }
 `;
 const HamberBox = styled.div`
   display: flex;

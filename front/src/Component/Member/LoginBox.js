@@ -268,8 +268,9 @@ export const LoginBox = () => {
       // const reqRefreshToken = req.headers.get('Refresh');
       authCtx.login(reqToken);
       openModal();
-      console.log('reqToken', req.headers);
+      // console.log('reqToken', req.headers);
     } catch (e) {
+      console.log('error', e);
       erropenModal();
     }
   };

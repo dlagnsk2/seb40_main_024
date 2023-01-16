@@ -5,7 +5,6 @@ import styled, { ThemeProvider } from 'styled-components';
 // import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainHome from './Pages/Home/MainHome';
-// import Asset from './Pages/Asset/Asset';
 import { AssetChange } from './Pages/Asset/AssetChange';
 import { LoginPage } from './Pages/Member/LoginPage';
 import { SignupPage } from './Pages/Member/SignupPage';
@@ -19,10 +18,7 @@ import PaymentConfirmPage from './Pages/Pay/PaymentConfirmPage';
 import PaymentPage from './Pages/Pay/PaymentPage';
 import SubscriptionPage from './Pages/Pay/SubscriptionPage';
 import ModifyBoard from './Pages/Board/ModifyBoard';
-// import AuthContext from './store/AuthContext';
 import { Error } from './Pages/ErrorPage/Error';
-// import { Assettargetpage } from './Component/Common/Button';
-// import AllBoardList from './Component/Board/AllBoardList';
 import { LongNavbarBox, MiniNavbarBox } from './Component/Common/NavebarRev';
 
 // #    background-color: #f2f5f7;

@@ -10,6 +10,7 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 100px;
+  width: 1237px;
   .lds-ring {
     display: inline-block;
     position: relative;
