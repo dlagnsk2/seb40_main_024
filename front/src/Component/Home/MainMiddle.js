@@ -128,7 +128,7 @@ const MiddleDiv = styled.div`
       align-items: center;
       margin-bottom: 20px;
       color: #606060;
-      font-size: 24px;
+      font-size: 30px;
       font-weight: 700;
     }
     .MainFourthResponsive {
@@ -136,7 +136,7 @@ const MiddleDiv = styled.div`
     }
     .MainFourthResponsiveHeader {
       padding: 0px 100px;
-      font-size: 24px;
+      font-size: 30px;
       color: #606060;
       font-weight: 700;
     }
