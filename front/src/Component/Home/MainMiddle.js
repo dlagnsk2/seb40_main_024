@@ -97,7 +97,49 @@ const MiddleDiv = styled.div`
     margin: 10px;
     border-radius: 20px;
   }
+  @media only screen and (min-width: 768px) {
+    /* .MainThird {
+      display: none;
+    } */
+    /* .MainFourth {
+      display: none;
+    } */
+    .MainThirdResponsive {
+      display: none;
+    }
+    .MainFourthResponsive {
+      display: none;
+    }
+  }
   @media only screen and (max-width: 768px) {
+    .MainThird {
+      display: none;
+    }
+    .MainFourth {
+      display: none;
+    }
+    .MainThirdResponsive {
+      padding: 0px 50px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .MainThirdResponsiveHeader {
+      padding: 0px 50px;
+      align-items: center;
+      margin-bottom: 20px;
+      color: #606060;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .MainFourthResponsive {
+      padding: 0px 100px;
+    }
+    .MainFourthResponsiveHeader {
+      padding: 0px 100px;
+      font-size: 24px;
+      color: #606060;
+      font-weight: 700;
+    }
   }
 `;
 
@@ -184,25 +226,46 @@ const Middle = () => {
           })}
         </Fade>
       </div>
+
+      <Fade direction="right" duration="1300">
+        <div className="MainThirdResponsive">
+          <span className="MainThirdResponsiveHeader">자산관리채널</span>
+          <h2
+            className="MainThirdResponsive"
+            style={{
+              marginRight: '50px',
+              color: '#92b4ec',
+              marginTop: '20px',
+            }}
+          >
+            누구나 무료로 자산을 입력하고
+            <br />
+            그래프로 한눈에 파악하고
+            <br />
+            서비스를 이용할 수 있는 플랫폼
+          </h2>
+        </div>
+      </Fade>
       <div id="3" className="div3">
         <Fade direction="right" duration="1300">
           <div className="span">
-            <span>자산관리채널</span>
+            <span className="MainThird">자산관리채널</span>
             <h2
+              className="MainThird"
               style={{
                 marginRight: '50px',
                 color: '#92b4ec',
                 marginTop: '20px',
               }}
             >
-              누구나 무료로 자산을 입력해
+              누구나 무료로 자산을 입력하고
               <br />
-              이용할수 있는 플랫폼
-              <br />내 자산을 한눈에 확인하고
+              그래프로 한눈에 파악하고
               <br />
-              환율계산까지
+              서비스를 이용할 수 있는 플랫폼
             </h2>
           </div>
+
           {MainC.map((el, idx) => {
             return (
               <div key={idx}>
@@ -221,6 +284,26 @@ const Middle = () => {
           })}
         </Fade>
       </div>
+      <Fade>
+        <div className="span">
+          <span className="MainFourthResponsiveHeader">커뮤니티</span>
+          <h2
+            className="MainFourthResponsive"
+            style={{
+              color: '#92b4ec',
+              marginTop: '20px',
+            }}
+          >
+            다양한 사람들과
+            <br />
+            자산을 공유하며
+            <br />
+            편리한 소통할 수 있는
+            <br />
+            안전한 플랫폼
+          </h2>
+        </div>
+      </Fade>
       <div id="4" className="div4">
         <Fade direction="left" duration="1300">
           {MainD.map((el, idx) => {
@@ -240,8 +323,9 @@ const Middle = () => {
             );
           })}
           <div className="span">
-            <span>커뮤니티</span>
+            <span className="MainFourth">커뮤니티</span>
             <h2
+              className="MainFourth"
               style={{
                 marginLeft: '50px',
                 color: '#92b4ec',
