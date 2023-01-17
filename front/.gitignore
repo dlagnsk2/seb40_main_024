@@ -24,3 +24,6 @@ yarn-error.log*
 
 #env
 .env
+
+#mkcert -key-file ./key.pem -cert-file .cert.pem "localhost"
+mkcert -key-file ./key.pem -cert-file .cert.pem "localhost"
