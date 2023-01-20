@@ -1231,7 +1231,7 @@ export const AssetChange = () => {
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[1]} )
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
@@ -1271,7 +1271,7 @@ export const AssetChange = () => {
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[2]} )
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
@@ -1311,7 +1311,7 @@ export const AssetChange = () => {
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[3]} )
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
@@ -1351,7 +1351,7 @@ export const AssetChange = () => {
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[4]} )
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
@@ -1391,7 +1391,7 @@ export const AssetChange = () => {
         close={closeModal}
       >
         자산 금액 변경 ( 자산 명칭 : {ListTypeData[5]} )
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Div style={{ flexDirection: 'column' }}>
             <Input
               onChange={EditTextonChange}
