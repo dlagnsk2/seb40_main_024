@@ -82,7 +82,7 @@ const MiddleDiv = styled.div`
   }
   .MainAImg {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
   }
   .MainAImgs {
     width: 100%;
@@ -90,20 +90,21 @@ const MiddleDiv = styled.div`
     margin-top: 10px;
     border-radius: 30px;
   }
-  .MainBImgs {
+  /* .MainBImgs {
     width: 100%;
-    /* width: 300px; */
     height: 300px;
+    margin: 10px;
+    border-radius: 20px;
+  } */
+  .MainBImgs {
+    display: inline-block;
+    width: auto !important;
+    max-width: 95%;
+    height: auto !important;
     margin: 10px;
     border-radius: 20px;
   }
   @media only screen and (min-width: 768px) {
-    /* .MainThird {
-      display: none;
-    } */
-    /* .MainFourth {
-      display: none;
-    } */
     .MainThirdResponsive {
       display: none;
     }
@@ -141,6 +142,17 @@ const MiddleDiv = styled.div`
       font-weight: 700;
     }
   }
+  @media only screen and (max-width: 320px) {
+    .hojumoney {
+      font-size: 17px;
+    }
+    .MainAImgs {
+      padding: 10px;
+    }
+
+    .MainBImgs {
+    }
+  }
 `;
 
 const Middle = () => {
@@ -163,6 +175,7 @@ const Middle = () => {
         </Fade>
         <Fade cascade duration="1300">
           <h2
+            className="hojumoney"
             style={{
               marginTop: '40px',
               marginBottom: '30px',
