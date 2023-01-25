@@ -108,7 +108,14 @@ const MiddleDiv = styled.div`
     .MainThirdResponsive {
       display: none;
     }
+    .MainThirdResponsiveHeader {
+      display: none;
+    }
+
     .MainFourthResponsive {
+      display: none;
+    }
+    .MainFourthResponsiveHeader {
       display: none;
     }
   }
@@ -134,6 +141,7 @@ const MiddleDiv = styled.div`
     }
     .MainFourthResponsive {
       padding: 0px 100px;
+      margin-bottom: 20px;
     }
     .MainFourthResponsiveHeader {
       padding: 0px 100px;
@@ -150,7 +158,27 @@ const MiddleDiv = styled.div`
       padding: 10px;
     }
 
-    .MainBImgs {
+    .MainThirdResponsive {
+      padding: 0px 10px;
+      font-size: 15px;
+    }
+    .MainThirdResponsiveHeader {
+      padding: 0px 10px;
+      font-size: 25px;
+    }
+    .MainFourthResponsive {
+      padding: 0px 90px;
+      font-size: 15px;
+    }
+    .MainFourthResponsiveHeader {
+      padding: 0px 100px;
+      font-size: 25px;
+    }
+    .div5 {
+      font-size: 25px;
+    }
+    .startTxt {
+      font-size: 15px;
     }
   }
 `;
@@ -358,8 +386,9 @@ const Middle = () => {
       </div>
       <div id="5" className="div5">
         <JackInTheBox duration="1300">
-          <span>출발하기</span>
+          <span className="start">출발하기</span>
           <h2
+            className="startTxt"
             style={{
               color: '#92b4ec',
               marginTop: '20px',
