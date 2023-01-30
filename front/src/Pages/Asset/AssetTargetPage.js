@@ -44,9 +44,7 @@ const GuideBox = styled.div`
   .Highlight {
     color: #92b4ec;
   }
-  /* .TextCenter {
-    text-align: center;
-  } */
+
   @media only screen and (max-width: 768px) {
     margin-top: 150px;
     padding: 10px;
@@ -81,7 +79,6 @@ const MobileGuideBox = styled.div`
     box-sizing: border-box;
     padding: 10px;
     height: auto;
-    /* text-align: left; */
     border-top: 5px solid #92b4ec;
     border-bottom: 5px solid #92b4ec;
     margin-bottom: 50px;
@@ -112,23 +109,19 @@ const PageContain = styled.div`
   .Contain {
     display: flex;
     flex-direction: column;
-    /* margin-top: 30px;*/
     margin-left: 500px;
   }
   @media only screen and (max-width: 768px) {
-    /* width: 768px; */
     .Contain {
       margin-left: 0px;
     }
   }
   @media only screen and (max-width: 521px) {
-    /* width: 768px; */
     .Contain {
       margin-left: 0px;
     }
   }
   @media only screen and (max-width: 320px) {
-    /* width: 768px; */
     .Contain {
       margin-left: 0px;
     }
@@ -234,6 +227,7 @@ const AssetTargetPage = () => {
   const [goal, setGoal] = useState(''); // 명칭
   const [extended, setExtended] = useState(''); // 목표금액
   const [period, setPeriod] = useState(''); // 기간
+  // eslint-disable-next-line no-unused-vars
   const [target, setTarget] = useState('');
   const [render, setRender] = useState(0);
   const [goalName, setGoalName] = useState(''); //목표명
@@ -254,10 +248,6 @@ const AssetTargetPage = () => {
   } else if (monthly === Infinity) {
     monthly = 0;
   }
-
-  const targetAmount = monthly
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   let percentage = Math.ceil((monthly / period) * 100);
   if (isNaN(percentage)) {
@@ -308,7 +298,7 @@ const AssetTargetPage = () => {
         setUp(res.data._embedded.responseList.completed);
         setUp(res.data._embedded.responseList.incompleted);
       } catch (err) {
-        // console.log('error', err);
+        // eslint-disable-next-line no-unused-vars
       }
     };
     goalGet();
@@ -334,9 +324,9 @@ const AssetTargetPage = () => {
       setTarget('');
       setRender((el) => el + 1);
 
-      // console.log('post', res);
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      // console.log('error', err);
+      // eslint-disable-next-line no-unused-vars
     }
   };
   const goalDelete = async (e) => {
@@ -348,10 +338,9 @@ const AssetTargetPage = () => {
         },
       });
       setRender((el) => el + 1);
-      // console.log('dataset.id', e.target.dataset.id);
-      // console.log('삭제', res);
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      // console.log('deleteerror', err);
+      // eslint-disable-next-line no-unused-vars
     }
   };
 
@@ -376,10 +365,9 @@ const AssetTargetPage = () => {
       setRender((el) => el + 1);
       closeModal();
 
-      // console.log('patch', res);
-      // console.log('patchId', e.target.dataset.id);
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      // console.log('patcherror', err);
+      // eslint-disable-next-line no-unused-vars
     }
   };
 
@@ -397,7 +385,7 @@ const AssetTargetPage = () => {
       setRender((el) => el + 1);
       setUp(res.data.completed);
     } catch (err) {
-      // console.log('up', err);
+      // eslint-disable-next-line no-unused-vars
     }
   };
 
@@ -415,7 +403,7 @@ const AssetTargetPage = () => {
       setRender((el) => el + 1);
       setUp(res.data.completed);
     } catch (err) {
-      // console.log('up', err);
+      // eslint-disable-next-line no-unused-vars
     }
   };
 
@@ -439,7 +427,7 @@ const AssetTargetPage = () => {
           100
       ),
     };
-    // if(GoalData)
+
     if (GoalData[0].id === '목표 예시') {
       GoalData === countListData;
     }
@@ -546,8 +534,6 @@ const AssetTargetPage = () => {
                 goal={goal}
                 extended={extended}
                 period={period}
-                target={target}
-                targetAmount={targetAmount}
               />
               {countList.map((count, id) => (
                 <AssetList
@@ -560,15 +546,12 @@ const AssetTargetPage = () => {
                   setGoal={setGoal}
                   setExtended={setExtended}
                   setPeriod={setPeriod}
-                  target={target}
                   goalDelete={goalDelete}
-                  targetAmount={targetAmount}
                   goalPatch={goalPatch}
                   goalNameonChange={goalNameonChange}
                   goalPriceonChange={goalPriceonChange}
                   targetLengthonChange={targetLengthonChange}
                   goalUpPatch={goalUpPatch}
-                  up={up}
                   goalDownPatch={goalDownPatch}
                 ></AssetList>
               ))}
