@@ -26,7 +26,6 @@ const GoalChart = ({ GoalData }) => {
       rangeBorderColor={{ from: 'color', modifiers: [] }}
       rangeBorderWidth={15}
       rangeColors="#FFD24C"
-      // rangeColors="seq:yellow_orange_brown"
       measureSize={0.5}
       measureColors="#FFE69A"
     />
