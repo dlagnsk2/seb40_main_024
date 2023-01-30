@@ -34,8 +34,16 @@ import AuthContext from '../../store/AuthContext';
 import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+// const URL = process.env.REACT_APP_API_URL;
 const URL = process.env.REACT_APP_API_URL;
+// if (process.env.REACT_APP_API_URL2) {
+//   URL = process.env.REACT_APP_API_URL2;
+// }
+// if (process.env.REACT_APP_API_URL) {
+//   URL = process.env.REACT_APP_API_URL;
+// }
 
+console.log(URL);
 const MainPage = styled.div`
   @media screen and (max-width: 768px) {
     min-width: 320px;
@@ -71,6 +79,7 @@ const GraphH1 = styled.h1`
     color: #92b4ec;
     font-size: 30px;
     margin-top: 70px;
+    margin-bottom: 20px;
   }
   @media screen and (min-width: 769px) {
     display: flex;
@@ -80,8 +89,9 @@ const GraphH1 = styled.h1`
     width: 85%;
     text-shadow: 1px 1px 2px #1c2f71;
     color: #92b4ec;
-    font-size: 30px;
+    font-size: 40px;
     margin-top: 70px;
+    margin-bottom: 20px;
     /* border: 1px solid red; */
   }
 `;
@@ -1545,9 +1555,15 @@ export const AssetChange = () => {
       {AssetDatas ? (
         <>
           <MainPage>
-            <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+            <div
+              style={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                height: '100vh',
+              }}
+            >
               <GraphH1>보유자산 현황</GraphH1>
-              <TopPage>
+              <TopPage style={{ marginTop: '40px' }}>
                 <PieContain>
                   <Pie data={AssetAdata} options={mobilePieOptions} />
                 </PieContain>
