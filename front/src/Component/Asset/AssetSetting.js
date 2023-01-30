@@ -2,8 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { PlusBtn, DisabledBtn } from '../Common/Button';
 import { Modal } from '../Common/Modal';
-// import { Modal } from '../Common/Modal';
-// import { useState } from 'react';
 
 const ComponentContain = styled.div`
   display: flex;
@@ -16,9 +14,7 @@ const ComponentContain = styled.div`
   height: auto;
   border: 5px solid #92b4ec;
   border-radius: 3%;
-  /* .trashicon {
-    margin-left: 500px;
-  } */
+
   .p {
     color: #92b4ec;
     font-size: 17px;

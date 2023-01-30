@@ -63,9 +63,6 @@ const MobileComponentContain = styled.div`
     opacity: 1;
     transition: opacity 5s;
     font-weight: 500;
-    /* .goaltitle {
-      color: gray;
-    } */
   }
 `;
 const MobileComponentDetail = styled.div`
@@ -76,14 +73,13 @@ const MobileComponentDetail = styled.div`
     animation: ${boxAnimation} 1s 0s;
     display: flex;
     flex-direction: column;
-    /* display: inline-flex; */
+
     align-items: center;
     box-sizing: border-box;
     width: 100%;
     height: auto;
     border-radius: 3%;
-    /* opacity: 1;
-    transition: opacity 500ms; */
+
     .mobilep {
       font-size: 15px;
       font-weight: 500;
@@ -105,13 +101,11 @@ const Header = styled.h3`
   height: 30px;
   color: #92b4ec;
   text-align: center;
-  /* border: 2px solid #4a61a9; */
+
   border-radius: 2rem;
   border: 1px solid #4a61a9;
   margin-bottom: 10px;
-  /* @media only screen and (max-width: 320px) {
-    margin-top: -20px;
-  } */
+
   :hover {
     color: gray;
     cursor: pointer;
@@ -130,7 +124,6 @@ const MobileHeader = styled.h4`
     margin-top: 10px;
     color: #92b4ec;
     text-align: center;
-    /* border: 2px solid #4a61a9; */
     border-radius: 2rem;
     border: 1px solid #4a61a9;
     cursor: pointer;
@@ -276,17 +269,6 @@ const SavingInfoHead = styled.h4`
     color: #92b4ec;
   }
 `;
-// const MobileGoalList = styled.div`
-//   box-sizing: border-box;
-//   width: 120px;
-//   height: 30px;
-//   text-align: center;
-//   /* border: 2px solid #4a61a9; */
-//   border-radius: 2rem;
-//   background-color: #4a61a9;
-//   margin-bottom: 10px;
-//   color: #fff;
-// `;
 
 const AssetList = ({
   count,
