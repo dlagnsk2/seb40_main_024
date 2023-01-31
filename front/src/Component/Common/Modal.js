@@ -28,7 +28,8 @@ const Div = styled.div`
     margin: 0 auto;
     border-radius: 0.3rem;
     background-color: #dee2e6;
-    width: 90%;
+    min-width: 450px;
+    width: 520px;
     border: 1px solid #92b4ec;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-show 0.6s;

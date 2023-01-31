@@ -35,7 +35,6 @@ const Device = {
   tabletWidth: `screen and (max-width: ${DeviceSizes.tabletWidth})`,
   laptopWidth: `screen and (max-width: ${DeviceSizes.etcWidth})`,
 };
-/* color:${({theme})=>theme.lightTheme.} */
 
 const darkTheme = {
   bgColor: '#020626',
@@ -56,6 +55,7 @@ const lightDeviceTheme = {
   Device,
   lightTheme,
 };
+
 const ButtonBox = styled.button`
   display: flex;
   justify-content: center;
@@ -74,6 +74,7 @@ const ButtonBox = styled.button`
     color: yellow;
   }
 `;
+
 const LightDiv = styled.div`
   width: auto;
   height: auto;
@@ -179,6 +180,7 @@ function App() {
                 element={<BoardContentPage />}
               />
 
+              {/* <Route path="/tsassetchange" element={<TSAssetChange />} /> */}
               <Route path="/assetchange" element={<AssetChange />} />
               <Route path="/boardpost" element={<Board />} />
               <Route path="/mypage" element={<MyPage />} />

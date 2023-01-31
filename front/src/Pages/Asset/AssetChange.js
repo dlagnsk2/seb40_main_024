@@ -173,14 +173,17 @@ const H1 = styled.h1`
 `;
 
 const TitleH1 = styled.h1`
+  display: flex;
   color: #92b4ec;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 900;
   line-height: normal;
   align-items: center;
+  justify-content: center;
   margin-left: 13px;
+  margin-right: 13px;
   padding-top: 8px;
-  width: 40px;
+  width: 50px;
   cursor: pointer;
   :hover {
     letter-spacing: 1px;
@@ -1104,8 +1107,8 @@ export const AssetChange = () => {
         api={postAssetApi}
         close={closeModal}
       >
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <Div style={{ flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', width: '400px' }}>
+          <Div style={{ flexDirection: 'column', width: '400px' }}>
             {ListTypeData[5] !== '명칭' ? (
               <>
                 <Input
