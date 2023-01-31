@@ -178,10 +178,17 @@ const ListContain = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const Modalsort = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
 const Div = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  margin-left: -140px;
 `;
 const Info = styled.div`
   display: flex;
@@ -204,7 +211,7 @@ const InfoHead = styled.h4`
 `;
 
 const Input = styled.input`
-  width: 230px;
+  width: 100%;
   height: 50px;
   border-top: none;
   border-left: none;
@@ -403,32 +410,34 @@ const AssetList = ({
                 header="목표자산 수정"
                 goalPatch={goalPatch}
               >
-                <Div>
-                  <ListContain>
-                    <Info>
-                      <div>
-                        <InfoHead>목표자산 수정</InfoHead>
-                        <Input
-                          onChange={goalNameonChange}
-                          placeholder="나의 목표"
-                        ></Input>
-                        <Input
-                          type="number"
-                          onChange={goalPriceonChange}
-                          placeholder="금액"
-                        />
-                        <Input
-                          type="number"
-                          onChange={targetLengthonChange}
-                          placeholder="기간"
-                        />
-                      </div>
-                    </Info>
-                  </ListContain>
-                  <Modal open={Modalopen} close={closeModal} header="알림">
-                    목표달성에 도전해보세요!
-                  </Modal>
-                </Div>
+                <Modalsort>
+                  <Div>
+                    <ListContain>
+                      <Info>
+                        <div>
+                          <InfoHead>목표자산 수정</InfoHead>
+                          <Input
+                            onChange={goalNameonChange}
+                            placeholder="나의 목표"
+                          ></Input>
+                          <Input
+                            type="number"
+                            onChange={goalPriceonChange}
+                            placeholder="금액"
+                          />
+                          <Input
+                            type="number"
+                            onChange={targetLengthonChange}
+                            placeholder="기간"
+                          />
+                        </div>
+                      </Info>
+                    </ListContain>
+                    <Modal open={Modalopen} close={closeModal} header="알림">
+                      목표달성에 도전해보세요!
+                    </Modal>
+                  </Div>
+                </Modalsort>
               </GoalModifyModal>
               <SavingModal
                 open={save}
@@ -591,32 +600,34 @@ const AssetList = ({
             header="목표자산 수정"
             goalPatch={goalPatch}
           >
-            <Div>
-              <ListContain>
-                <Info>
-                  <div>
-                    <InfoHead>목표자산 수정</InfoHead>
-                    <Input
-                      onChange={goalNameonChange}
-                      placeholder="나의 목표"
-                    ></Input>
-                    <Input
-                      type="number"
-                      onChange={goalPriceonChange}
-                      placeholder="금액"
-                    />
-                    <Input
-                      type="number"
-                      onChange={targetLengthonChange}
-                      placeholder="기간"
-                    />
-                  </div>
-                </Info>
-              </ListContain>
-              <Modal open={Modalopen} close={closeModal} header="알림">
-                목표달성에 도전해보세요!
-              </Modal>
-            </Div>
+            <Modalsort>
+              <Div>
+                <ListContain>
+                  <Info>
+                    <div>
+                      <InfoHead>목표자산 수정</InfoHead>
+                      <Input
+                        onChange={goalNameonChange}
+                        placeholder="나의 목표"
+                      ></Input>
+                      <Input
+                        type="number"
+                        onChange={goalPriceonChange}
+                        placeholder="금액"
+                      />
+                      <Input
+                        type="number"
+                        onChange={targetLengthonChange}
+                        placeholder="기간"
+                      />
+                    </div>
+                  </Info>
+                </ListContain>
+                <Modal open={Modalopen} close={closeModal} header="알림">
+                  목표달성에 도전해보세요!
+                </Modal>
+              </Div>
+            </Modalsort>
           </GoalModifyModal>
           <SavingModal
             open={save}

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { title, setTitleName } from '../../Redux/titleSlice';
 // import { useState,t, useContext } from 'react';
+
 const Div = styled.div`
   .modal {
     display: none;
@@ -28,7 +29,7 @@ const Div = styled.div`
     margin: 0 auto;
     border-radius: 0.3rem;
     background-color: #dee2e6;
-    min-width: 450px;
+    /* min-width: 450px; */
     width: 520px;
     border: 1px solid #92b4ec;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
@@ -118,6 +119,26 @@ const Div = styled.div`
     }
     to {
       opacity: 1;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: #020626;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 99999;
+    }
+
+    .modal > section {
+      margin: 0 auto;
+      border-radius: 0.3rem;
+      background-color: #dee2e6;
+      width: 320px;
     }
   }
 `;
