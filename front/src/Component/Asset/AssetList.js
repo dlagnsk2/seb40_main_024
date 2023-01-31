@@ -178,10 +178,17 @@ const ListContain = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const Modalsort = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
 const Div = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  margin-left: -140px;
 `;
 const Info = styled.div`
   display: flex;
@@ -204,7 +211,7 @@ const InfoHead = styled.h4`
 `;
 
 const Input = styled.input`
-  width: 230px;
+  width: 100%;
   height: 50px;
   border-top: none;
   border-left: none;
@@ -403,32 +410,34 @@ const AssetList = ({
                 header="목표자산 수정"
                 goalPatch={goalPatch}
               >
-                <Div>
-                  <ListContain>
-                    <Info>
-                      <div>
-                        <InfoHead>목표자산 수정</InfoHead>
-                        <Input
-                          onChange={goalNameonChange}
-                          placeholder="나의 목표"
-                        ></Input>
-                        <Input
-                          type="number"
-                          onChange={goalPriceonChange}
-                          placeholder="금액"
-                        />
-                        <Input
-                          type="number"
-                          onChange={targetLengthonChange}
-                          placeholder="기간"
-                        />
-                      </div>
-                    </Info>
-                  </ListContain>
-                  <Modal open={Modalopen} close={closeModal} header="알림">
-                    목표달성에 도전해보세요!
-                  </Modal>
-                </Div>
+                <Modalsort>
+                  <Div>
+                    <ListContain>
+                      <Info>
+                        <div>
+                          <InfoHead>목표자산 수정</InfoHead>
+                          <Input
+                            onChange={goalNameonChange}
+                            placeholder="나의 목표"
+                          ></Input>
+                          <Input
+                            type="number"
+                            onChange={goalPriceonChange}
+                            placeholder="금액"
+                          />
+                          <Input
+                            type="number"
+                            onChange={targetLengthonChange}
+                            placeholder="기간"
+                          />
+                        </div>
+                      </Info>
+                    </ListContain>
+                    <Modal open={Modalopen} close={closeModal} header="알림">
+                      목표달성에 도전해보세요!
+                    </Modal>
+                  </Div>
+                </Modalsort>
               </GoalModifyModal>
               <SavingModal
                 open={save}
@@ -437,68 +446,70 @@ const AssetList = ({
                 goalDownPatch={goalDownPatch}
                 header="저축 기간"
               >
-                <Div>
-                  <ListContain>
-                    <Info>
-                      <div className="saving">
-                        <SavingInfoHead>
-                          <FontAwesomeIcon icon={faCheck} color="grey" /> 목표
-                          기간:{' '}
-                          <span className="number">{count.targetLength}</span>
-                          개월
-                        </SavingInfoHead>
-                        <SavingInfoHead>
-                          <FontAwesomeIcon icon={faCheck} color="grey" /> 저축
-                          기간:{' '}
-                          <span className="number">{count.completed}</span>
-                          개월
-                        </SavingInfoHead>
-                        <SavingInfoHead>
-                          <FontAwesomeIcon icon={faCheck} color="grey" /> 남은
-                          금액:{' '}
-                          <span className="number">
-                            {Number(Math.ceil(count.goalPrice)) <
-                            (Number(count.targetLength) - count.completed) *
-                              Number(count.calculatedPrice)
-                              ? Number(Math.ceil(count.goalPrice))
-                                  .toString()
-                                  .replace(
-                                    /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
-                                    ','
+                <Modalsort>
+                  <Div>
+                    <ListContain>
+                      <Info>
+                        <div className="saving">
+                          <SavingInfoHead>
+                            <FontAwesomeIcon icon={faCheck} color="grey" /> 목표
+                            기간:{' '}
+                            <span className="number">{count.targetLength}</span>
+                            개월
+                          </SavingInfoHead>
+                          <SavingInfoHead>
+                            <FontAwesomeIcon icon={faCheck} color="grey" /> 저축
+                            기간:{' '}
+                            <span className="number">{count.completed}</span>
+                            개월
+                          </SavingInfoHead>
+                          <SavingInfoHead>
+                            <FontAwesomeIcon icon={faCheck} color="grey" /> 남은
+                            금액:{' '}
+                            <span className="number">
+                              {Number(Math.ceil(count.goalPrice)) <
+                              (Number(count.targetLength) - count.completed) *
+                                Number(count.calculatedPrice)
+                                ? Number(Math.ceil(count.goalPrice))
+                                    .toString()
+                                    .replace(
+                                      /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                                      ','
+                                    )
+                                : (
+                                    (Number(count.targetLength) -
+                                      count.completed) *
+                                    Number(count.calculatedPrice)
                                   )
-                              : (
-                                  (Number(count.targetLength) -
-                                    count.completed) *
-                                  Number(count.calculatedPrice)
-                                )
-                                  .toString()
-                                  .replace(
-                                    /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
-                                    ','
-                                  )}{' '}
-                          </span>
-                          원
-                        </SavingInfoHead>
+                                    .toString()
+                                    .replace(
+                                      /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                                      ','
+                                    )}{' '}
+                            </span>
+                            원
+                          </SavingInfoHead>
 
-                        <NewBtnBox>
-                          <UpBtn onClick={goalUpPatch} data-id={id}>
-                            UP
-                          </UpBtn>
-                          <DownBtn onClick={goalDownPatch} data-id={id}>
-                            DOWN
-                          </DownBtn>
-                        </NewBtnBox>
-                      </div>
-                    </Info>
-                  </ListContain>
-                  <Modal
-                    open={Modalopen}
-                    close={closeModal}
-                    header="저축기간 저장 알림"
-                  >
-                    저축 기간이 저장되었습니다.
-                  </Modal>
-                </Div>
+                          <NewBtnBox>
+                            <UpBtn onClick={goalUpPatch} data-id={id}>
+                              UP
+                            </UpBtn>
+                            <DownBtn onClick={goalDownPatch} data-id={id}>
+                              DOWN
+                            </DownBtn>
+                          </NewBtnBox>
+                        </div>
+                      </Info>
+                    </ListContain>
+                    <Modal
+                      open={Modalopen}
+                      close={closeModal}
+                      header="저축기간 저장 알림"
+                    >
+                      저축 기간이 저장되었습니다.
+                    </Modal>
+                  </Div>
+                </Modalsort>
               </SavingModal>
             </MobileComponentDetail>
           ) : null}
@@ -591,32 +602,34 @@ const AssetList = ({
             header="목표자산 수정"
             goalPatch={goalPatch}
           >
-            <Div>
-              <ListContain>
-                <Info>
-                  <div>
-                    <InfoHead>목표자산 수정</InfoHead>
-                    <Input
-                      onChange={goalNameonChange}
-                      placeholder="나의 목표"
-                    ></Input>
-                    <Input
-                      type="number"
-                      onChange={goalPriceonChange}
-                      placeholder="금액"
-                    />
-                    <Input
-                      type="number"
-                      onChange={targetLengthonChange}
-                      placeholder="기간"
-                    />
-                  </div>
-                </Info>
-              </ListContain>
-              <Modal open={Modalopen} close={closeModal} header="알림">
-                목표달성에 도전해보세요!
-              </Modal>
-            </Div>
+            <Modalsort>
+              <Div>
+                <ListContain>
+                  <Info>
+                    <div>
+                      <InfoHead>목표자산 수정</InfoHead>
+                      <Input
+                        onChange={goalNameonChange}
+                        placeholder="나의 목표"
+                      ></Input>
+                      <Input
+                        type="number"
+                        onChange={goalPriceonChange}
+                        placeholder="금액"
+                      />
+                      <Input
+                        type="number"
+                        onChange={targetLengthonChange}
+                        placeholder="기간"
+                      />
+                    </div>
+                  </Info>
+                </ListContain>
+                <Modal open={Modalopen} close={closeModal} header="알림">
+                  목표달성에 도전해보세요!
+                </Modal>
+              </Div>
+            </Modalsort>
           </GoalModifyModal>
           <SavingModal
             open={save}
@@ -625,61 +638,65 @@ const AssetList = ({
             goalDownPatch={goalDownPatch}
             header="저축 기간"
           >
-            <Div>
-              <ListContain>
-                <Info>
-                  <div className="saving">
-                    <SavingInfoHead>
-                      <FontAwesomeIcon icon={faCheck} color="grey" /> 목표 기간:{' '}
-                      <span className="number">{count.targetLength}</span>
-                      개월
-                    </SavingInfoHead>
-                    <SavingInfoHead>
-                      <FontAwesomeIcon icon={faCheck} color="grey" /> 저축 기간:{' '}
-                      <span className="number">{count.completed}</span>
-                      개월
-                    </SavingInfoHead>
-                    <SavingInfoHead>
-                      <FontAwesomeIcon icon={faCheck} color="grey" /> 남은 금액:{' '}
-                      <span className="number">
-                        {Number(Math.ceil(count.goalPrice)) <
-                        (Number(count.targetLength) - count.completed) *
-                          Number(count.calculatedPrice)
-                          ? Number(Math.ceil(count.goalPrice))
-                              .toString()
-                              .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
-                          : (
-                              (Number(count.targetLength) - count.completed) *
-                              Number(count.calculatedPrice)
-                            )
-                              .toString()
-                              .replace(
-                                /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
-                                ','
-                              )}{' '}
-                      </span>
-                      원
-                    </SavingInfoHead>
+            <Modalsort>
+              <Div>
+                <ListContain>
+                  <Info>
+                    <div className="saving">
+                      <SavingInfoHead>
+                        <FontAwesomeIcon icon={faCheck} color="grey" /> 목표
+                        기간:{' '}
+                        <span className="number">{count.targetLength}</span>
+                        개월
+                      </SavingInfoHead>
+                      <SavingInfoHead>
+                        <FontAwesomeIcon icon={faCheck} color="grey" /> 저축
+                        기간: <span className="number">{count.completed}</span>
+                        개월
+                      </SavingInfoHead>
+                      <SavingInfoHead>
+                        <FontAwesomeIcon icon={faCheck} color="grey" /> 남은
+                        금액:{' '}
+                        <span className="number">
+                          {Number(Math.ceil(count.goalPrice)) <
+                          (Number(count.targetLength) - count.completed) *
+                            Number(count.calculatedPrice)
+                            ? Number(Math.ceil(count.goalPrice))
+                                .toString()
+                                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+                            : (
+                                (Number(count.targetLength) - count.completed) *
+                                Number(count.calculatedPrice)
+                              )
+                                .toString()
+                                .replace(
+                                  /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
+                                  ','
+                                )}{' '}
+                        </span>
+                        원
+                      </SavingInfoHead>
 
-                    <NewBtnBox>
-                      <UpBtn onClick={goalUpPatch} data-id={id}>
-                        UP
-                      </UpBtn>
-                      <DownBtn onClick={goalDownPatch} data-id={id}>
-                        DOWN
-                      </DownBtn>
-                    </NewBtnBox>
-                  </div>
-                </Info>
-              </ListContain>
-              <Modal
-                open={Modalopen}
-                close={closeModal}
-                header="저축기간 저장 알림"
-              >
-                저축 기간이 저장되었습니다.
-              </Modal>
-            </Div>
+                      <NewBtnBox>
+                        <UpBtn onClick={goalUpPatch} data-id={id}>
+                          UP
+                        </UpBtn>
+                        <DownBtn onClick={goalDownPatch} data-id={id}>
+                          DOWN
+                        </DownBtn>
+                      </NewBtnBox>
+                    </div>
+                  </Info>
+                </ListContain>
+                <Modal
+                  open={Modalopen}
+                  close={closeModal}
+                  header="저축기간 저장 알림"
+                >
+                  저축 기간이 저장되었습니다.
+                </Modal>
+              </Div>
+            </Modalsort>
           </SavingModal>
         </ComponentContain>
       </div>
