@@ -119,7 +119,7 @@ const UserInfoHead = styled.h4`
 const InfoBox = styled.div``;
 
 const Input = styled.input`
-  width: 230px;
+  width: 100%;
   height: 50px;
   border-top: none;
   border-left: none;
@@ -137,13 +137,25 @@ const Input = styled.input`
   }
 `;
 
-const Div = styled.div`
+const ListBox = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
   @media only screen and (max-width: 320px) {
     flex-direction: column;
   }
+`;
+const Modalsort = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: -140px;
 `;
 
 const MainBtn = styled.div`
@@ -314,7 +326,7 @@ const MyInfo = () => {
       <div className="profileStyle">
         <Profile>profile</Profile>
       </div>
-      <Div>
+      <ListBox>
         <ListContain>
           <UserInfo>
             <DivBox>
@@ -344,49 +356,55 @@ const MyInfo = () => {
             </DivBox>
           </UserInfo>
           <Modal open={Modify} close={closeModal} header="회원정보 수정">
-            <Div>
-              <ListContain>
-                <UserInfo>
-                  <div>
-                    <UserInfoHead>회원정보 변경</UserInfoHead>
-                    <Input
-                      value={useremail}
-                      onChange={UserEmailonChange}
-                      placeholder="이메일"
-                      disabled
-                    />
-                    <Input onChange={UserNameonChange} placeholder="이름" />
-                    <Input
-                      type="password"
-                      onChange={UserPasswordonChange}
-                      placeholder="비밀번호"
-                    />
-                    <DivBtn>
-                      <ReviseBtn UserPatch={UserPatch} />
-                    </DivBtn>
-                  </div>
-                </UserInfo>
-              </ListContain>
-              <Modal
-                open={Modalopen}
-                close={closeModify}
-                header="정보수정 알림"
-              >
-                회원 정보가 수정되었습니다.
-              </Modal>
-              <Modal open={errModalopen} close={closeModal} header="오류 알림">
-                회원 정보를 정확히 입력해주세요.
-              </Modal>
-              <Modal
-                open={errModalopenModify}
-                close={closeModal}
-                header="회원정보 오류알림"
-              >
-                이름과 비밀번호 8자이상 영문포함을 확인해 주세요.
-                <br />
-                회원정보가 정상적으로 수정되지 않았습니다.
-              </Modal>
-            </Div>
+            <Modalsort>
+              <Div>
+                <ListContain>
+                  <UserInfo>
+                    <div>
+                      <UserInfoHead>회원정보 변경</UserInfoHead>
+                      <Input
+                        value={useremail}
+                        onChange={UserEmailonChange}
+                        placeholder="이메일"
+                        disabled
+                      />
+                      <Input onChange={UserNameonChange} placeholder="이름" />
+                      <Input
+                        type="password"
+                        onChange={UserPasswordonChange}
+                        placeholder="비밀번호"
+                      />
+                      <DivBtn>
+                        <ReviseBtn UserPatch={UserPatch} />
+                      </DivBtn>
+                    </div>
+                  </UserInfo>
+                </ListContain>
+                <Modal
+                  open={Modalopen}
+                  close={closeModify}
+                  header="정보수정 알림"
+                >
+                  회원 정보가 수정되었습니다.
+                </Modal>
+                <Modal
+                  open={errModalopen}
+                  close={closeModal}
+                  header="오류 알림"
+                >
+                  회원 정보를 정확히 입력해주세요.
+                </Modal>
+                <Modal
+                  open={errModalopenModify}
+                  close={closeModal}
+                  header="회원정보 오류알림"
+                >
+                  이름과 비밀번호 8자이상 영문포함을 확인해 주세요.
+                  <br />
+                  회원정보가 정상적으로 수정되지 않았습니다.
+                </Modal>
+              </Div>
+            </Modalsort>
           </Modal>
         </ListContain>
         <UserInfo>
@@ -424,7 +442,7 @@ const MyInfo = () => {
             회원탈퇴가 정상적으로 처리되지 않았습니다.
           </Modal>
         </UserInfo>
-      </Div>
+      </ListBox>
     </MyPageContain>
   );
 };
