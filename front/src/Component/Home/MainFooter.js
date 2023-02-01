@@ -14,7 +14,7 @@ const FooterMain = styled.div`
   font-weight: bold;
   color: #333;
   width: 100%;
-  min-width: 550px;
+  /* min-width: 550px; */
   .github {
     display: flex;
     font-size: 50px;
