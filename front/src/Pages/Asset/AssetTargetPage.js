@@ -248,6 +248,9 @@ const AssetTargetPage = () => {
   } else if (monthly === Infinity) {
     monthly = 0;
   }
+  const targetAmount = monthly
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   let percentage = Math.ceil((monthly / period) * 100);
   if (isNaN(percentage)) {
@@ -534,6 +537,7 @@ const AssetTargetPage = () => {
                 goal={goal}
                 extended={extended}
                 period={period}
+                targetAmount={targetAmount}
               />
               {countList.map((count, id) => (
                 <AssetList
