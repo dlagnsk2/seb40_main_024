@@ -83,7 +83,7 @@ const LightDiv = styled.div`
     display: flex;
     flex-direction: column;
 
-    /* min-height: 1500px; */
+    min-height: 1500px;
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightTheme.bgColor};
@@ -91,8 +91,7 @@ const LightDiv = styled.div`
 
   @media ${({ theme }) => theme.Device.tabletWidth} {
     display: flex;
-    height: 100%;
-    /* min-height: 1500px; */
+    min-height: 1500px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -101,7 +100,8 @@ const LightDiv = styled.div`
 
   @media ${({ theme }) => theme.Device.mobileWidth} {
     display: flex;
-    /* min-height: 1500px; */
+
+    min-height: 1500px;
     width: auto;
     flex-direction: column;
     align-items: center;
