@@ -93,3 +93,6 @@
 | remove   | 파일 삭제                                |
 | docs     | 문서 수정                                |
 | merge    | 머지                                     |
+
+
+https://scandalous-glitter-a43.notion.site/ade7775dc31647eeb20047700d66199a?pvs=4
